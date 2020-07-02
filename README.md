@@ -1,3 +1,5 @@
+Follow [this instruction](https://github.com/mate-academy/layout_task-guideline/blob/master/README.md) to solve task
+
 ### Task: TOP 10 LARGEST COUNTRIES BY POPULATION
 
 Hello! In this task, you need to parse data from the list, and based on it get the average and total value.
