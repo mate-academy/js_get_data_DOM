@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 'use strict';
 
 const list = document.querySelectorAll('.population');
@@ -9,8 +9,8 @@ const averageSum = text.reduce((a, b) => a + b / text.length, 0).toFixed(0);
 
 const totalPopulation = document.querySelector('.total-population');
 
-const newTotal = totalPopulation.textContent = totalSum + '!';
+totalPopulation.textContent = totalSum;
 
 const averagePopulation = document.querySelector('.average-population');
 
-const newAverage = averagePopulation.textContent = averageSum + '!';
+averagePopulation.textContent = averageSum;
