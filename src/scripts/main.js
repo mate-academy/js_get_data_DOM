@@ -4,11 +4,15 @@ const population = document.querySelectorAll('.population');
 let total = 0;
 
 for (let i = 0; i < population.length; i++) {
-  total += +population[i].innerText.split(',').join('');
+  total += Number(population[i].innerText.split(',').join(''));
 }
 
-const averagePopulation = total / population.length;
+function withCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 
-document.querySelector('.total-population').innerText = total;
+const average = total / population.length;
 
-document.querySelector('.average-population').innerText = averagePopulation;
+document.querySelector('.total-population').innerText = withCommas(total);
+
+document.querySelector('.average-population').innerText = withCommas(average);
