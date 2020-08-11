@@ -8,7 +8,6 @@ const num = [...population].map(item =>
 let sum = 0;
 
 const average = num.reduce((acum, itemCountry) => {
-  // debugger
   sum = acum + itemCountry;
 
   return sum;
