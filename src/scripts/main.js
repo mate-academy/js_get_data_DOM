@@ -1,32 +1,32 @@
 'use strict';
 
 // write your code here
-const population = document.getElementsByClassName('population');
+const population = document.querySelectorAll('span.population');
 
-let sum = 0;
+let sumOfPopulation = 0;
 
 for (let i = 0; i < population.length; i++) {
-  sum += Number(population[i].textContent.replace(/,/g, ''));
+  sumOfPopulation += Number(population[i].textContent.replace(/,/g, ''));
 }
 
-function addComma(number) {
-  const number2 = String(number);
-  const splitNumber = number2.split('');
+function formatNumber(numberWithoutComma) {
+  const arrayOfNumbers = String(numberWithoutComma).split('');
 
-  for (let y = splitNumber.length % 3; y < splitNumber.length; y = y + 3) {
-    splitNumber[y - 1] = splitNumber[y - 1] + ',';
+  for (let y = arrayOfNumbers.length % 3; y < arrayOfNumbers.length;
+    y = y + 3) {
+    arrayOfNumbers[y - 1] = arrayOfNumbers[y - 1] + ',';
   }
 
-  const finalNumber = splitNumber.join('');
+  const result = arrayOfNumbers.join('');
 
-  return finalNumber;
+  return result;
 }
 
-const totalPopulation = document.getElementsByClassName('total-population');
+const totalPopulation = document.querySelector('span.total-population');
 
-totalPopulation[0].textContent = addComma(sum);
+totalPopulation.textContent = formatNumber(sumOfPopulation);
 
-const averagePopulation = document.getElementsByClassName('average-population');
-const averageSum = sum / population.length;
+const averagePopulation = document.querySelector('span.average-population');
+const averageSum = sumOfPopulation / population.length;
 
-averagePopulation[0].textContent = addComma(averageSum);
+averagePopulation.textContent = formatNumber(averageSum);
