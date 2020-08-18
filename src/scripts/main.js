@@ -3,7 +3,7 @@
 document.querySelector('.total-population')
   .innerHTML = String([...document.querySelectorAll('.population')]
     .map(population => population.textContent.split(',').join(''))
-    .reduce((sum, pop) => sum + +pop, 0)).split('')
+    .reduce((sum, pop) => sum + Number(pop), 0)).split('')
     .map((elem, i, arr) => ((arr.length - 1 - i) % 3 === 0 && i < arr
       .length - 1) ? `${elem},` : elem).join('');
 
