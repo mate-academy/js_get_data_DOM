@@ -1,16 +1,24 @@
 'use strict';
 
-document.querySelector('.total-population')
-  .innerHTML = String([...document.querySelectorAll('.population')]
-    .map(population => population.textContent.split(',').join(''))
-    .reduce((sum, pop) => sum + Number(pop), 0)).split('')
-    .map((elem, i, arr) => ((arr.length - 1 - i) % 3 === 0 && i < arr
-      .length - 1) ? `${elem},` : elem).join('');
+const populations = [...document.querySelectorAll('.population')];
+
+const total = populations.map(population => {
+  return +population.textContent.split(',').join('');
+}).reduce((sum, population) => sum + population, 0);
+
+document.querySelector('.total-population').innerHTML = formatter(total);
 
 document.querySelector('.average-population')
-  .innerHTML = String([...document.querySelectorAll('.population')]
-    .map(pop => pop.textContent.split(',').join(''))
-    .reduce((sum, pop) => sum + +pop, 0) / document
-    .querySelectorAll('.population').length).split('')
-    .map((elem, i, arr) => ((arr.length - 1 - i) % 3 === 0 && i < arr
-      .length - 1) ? `${elem},` : elem).join('');
+  .innerHTML = formatter(total / populations.length);
+
+function formatter(num) {
+  return String(num).split('')
+    .map((digit, i, arr) => {
+      if ((arr.length - 1 - i) % 3 === 0
+          && i < arr.length - 1) {
+        return digit + ',';
+      } else {
+        return digit;
+      }
+    }).join('');
+}
