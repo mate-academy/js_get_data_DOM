@@ -15,23 +15,16 @@ let aver = sum / length;
 sum = sum.toString().split('');
 aver = aver.toString().split('');
 
-for (let i = sum.length, j = aver.length; i >= 0 && j >= 0;) {
+for (let i = sum.length - 3, j = aver.length - 3; i > 0 || j > 0;) {
   sum.splice(i, 0, ',');
-  aver.splice(j, 0, ',');
+
+  if (j !== 0) {
+    aver.splice(j, 0, ',');
+  }
   i -= 3;
   j -= 3;
 }
 
-sum.length = sum.length - 1;
-aver.length = aver.length - 1;
-
-if (sum[0] === ',') {
-  sum.shift();
-}
-
-if (aver[0] === ',') {
-  aver.shift();
-}
 sum = sum.join('');
 aver = aver.join('');
 
