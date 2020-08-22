@@ -9,5 +9,5 @@ const arrayPop = [...population].map(x => +x.textContent.split(',').join(''));
 const totalResult = arrayPop.reduce((x, y) => x + y);
 const averageResult = totalResult / arrayPop.length;
 
-average.textContent = averageResult.toLocaleString().replace(/\s/g, ',');
 total.textContent = totalResult.toLocaleString().replace(/\s/g, ',');
+average.textContent = averageResult.toLocaleString().replace(/\s/g, ',');
