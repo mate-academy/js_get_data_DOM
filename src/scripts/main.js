@@ -10,8 +10,8 @@ const averagePopulationValue = totalPopulationValue / populations.length;
 const totalPopulationItem = document.querySelector('.total-population');
 const averagePopulationItem = document.querySelector('.average-population');
 
-totalPopulationItem.innerText = new Intl.NumberFormat()
+totalPopulationItem.innerText = new Intl.NumberFormat('en-US')
   .format(totalPopulationValue);
 
-averagePopulationItem.innerText = new Intl.NumberFormat()
+averagePopulationItem.innerText = new Intl.NumberFormat('en-US')
   .format(averagePopulationValue);
