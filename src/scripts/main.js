@@ -11,5 +11,12 @@ const sumOfPopulation = [...listOfPopulation]
 
 const avaragePopulation = sumOfPopulation / listOfPopulation.length;
 
-document.querySelector('.total-population').innerHTML = sumOfPopulation;
-document.querySelector('.average-population').innerHTML = avaragePopulation;
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+document.querySelector('.total-population').innerHTML
+ = numberWithCommas(sumOfPopulation);
+
+document.querySelector('.average-population').innerHTML
+ = numberWithCommas(avaragePopulation);
