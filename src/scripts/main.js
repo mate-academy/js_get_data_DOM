@@ -10,5 +10,5 @@ const sum = population
   })
   .reduce((a, b) => a + b);
 
-totalPopulation.innerText = sum;
-averagePopulation.innerText = sum / population.length;
+totalPopulation.innerText = sum.toLocaleString('en-US');
+averagePopulation.innerText = (sum / population.length).toLocaleString('en-US');
