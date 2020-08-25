@@ -3,7 +3,7 @@
 const populations = document.querySelectorAll('.population');
 
 const arrayOfPopulations = [...populations]
-  .map(text => text.innerText)
+  .map(elem => elem.innerText)
   .map(elem => elem.split(',').join(''));
 
 const totalValue = arrayOfPopulations.reduce((accum, elem) => accum + +elem, 0);
