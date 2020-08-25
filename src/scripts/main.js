@@ -5,8 +5,7 @@ const totalPop = document.querySelector('.total-population');
 const averagePop = document.querySelector('.average-population');
 
 const population = [...data]
-  .map(text => text.innerHTML)
-  .map(text => +text.split(',').join(''));
+  .map(text => +text.innerHTML.split(',').join(''));
 
 const total = population.reduce((prev, curr) => prev + curr);
 const average = total / data.length;
