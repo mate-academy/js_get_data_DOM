@@ -1,14 +1,14 @@
 'use strict';
 
-const spans = document.querySelectorAll('.population');
+const countriesPopulation = document.querySelectorAll('.population');
 
-const population = [...spans]
+const splittedPopulations = [...countriesPopulation]
   .map(item => Number(item.innerText.split(',').join('')));
 
-const total = population.reduce((sum, current) => sum + current);
+const total = splittedPopulations.reduce((sum, current) => sum + current);
 
-const average = population
-  .reduce((sum, current) => sum + current) / population.length;
+const average = splittedPopulations
+  .reduce((sum, current) => sum + current) / splittedPopulations.length;
 
 document.querySelector('.total-population')
   .replaceWith(total.toLocaleString('en-US'));
