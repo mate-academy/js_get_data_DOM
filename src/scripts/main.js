@@ -1,17 +1,17 @@
 'use strict';
 
-const span = document.querySelectorAll('.population');
+const populations = document.querySelectorAll('.population');
 
-const arr = [...span]
+const arrayOfPopulations = [...populations]
   .map(text => text.innerText)
   .map(elem => elem.split(',').join(''));
 
-const totalValue = arr.reduce((accum, elem) => accum + +elem, 0);
+const totalValue = arrayOfPopulations.reduce((accum, elem) => accum + +elem, 0);
 
 document
   .getElementsByClassName('total-population')[0]
-  .innerText = totalValue;
+  .innerText = totalValue.toLocaleString('en-US');
 
 document
   .getElementsByClassName('average-population')[0]
-  .innerText = totalValue / arr.length;
+  .innerText = (totalValue / arrayOfPopulations.length).toLocaleString('en-US');
