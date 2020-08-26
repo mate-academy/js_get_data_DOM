@@ -12,8 +12,12 @@ const average = total / populations.length;
 
 const totalSpan = document.querySelector('.total-population');
 
-totalSpan.textContent = total;
+totalSpan.textContent = total
+  .toLocaleString()
+  .replace(/\s/g, ',');
 
 const averageSpan = document.querySelector('.average-population');
 
-averageSpan.textContent = average;
+averageSpan.textContent = average
+  .toLocaleString()
+  .replace(/\s/g, ',');
