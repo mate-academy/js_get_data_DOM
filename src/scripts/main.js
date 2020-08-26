@@ -10,15 +10,13 @@ const outputOfAveragePopulation = document
   .querySelector('.average-population');
 
 const arrOfPopulation = [...populationOfCuntries]
-  .map((countryAverage) => countryAverage.innerText);
-
-const totalPopulation = arrOfPopulation
+  .map((countryAverage) => countryAverage.innerText)
   .map(el => +el.split(',').join(''))
   .reduce((acc, next) => acc + next);
 
-const averageOfPopulation = totalPopulation / arrOfPopulation.length;
+const averageOfPopulation = arrOfPopulation / [...populationOfCuntries].length;
 
-outputOfTotalPopulation.innerText = totalPopulation
+outputOfTotalPopulation.innerText = arrOfPopulation
   .toLocaleString();
 
 outputOfAveragePopulation.innerText = averageOfPopulation
