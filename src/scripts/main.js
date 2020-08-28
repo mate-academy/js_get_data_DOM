@@ -1,14 +1,17 @@
 'use strict';
 
-const popsCollection = document.getElementsByClassName('population');
-const popsArray = [];
+const populationsCollection = document.getElementsByClassName('population');
+const populationsArray = [];
 
-for (const element of popsCollection) {
-  popsArray.push(Number(element.textContent.split(',').join('')));
+for (const element of populationsCollection) {
+  populationsArray.push(Number(element.textContent.split(',').join('')));
 }
 
-const total = popsArray.reduce((a, b) => a + b);
-const average = total / popsArray.length;
+const total = populationsArray.reduce((a, b) => a + b);
+const average = total / populationsArray.length;
 
-document.querySelector('.total-population').textContent = total;
-document.querySelector('.average-population').textContent = average;
+document.querySelector('.total-population').textContent
+= total.toLocaleString();
+
+document.querySelector('.average-population').textContent
+= average.toLocaleString();
