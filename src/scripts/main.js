@@ -5,11 +5,9 @@ const totalPlace = document.querySelector('span.total-population');
 const averagePlace = document.querySelector('span.average-population');
 
 const numberedPopulation = [...population].map(item => {
-  let a = item.textContent.split(',');
+  const number = Number(item.textContent.split(',').join(''));
 
-  a = a.join('');
-
-  return +a;
+  return number;
 });
 const totalData = numberedPopulation.reduce((sum, item) => sum + item);
 const averageData = totalData / numberedPopulation.length;
