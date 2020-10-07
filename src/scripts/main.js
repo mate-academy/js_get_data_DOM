@@ -5,7 +5,7 @@ const totalPopulationElement = document.querySelector('.total-population');
 const averagePopulationElement = document.querySelector('.average-population');
 
 const totalPopulation = [...population].reduce((sum, country) =>
-  sum + Number(country.innerHTML.split(',').join('')), 0);
+  sum + Number(country.textContent.split(',').join('')), 0);
 
 const averagePopulation = totalPopulation / population.length;
 
@@ -19,5 +19,5 @@ function formatNumber(number) {
   return numberSplited.join('');
 }
 
-totalPopulationElement.innerHTML = formatNumber(totalPopulation);
-averagePopulationElement.innerHTML = formatNumber(averagePopulation);
+totalPopulationElement.textContent = formatNumber(totalPopulation);
+averagePopulationElement.textContent = formatNumber(averagePopulation);
