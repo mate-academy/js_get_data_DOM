@@ -8,5 +8,5 @@ const totalPopulation = [...population]
 const total = document.querySelector('.total-population');
 const average = document.querySelector('.average-population');
 
-total.innerHTML = `${totalPopulation.toLocaleString()}`;
-average.innerHTML = `${(totalPopulation / population.length).toLocaleString()}`;
+total.innerHTML = totalPopulation.toLocaleString();
+average.innerHTML = (totalPopulation / population.length).toLocaleString();
