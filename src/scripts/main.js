@@ -1,7 +1,6 @@
 'use strict';
 
 const population = document.getElementsByClassName('population');
-
 const allCountry = [...population].map(item => {
   return item.innerText.split(',').join('');
 });
