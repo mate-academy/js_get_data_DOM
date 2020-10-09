@@ -1,10 +1,10 @@
 'use strict';
 
 // write your code here
+const populationCollection = document.querySelectorAll('.population');
 
 function calcTotal() {
-  const populationCollection = document.querySelectorAll('.population');
-  const totalSpan = document.querySelector('p.total > span');
+  const totalSpan = document.querySelector('.total-population');
 
   const total = [...populationCollection]
     .reduce((acc, elem) =>
@@ -14,6 +14,16 @@ function calcTotal() {
   totalSpan.textContent = total;
 };
 
-// function calcAverage()
+function calcAverage() {
+  const averageSpan = document.querySelector('.average-population');
+
+  const average = [...populationCollection]
+    .reduce((acc, elem) =>
+      acc + parseInt(elem.textContent.replaceAll(',', '')),
+    0) / populationCollection.length;
+
+  averageSpan.textContent = average;
+}
 
 calcTotal();
+calcAverage();
