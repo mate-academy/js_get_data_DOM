@@ -11,5 +11,5 @@ const numericPopulations = [...populations].map(population => {
 const total = numericPopulations.reduce((acc, item) => acc + item);
 const average = total / numericPopulations.length;
 
-htmlTotal.textContent = total;
-htmlAverage.textContent = average;
+htmlTotal.textContent = total.toLocaleString();
+htmlAverage.textContent = average.toLocaleString();
