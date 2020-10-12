@@ -10,8 +10,8 @@ const averagePopulation = totalPopulation / populationArr.length;
 
 const totalElement = document.querySelector('.total-population');
 
-totalElement.innerHTML = totalPopulation;
+totalElement.innerHTML = totalPopulation.toLocaleString();
 
 const averageElement = document.querySelector('.average-population');
 
-averageElement.innerHTML = averagePopulation;
+averageElement.innerHTML = averagePopulation.toLocaleString();
