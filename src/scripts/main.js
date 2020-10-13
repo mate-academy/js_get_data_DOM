@@ -14,10 +14,5 @@ const totalPopulation = parsedPopulations
   ), 0);
 const averagePopulation = totalPopulation / parsedPopulations.length;
 
-total.textContent = totalPopulation
-  .toString()
-  .replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-
-average.textContent = averagePopulation
-  .toString()
-  .replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+total.textContent = totalPopulation.toLocaleString();
+average.textContent = averagePopulation.toLocaleString();
