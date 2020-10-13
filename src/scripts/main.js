@@ -1,16 +1,16 @@
 'use strict';
 
 const populationList = document.querySelectorAll('.population');
-const totalPopulation = document.querySelector('.total-population');
-const averagePopulation = document.querySelector('.average-population');
+const totalPopulationElement = document.querySelector('.total-population');
+const AveragePopulationElement = document.querySelector('.average-population');
 
-const populationArray = [...populationList]
-  .map(item => +item.textContent
+const populationTransform = [...populationList]
+  .map(country => +country.textContent
     .split(',')
     .join(''));
 
-const resultTotal = populationArray.reduce((a, b) => a + b);
-const resultAvg = resultTotal / populationArray.length;
+const totalPopulation = populationTransform.reduce((a, b) => a + b)
+const averagePopulation = totalPopulation / populationTransform.length
 
-totalPopulation.textContent = resultTotal.toLocaleString('en-US');
-averagePopulation.textContent = resultAvg.toLocaleString('en-US');
+totalPopulationElement.textContent = totalPopulation.toLocaleString('en-US');
+AveragePopulationElement.textContent = averagePopulation.toLocaleString('en-US');
