@@ -9,8 +9,11 @@ const populationTransform = [...populationList]
     .split(',')
     .join(''));
 
-const totalPopulation = populationTransform.reduce((a, b) => a + b)
-const averagePopulation = totalPopulation / populationTransform.length
+const totalPopulation = populationTransform.reduce((a, b) => a + b);
+const averagePopulation = totalPopulation / populationTransform.length;
 
-totalPopulationElement.textContent = totalPopulation.toLocaleString('en-US');
-AveragePopulationElement.textContent = averagePopulation.toLocaleString('en-US');
+totalPopulationElement.textContent = totalPopulation
+  .toLocaleString('en-US');
+
+AveragePopulationElement.textContent = averagePopulation
+  .toLocaleString('en-US');
