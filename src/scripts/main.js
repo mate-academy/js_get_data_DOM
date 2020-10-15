@@ -1,8 +1,8 @@
 'use strict';
 
 const population = document.querySelectorAll('.population');
-const populationList = [...population].map(item =>
-  +item.innerText.replace(/,/g, ''));
+const populationList = [...population]
+  .map(item => +item.innerText.replace(/,/g, ''));
 const populationTotal = populationList.reduce((a, b) => a + b);
 const populationAverage = populationTotal / population.length;
 
