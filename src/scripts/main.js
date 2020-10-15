@@ -1,11 +1,11 @@
 'use strict';
 
-// debugger;
+debugger;
 const populationSpan = document.querySelectorAll('.population');
 
 const population = [...populationSpan].map(value =>
   (
-    +[...value.textContent].join('').split(',').join('')
+    +value.textContent.split(',').join('')
   ));
 
 const totalPopulation = population.reduce((acc, value) => acc + value);
