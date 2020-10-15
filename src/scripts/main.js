@@ -8,8 +8,8 @@ const averagePopulation = totalPopulation / populations.length;
 
 document
   .querySelector('.total-population')
-  .innerText = totalPopulation.toLocaleString();
+  .innerText = totalPopulation.toLocaleString('en-GB');
 
 document
   .querySelector('.average-population')
-  .innerText = averagePopulation.toLocaleString();
+  .innerText = averagePopulation.toLocaleString('en-GB');
