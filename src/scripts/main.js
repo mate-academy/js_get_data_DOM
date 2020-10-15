@@ -12,6 +12,10 @@ const populationTotal
 
 const avaragePopulation = populationTotal / populationArray.length;
 
-document.querySelector('.total-population').innerText = populationTotal;
+const regExp = /(\d)(?=(\d{3})+(\D|$))/g;
 
-document.querySelector('.average-population').innerText = avaragePopulation;
+document.querySelector('.total-population').innerText
+= populationTotal.toString().replace(regExp, '$1,');
+
+document.querySelector('.average-population').innerText
+= avaragePopulation.toString().replace(regExp, '$1,');
