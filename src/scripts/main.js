@@ -1,12 +1,11 @@
 'use strict';
 
-const population = document.querySelectorAll('.population');
-const populationArr = [...population];
+const population = [...document.querySelectorAll('.population')];
 
-const totalPopulation = populationArr
+const totalPopulation = population
   .map(item => +(item.innerText.replace(/[\s.,]/g, '')))
   .reduce((a, b) => a + b);
-const averagePopulation = totalPopulation / populationArr.length;
+const averagePopulation = totalPopulation / population.length;
 
 const totalElement = document.querySelector('.total-population');
 
