@@ -1,6 +1,5 @@
 'use strict';
 
-debugger;
 const populationSpan = document.querySelectorAll('.population');
 
 const population = [...populationSpan].map(value =>
