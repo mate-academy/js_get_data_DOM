@@ -10,5 +10,5 @@ const totalPopulation = [...populationSpan].reduce((sum, number) => {
 
 const averagePopulation = totalPopulation / populationSpan.length;
 
-totalPopulationSpan.textContent = totalPopulation;
+totalPopulationSpan.textContent = totalPopulation.toLocaleString();
 averagePopulationSpan.textContent = averagePopulation.toLocaleString();
