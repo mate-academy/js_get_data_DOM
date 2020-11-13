@@ -20,6 +20,7 @@ h1 {
   margin: 32px 0;
   list-style: none;
   padding: 0;
+
   &__item {
     margin: 8px;
     border-bottom: 1px solid darkgrey;
@@ -47,6 +48,7 @@ h1 {
 .total,
 .average {
   font-size: 20px;
+
   &-population {
     font-size: 24px;
   }
