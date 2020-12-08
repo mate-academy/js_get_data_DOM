@@ -12,5 +12,4 @@ const calculatedTotal = populationNumbers.reduce((acc, val) => acc + val);
 const calculatedAverage = calculatedTotal / populationNumbers.length;
 
 total.textContent = calculatedTotal.toLocaleString();
-
 average.textContent = calculatedAverage.toLocaleString();
