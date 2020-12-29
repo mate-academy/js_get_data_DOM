@@ -1,7 +1,6 @@
 'use strict';
 
 const container = document.querySelector('.container');
-
 const population = container.querySelectorAll('.population');
 
 const arr = [...population].map(item => item.innerText);
