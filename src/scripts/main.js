@@ -1,3 +1,13 @@
 'use strict';
 
-// write your code here
+const list = document.querySelectorAll('.population');
+const total = [...list]
+  .map(element => Number(element.innerHTML.replace(/,/g, '')))
+  .reduce((acc, population) => acc + population, 0);
+const average = total / [...list].length;
+
+const totalPopulation = document.querySelector('.total-population');
+const averagePopulation = document.querySelector('.average-population');
+
+totalPopulation.innerHTML = total.toLocaleString();
+averagePopulation.innerHTML = average.toLocaleString();
