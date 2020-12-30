@@ -15,28 +15,6 @@ const average = total / populationArray.length;
 const totalDisplay = document.querySelector('.total-population');
 const averageDisplay = document.querySelector('.average-population');
 
-let totalWithCommas = '';
-const totalString = total.toString().split('').reverse().join('');
 
-for (let i = 0; i < totalString.length; i++) {
-  if (i % 3 === 0) {
-    totalWithCommas += ',';
-  }
-  totalWithCommas += totalString[i];
-}
-
-let averageWithCommas = '';
-const averageString = average.toString().split('').reverse().join('');
-
-for (let i = 0; i < averageString.length; i++) {
-  if (i % 3 === 0) {
-    averageWithCommas += ',';
-  }
-  averageWithCommas += averageString[i];
-}
-
-totalWithCommas = totalWithCommas.split('').reverse().join('').slice(0, -1);
-averageWithCommas = averageWithCommas.split('').reverse().join('').slice(0, -1);
-
-totalDisplay.innerText = totalWithCommas;
-averageDisplay.innerText = averageWithCommas;
+totalDisplay.innerText = total.toLocaleString('de-DE').replace(/\./g, ',');
+averageDisplay.innerText = average.toLocaleString('de-DE').replace(/\./g, ',');
