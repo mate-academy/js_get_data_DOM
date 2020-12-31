@@ -25,5 +25,12 @@ for (const number of validArr) {
 
 const average = total / count;
 
-document.querySelector('.average-population').textContent = average;
-document.querySelector('.total-population').textContent = total;
+document.querySelector('.average-population').textContent
+  = average
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+document.querySelector('.total-population').textContent
+  = total
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
