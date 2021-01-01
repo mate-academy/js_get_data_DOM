@@ -7,7 +7,9 @@ const totalPopulation = listPopulation.reduce((sum, item) => sum + item, 0);
 const averagePopulation = totalPopulation / listPopulation.length;
 
 document.querySelector('span.total-population')
-  .textContent = totalPopulation.toLocaleString();
+  .textContent = `${new Intl.NumberFormat('en-US')
+    .format(totalPopulation)} people`;
 
 document.querySelector('span.average-population')
-  .textContent = averagePopulation.toLocaleString();
+ .textContent = `${new Intl.NumberFormat('en-US')
+   .format(averagePopulation)} people`;
