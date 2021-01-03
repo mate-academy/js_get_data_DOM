@@ -11,8 +11,8 @@ const totalPopulation = allPopulationArray.reduce((sum, element) =>
 const averagePopulation = totalPopulation / allPopulationArray.length;
 
 const totalElement = document.querySelector('.total-population');
-const averageElenemt = document.querySelector('.average-population');
+const averageElement = document.querySelector('.average-population');
 
 totalElement.innerText = totalPopulation.toLocaleString();
 
-averageElenemt.innerHTML = averagePopulation.toLocaleString();
+averageElement.innerHTML = averagePopulation.toLocaleString();
