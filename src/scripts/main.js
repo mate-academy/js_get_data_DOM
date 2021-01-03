@@ -1,3 +1,18 @@
 'use strict';
 
-// write your code here
+const allPopulation = document.querySelectorAll('.population');
+
+const allPopulationArray = [...allPopulation].map(element =>
+  +(element.innerText.split(',').join('')));
+
+const totalPopulation = allPopulationArray.reduce((sum, element) =>
+  (sum + element), 0);
+
+const averagePopulation = totalPopulation / allPopulationArray.length;
+
+const totalElement = document.querySelector('.total-population');
+const averageElenemt = document.querySelector('.average-population');
+
+totalElement.innerText = totalPopulation.toLocaleString();
+
+averageElenemt.innerHTML = averagePopulation.toLocaleString();
