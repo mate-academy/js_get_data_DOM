@@ -16,5 +16,5 @@ const averageRes = numbers.reduce((prev, next) => {
   return prev + next;
 }, 0);
 
-total.innerText = totalRes.toLocaleString();
-average.innerText = (averageRes / numbers.length).toLocaleString();
+total.innerText = totalRes.toLocaleString('en-US');
+average.innerText = (averageRes / numbers.length).toLocaleString('en-US');
