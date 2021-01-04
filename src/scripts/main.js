@@ -1,9 +1,5 @@
 'use strict';
 
-// const populations = [document.querySelectorAll('.population')].map(span => {
-//   return +(span.innerText.split(',').join(''));
-// });
-
 const amount = document.querySelectorAll('.population');
 
 const populations = [...amount].map(span =>
