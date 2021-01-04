@@ -13,5 +13,5 @@ const totalValue = populationInNumbers
   .reduce((acc, value) => acc + value, 0);
 const averageValue = totalValue / populationInNumbers.length;
 
-totalPopulation.textContent = totalValue.toLocaleString();
-averagePopulation.textContent = averageValue.toLocaleString();
+totalPopulation.textContent = totalValue.toLocaleString('en-US');
+averagePopulation.textContent = averageValue.toLocaleString('en-US');
