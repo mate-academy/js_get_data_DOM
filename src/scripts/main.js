@@ -8,5 +8,14 @@ const populationOfCountries = [...list].map(
 const totalPopulation = populationOfCountries.reduce((pop, acc) => acc + pop);
 const averagePopulation = (totalPopulation / populationOfCountries.length);
 
-total.innerHTML = totalPopulation.toLocaleString();
-average.innerHTML = averagePopulation.toLocaleString();
+total.innerHTML = totalPopulation.toLocaleString('en-US').split(' ');
+
+console.log(totalPopulation.toLocaleString().split('').map(el => {
+  console.log(!Number.isInteger(+el));
+  if (!Number.isInteger(el)) {
+    return ',';
+  }
+
+  return el;
+}));
+average.innerHTML = averagePopulation.toLocaleString('en-US');
