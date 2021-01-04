@@ -3,14 +3,12 @@
 const allPeople = document.querySelectorAll('.population');
 
 let total = 0;
-let counter = 0;
 
 for (const eachCountry of allPeople) {
   total += +eachCountry.innerText.split(',').join('');
-  counter++;
 }
 
-const average = total / counter;
+const average = total / allPeople.length;
 
 const totalResult = [];
 const averageResult = [];
