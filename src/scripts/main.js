@@ -11,5 +11,5 @@ for (const element of population) {
 }
 average = total / population.length;
 
-countTotal.innerHTML = total.toLocaleString();
-countAverage.innerHTML = average.toLocaleString();
+countTotal.innerHTML = total.toLocaleString('en');
+countAverage.innerHTML = average.toLocaleString('en');
