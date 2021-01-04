@@ -15,6 +15,5 @@ const average = total / populationArray.length;
 const totalDisplay = document.querySelector('.total-population');
 const averageDisplay = document.querySelector('.average-population');
 
-
-totalDisplay.innerText = total.toLocaleString('de-DE').replace(/\./g, ',');
-averageDisplay.innerText = average.toLocaleString('de-DE').replace(/\./g, ',');
+totalDisplay.innerText = total.toLocaleString('en-US');
+averageDisplay.innerText = average.toLocaleString('en-US');
