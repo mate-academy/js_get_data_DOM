@@ -20,8 +20,6 @@ const populations = [...classes].map(
   country => +country.textContent.split(',').join('')
 );
 
-populations.length = 10;
-
 const total = populations.reduce((sum, popul) => sum + popul);
 
 const average = total / populations.length;
