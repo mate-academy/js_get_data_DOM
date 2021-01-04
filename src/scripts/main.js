@@ -11,5 +11,5 @@ for (const item of population) {
 
 const average = Math.round(sum / population.length);
 
-totalEl.innerHTML = sum.toLocaleString();
-averageEl.innerHTML = average.toLocaleString();
+totalEl.innerHTML = sum.toLocaleString('en-US');
+averageEl.innerHTML = average.toLocaleString('en-US');
