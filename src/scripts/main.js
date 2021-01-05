@@ -13,5 +13,5 @@ const averagePopulation = allPopulation / populationArray.length;
 const totalElement = document.querySelector('.total-population');
 const averageElement = document.querySelector('.average-population');
 
-totalElement.innerText = allPopulation.toLocaleString();
-averageElement.innerText = averagePopulation.toLocaleString();
+totalElement.innerText = allPopulation.toLocaleString('en-US');
+averageElement.innerText = averagePopulation.toLocaleString('en-US');
