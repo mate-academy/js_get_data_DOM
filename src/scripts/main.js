@@ -1,29 +1,15 @@
 'use strict';
 
-const listUl = document.querySelector('ul');
-const list = document.querySelectorAll('li');
+const totalPopulation = document.querySelector('.total-population');
+const population = document.querySelectorAll('.population');
+const averagePopulation = document.querySelector('.average-population');
 
-function sortList(arr) {
-  const sortedList = [...arr].sort((a, b) =>
-    convert(b.dataset.salary) - convert(a.dataset.salary));
+const total = [...population].reduce((sum, item) =>
+  sum + Number(item.innerText.split(',')
+    .join('')), 0);
 
-  listUl.append(...sortedList);
-}
+const average = total / population.length;
 
-function convert(salary) {
-  return salary.replace(/\D/g, '');
-}
+totalPopulation.innerText = total.toLocaleString('en-US');
 
-function getEmployees(arr) {
-  return [...arr].map(person =>
-    ({
-      name: person.innerText.trim(),
-      position: person.dataset.position,
-      salary: person.dataset.salary,
-      age: person.dataset.age,
-    })
-  );
-}
-
-sortList(list);
-getEmployees(list);
+averagePopulation.innerText = average.toLocaleString('en-US');
