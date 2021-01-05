@@ -11,5 +11,5 @@ const populationAmount = [...population].map(value => {
 const calculatedTotal = populationAmount.reduce((acc, val) => acc + val);
 const calculatedAverage = calculatedTotal / populationAmount.length;
 
-total.textContent = calculatedTotal.toLocaleString();
-average.textContent = calculatedAverage.toLocaleString();
+total.textContent = calculatedTotal.toLocaleString('en-US');
+average.textContent = calculatedAverage.toLocaleString('en-US');
