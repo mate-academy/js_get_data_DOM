@@ -9,6 +9,7 @@ document.querySelectorAll('.population').forEach(el => {
 });
 
 const total = populationArr.reduce((a, b) => a + b);
+const average = (total / populationArr.length);
 
-totalPopulation.innerText = total;
-averagePopulation.innerText = total / populationArr.length;
+totalPopulation.innerText = total.toLocaleString('En');
+averagePopulation.innerText = average.toLocaleString('En');
