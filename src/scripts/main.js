@@ -6,7 +6,7 @@ const totalPopulation = populations.reduce((a, c) => a + c);
 const averagePopulation = totalPopulation / populations.length;
 
 document.querySelector('.total-population')
-  .innerHTML = totalPopulation.toLocaleString();
+  .innerHTML = totalPopulation.toLocaleString('en-US');
 
 document.querySelector('.average-population')
-  .innerHTML = averagePopulation.toLocaleString();
+  .innerHTML = averagePopulation.toLocaleString('en-US');
