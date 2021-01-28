@@ -12,4 +12,5 @@ for (const country of countriesPopulation) {
 }
 
 totalPopulation.innerText = populationSum.toLocaleString('En-Us');
-averagePopulation.innerText = (populationSum / countriesPopulation.length).toLocaleString('En-Us');
+averagePopulation.innerText = 
+  (populationSum / countriesPopulation.length).toLocaleString('En-Us');
