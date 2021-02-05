@@ -9,5 +9,5 @@ const population = [...countries].reduce((count, el) => {
   return count + +el.textContent.split(',').join('');
 }, 0);
 
-totalPopulation.innerHTML = population;
-averagePopulation.innerHTML = population / countries.length;
+totalPopulation.innerHTML = population.toLocaleString();
+averagePopulation.innerHTML = (population / countries.length).toLocaleString();
