@@ -2,13 +2,11 @@
 
 // write your code here
 const collection = document.querySelectorAll('.population');
-let populations = [];
+const populations = [];
 
-[...collection].forEach(item => populations.push(item.innerText));
-
-populations = populations.map(item => {
-  return +item.split(',').join('');
-});
+[...collection].forEach(item => populations.push(
+  +item.innerText.split(',').join('')
+));
 
 const total = populations.reduce((a, b) => a + b);
 const average = total / collection.length;
