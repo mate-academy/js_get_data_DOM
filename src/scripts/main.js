@@ -11,10 +11,8 @@ const averageSum = sum / allPopulation.length;
 
 const totalPopulation = document.querySelector('.total-population');
 
-totalPopulation.innerHTML
-  = sum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+totalPopulation.innerHTML = sum.toLocaleString('en');
 
 const averagePopulation = document.querySelector('.average-population');
 
-averagePopulation.innerHTML
-  = averageSum.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+averagePopulation.innerHTML = averageSum.toLocaleString('en');
