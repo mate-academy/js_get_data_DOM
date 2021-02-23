@@ -12,5 +12,5 @@ for (let i = 0; i < population.length; i++) {
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
 
-totalPopulation.innerHTML = sum.toLocaleString('en');
-averagePopulation.innerHTML = (sum / population.length).toLocaleString('en');
+totalPopulation.innerText = sum.toLocaleString('en');
+averagePopulation.innerText = (sum / population.length).toLocaleString('en');
