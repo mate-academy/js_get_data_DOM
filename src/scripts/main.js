@@ -8,17 +8,17 @@ const reference = {
 
 const populationInfo = Array.from(reference.population);
 const withoutCommas = populationInfo.map(
-  a => +a.textContent.replace(/[,]/g, '')
+  value => +value.textContent.replace(/[,]/g, '')
 );
 const totalPopulation = withoutCommas.reduce(
-  (accumulator, item) => accumulator + item, 0
+  (accumulator, quantity) => accumulator + quantity, 0
 );
 
 const averagePopulation = totalPopulation / populationInfo.length;
 
-function convertOutput(number) {
-  return String(number).split('').reverse()
-    .map((a, ind) => ind % 3 === 0 && ind !== 0 ? a + ',' : a)
+function convertOutput(parameter) {
+  return String(parameter).split('').reverse()
+    .map((unit, index) => index % 3 === 0 && index !== 0 ? unit + ',' : unit)
     .reverse().join('');
 }
 
