@@ -13,14 +13,7 @@ const withoutCommas = populationInfo.map(
 const totalPopulation = withoutCommas.reduce(
   (accumulator, quantity) => accumulator + quantity, 0
 );
-
 const averagePopulation = totalPopulation / populationInfo.length;
 
-function convertOutput(parameter) {
-  return String(parameter).split('').reverse()
-    .map((unit, index) => index % 3 === 0 && index !== 0 ? unit + ',' : unit)
-    .reverse().join('');
-}
-
-reference.total.innerHTML = convertOutput(totalPopulation);
-reference.average.innerHTML = convertOutput(averagePopulation);
+reference.total.innerText = totalPopulation.toLocaleString();
+reference.average.innerText = averagePopulation.toLocaleString();
