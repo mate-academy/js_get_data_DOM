@@ -1,44 +1,33 @@
 'use strict';
 
 const population = document.querySelectorAll('.population');
-const totalPopulation = document.querySelector('.total-population');
-const averagePopulation = document.querySelector('.average-population');
+const totalPopulationElement = document.querySelector('.total-population');
+const averagePopulationElement = document.querySelector('.average-population');
 const populationArray = [...population].map(countryPopulation =>
   Number.parseInt(countryPopulation.innerHTML.split(',').join('')));
-let totalPopulationValue = populationArray.reduce((sum, currentValue) =>
+const totalPopulation = populationArray.reduce((sum, currentValue) =>
   sum + currentValue);
-let averagePopulationValue = totalPopulationValue / populationArray.length;
-let totalPopulationArray = [];
-let averagePopulationArray = [];
+const averagePopulationValue = totalPopulation / populationArray.length;
 
-totalPopulationValue = totalPopulationValue.toString().split('');
+totalPopulationElement.innerText = addSeparator(averagePopulationValue);
+averagePopulationElement.innerText = addSeparator(totalPopulation);
 
-let separatorCount = 0;
+function addSeparator(separateString) {
+  let separatorCount = 0;
+  const separatedStringArray = [];
 
-for (let i = totalPopulationValue.length - 1; i >= 0; i--) {
-  let separatorString = (separatorCount % 3) ? '' : ',';
+  const separateStringArray = separateString.toString().split('');
 
-  if (separatorCount === 0) {
-    separatorString = '';
-  }
-  separatorCount++;
+  for (let i = separateStringArray.length - 1; i >= 0; i--) {
+    let separatorChar = (separatorCount % 3) ? '' : ',';
 
-  totalPopulationArray[i] = totalPopulationValue[i] + separatorString;
-};
-separatorCount = 0;
-averagePopulationValue = averagePopulationValue.toString().split('');
+    if (separatorCount === 0) {
+      separatorChar = '';
+    }
+    separatorCount++;
 
-for (let i = averagePopulationValue.length - 1; i >= 0; i--) {
-  let separatorString = (separatorCount % 3) ? '' : ',';
+    separatedStringArray[i] = separateStringArray[i] + separatorChar;
+  };
 
-  if (separatorCount === 0) {
-    separatorString = '';
-  }
-  separatorCount++;
-
-  averagePopulationArray[i] = averagePopulationValue[i] + separatorString;
-};
-averagePopulationArray = averagePopulationArray.join('');
-totalPopulationArray = totalPopulationArray.join('');
-totalPopulation.innerText = totalPopulationArray;
-averagePopulation.innerText = averagePopulationArray;
+  return separatedStringArray.join('');
+}
