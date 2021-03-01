@@ -1,13 +1,15 @@
 'use strict';
 
 const searchedClass = document.querySelectorAll('.population');
-const elements = [...searchedClass].map(element =>
+const listWithPopulation = [...searchedClass].map(element =>
   Number(element.innerText.replaceAll(',', '')));
 
-const total = elements.reduce((sum, element) => sum + element);
-const average = total / elements.length;
+const totalPopulation = listWithPopulation.reduce((sum, element) =>
+  sum + element);
+const averagePopulation = totalPopulation / listWithPopulation.length;
 
-document.querySelector('.total-population').innerText = total.toLocaleString();
+document.querySelector('.total-population')
+  .innerText = totalPopulation.toLocaleString();
 
 document.querySelector('.average-population')
-  .innerText = average.toLocaleString();
+  .innerText = averagePopulation.toLocaleString();
