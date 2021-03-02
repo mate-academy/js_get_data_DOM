@@ -5,8 +5,9 @@ const listWithPopulation = [...populationElements].map(element => (
   Number(element.innerText.replaceAll(',', ''))
 ));
 
-const totalPopulation = listWithPopulation.reduce((sum, element) =>
-  sum + element);
+const totalPopulation = listWithPopulation.reduce((sum, element) => (
+  sum + element
+));
 const averagePopulation = totalPopulation / listWithPopulation.length;
 
 document.querySelector('.total-population')
