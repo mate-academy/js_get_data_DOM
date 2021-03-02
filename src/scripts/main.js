@@ -1,8 +1,9 @@
 'use strict';
 
-const searchedClass = document.querySelectorAll('.population');
-const listWithPopulation = [...searchedClass].map(element =>
-  Number(element.innerText.replaceAll(',', '')));
+const populationElements = document.querySelectorAll('.population');
+const listWithPopulation = [...populationElements].map(element => (
+  Number(element.innerText.replaceAll(',', ''))
+));
 
 const totalPopulation = listWithPopulation.reduce((sum, element) =>
   sum + element);
