@@ -7,9 +7,7 @@ function calculateSum() {
 }
 
 const population = document.querySelectorAll('.population');
-
 const total = document.querySelector('.total');
-
 const average = document.querySelector('.average');
 
 const arr = [...population].map((x) => {
