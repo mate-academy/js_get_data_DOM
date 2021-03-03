@@ -7,13 +7,14 @@ function calculateSum() {
 }
 
 const population = document.querySelectorAll('.population');
-const total = document.querySelector('.total');
-const average = document.querySelector('.average');
+const totalPopulation = document.querySelector('.total');
+const averagePopulation = document.querySelector('.average');
 
 const arr = [...population].map((x) => {
   return +x.innerText.replace(/,/gi, '');
 });
 
-average.innerText = (calculateSum() / arr.length).toLocaleString('en');
+averagePopulation.innerText = (calculateSum() / arr.length)
+  .toLocaleString('en');
 
-total.innerText = calculateSum().toLocaleString('en');
+totalPopulation.innerText = calculateSum().toLocaleString('en');
