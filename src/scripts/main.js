@@ -1,7 +1,7 @@
 'use strict';
 
-function calculateSum() {
-  return arr.reduce((accumulator, current) => {
+function calculateSum(populationArrayOfValues) {
+  return populationArrayOfValues.reduce((accumulator, current) => {
     return accumulator + current;
   }, 0);
 }
@@ -10,11 +10,12 @@ const population = document.querySelectorAll('.population');
 const totalPopulation = document.querySelector('.total');
 const averagePopulation = document.querySelector('.average');
 
-const arr = [...population].map((x) => {
+const populationValues = [...population].map((x) => {
   return +x.innerText.replace(/,/gi, '');
 });
 
-averagePopulation.innerText = (calculateSum() / arr.length)
+averagePopulation.innerText = (
+  calculateSum(populationValues) / populationValues.length)
   .toLocaleString('en');
 
-totalPopulation.innerText = calculateSum().toLocaleString('en');
+totalPopulation.innerText = calculateSum(populationValues).toLocaleString('en');
