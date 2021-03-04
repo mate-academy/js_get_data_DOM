@@ -1,13 +1,11 @@
 'use strict';
 
-const listOfDataAboutPopulation = document.querySelectorAll('.population');
-let totalPopulation = 0;
-
-for (let i = 0; i < listOfDataAboutPopulation.length; i++) {
-  totalPopulation += parseInt(
-    listOfDataAboutPopulation[i].innerText.split(',').join('')
-  );
-}
+const listOfDataAboutPopulation = [...document.querySelectorAll('.population')];
+let totalPopulation = listOfDataAboutPopulation.reduce((acc, element) =>
+  acc + parseInt(
+    element.innerText.split(',').join('')
+  ), 0
+);
 
 let averageAge = (totalPopulation / listOfDataAboutPopulation.length);
 
