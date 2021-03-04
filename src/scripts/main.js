@@ -1,6 +1,7 @@
 'use strict';
 
-const countriesPopulationStatistics = document.querySelectorAll('span.population');
+const countriesPopulationStatistics
+= document.querySelectorAll('span.population');
 
 const allPopulation = [...countriesPopulationStatistics]
   .map(item => +(item.innerText.replace(/,/g, '')));
