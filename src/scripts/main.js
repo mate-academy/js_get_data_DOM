@@ -6,13 +6,13 @@ function calculateSum(populationValue) {
   }, 0);
 }
 
-const populationElements = document.querySelectorAll('.population');
+const populationElements = [...document.querySelectorAll('.population')];
 
 const totalPopulationElement = document.querySelector('.total');
 const averagePopulationElement = document.querySelector('.average');
 
-const populationValues = [...populationElements].map((x) => {
-  return +x.innerText.replace(/,/gi, '');
+const populationValues = populationElements.map((x) => {
+  return +x.innerText.replace(/,/g, '');
 });
 
 averagePopulationElement.innerText = (
