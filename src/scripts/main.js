@@ -1,12 +1,12 @@
 'use strict';
 
-const takePopulation = document.querySelectorAll('.population');
+const population = document.querySelectorAll('.population');
 
-const totalPopulation = [...takePopulation]
+const totalPopulation = [...population]
   .map(el => +(el.innerText.replace(/,/g, '')))
   .reduce((sum, b) => sum + b);
 
-const averagePopulation = totalPopulation / takePopulation.length;
+const averagePopulation = totalPopulation / population.length;
 
 document.querySelector('.total-population')
   .innerText = totalPopulation.toLocaleString('en-US');
