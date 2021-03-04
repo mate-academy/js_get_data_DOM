@@ -9,7 +9,11 @@ for (let i = 0; i < listOfDataAboutPopulation.length; i++) {
   );
 }
 
+let averageAge = (totalPopulation / listOfDataAboutPopulation.length);
+
+averageAge = averageAge.toLocaleString('en-US');
+totalPopulation = totalPopulation.toLocaleString('en-US');
+
 document.querySelector('.total-population').innerHTML = totalPopulation;
 
-document.querySelector('.average-population').innerHTML = totalPopulation
-  / listOfDataAboutPopulation.length;
+document.querySelector('.average-population').innerHTML = averageAge;
