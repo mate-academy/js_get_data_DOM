@@ -2,10 +2,11 @@
 
 const population = document.querySelectorAll('.population');
 
-const populationNum = [...population].map(
-  item => +item.innerText.replace(/[.,]/g, ''));
+const populationNumbers = [...population].map(
+  item => +item.innerText.replace(/[.,]/g, '')
+);
 
-const totalPopulation = populationNum.reduce(
+const totalPopulation = populationNumbers.reduce(
   (acc, current) => acc + current, 0
 );
 
