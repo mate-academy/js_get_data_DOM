@@ -2,21 +2,17 @@
 
 // write your code here
 
-const allElementPopulation = document.getElementsByClassName('population');
+const allElementPopulation = document.querySelectorAll('.population');
 
 const arrPopulation = [...allElementPopulation].map(
-  item => item.innerText
+  item => parseInt(item.innerText.split(',').join(''))
 );
 
-const arrToNumber = arrPopulation.map(
-  item => parseInt(item.split(',').join(''))
-);
-
-const totalPopulationNumber = arrToNumber.reduce(
+const totalPopulationNumber = arrPopulation.reduce(
   (prev, next) => prev + next
 );
 
-const avaragePopulationNumber = totalPopulationNumber / arrToNumber.length;
+const avaragePopulationNumber = totalPopulationNumber / arrPopulation.length;
 
 const avaragePopulation = document.querySelector('.average-population');
 const totalPopulation = document.querySelector('.total-population');
