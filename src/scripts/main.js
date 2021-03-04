@@ -1,8 +1,8 @@
 'use strict';
 
-const spansWithPopulationClass = document.querySelectorAll('span.population');
+const countriesPopulationStatistics = document.querySelectorAll('span.population');
 
-const allPopulation = [...spansWithPopulationClass]
+const allPopulation = [...countriesPopulationStatistics]
   .map(item => +(item.innerText.replace(/,/g, '')));
 
 const totalPopulation = allPopulation.reduce(
