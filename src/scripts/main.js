@@ -1,21 +1,23 @@
 'use strict';
 
-function calculateSum(populationArrayOfValues) {
-  return populationArrayOfValues.reduce((accumulator, current) => {
+function calculateSum(populationValue) {
+  return populationValue.reduce((accumulator, current) => {
     return accumulator + current;
   }, 0);
 }
 
-const population = document.querySelectorAll('.population');
-const totalPopulation = document.querySelector('.total');
-const averagePopulation = document.querySelector('.average');
+const populationElements = document.querySelectorAll('.population');
 
-const populationValues = [...population].map((x) => {
+const totalPopulationElement = document.querySelector('.total');
+const averagePopulationElement = document.querySelector('.average');
+
+const populationValues = [...populationElements].map((x) => {
   return +x.innerText.replace(/,/gi, '');
 });
 
-averagePopulation.innerText = (
-  calculateSum(populationValues) / populationValues.length)
-  .toLocaleString('en');
+averagePopulationElement.innerText = (
+  calculateSum(populationValues) / populationValues.length
+).toLocaleString('en');
 
-totalPopulation.innerText = calculateSum(populationValues).toLocaleString('en');
+totalPopulationElement.innerText = calculateSum(populationValues)
+  .toLocaleString('en');
