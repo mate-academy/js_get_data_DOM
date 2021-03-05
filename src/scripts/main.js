@@ -2,9 +2,10 @@
 
 const populationItems = document.querySelectorAll('.population');
 
-const totalPopulation = [...populationItems].reduce(
-  (amount, item) => amount + Number((item.innerText).split(',').join(''))
-  , 0);
+const totalPopulation = [...populationItems]
+  .reduce((amount, item) => (
+    amount + Number((item.innerText).split(',').join(''))
+  ), 0);
 
 const averagePopulation = totalPopulation / populationItems.length;
 
