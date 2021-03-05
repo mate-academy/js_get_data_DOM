@@ -1,8 +1,8 @@
 'use strict';
 
 const allPopulation = document.querySelectorAll('.population');
-const totalPopulation = document.querySelectorAll('.total-population');
-const averagePopulation = document.querySelectorAll('.average-population');
+const totalPopulation = document.querySelector('.total-population');
+const averagePopulation = document.querySelector('.average-population');
 
 const populationSum = [...allPopulation].reduce(
   (sum, value) =>
@@ -11,6 +11,6 @@ const populationSum = [...allPopulation].reduce(
 
 const averageSum = populationSum / allPopulation.length;
 
-totalPopulation.innerText = populationSum;
+totalPopulation.innerText = populationSum.toLocaleString('en');
 
-averagePopulation.innerText = averageSum;
+averagePopulation.innerText = averageSum.toLocaleString('en');
