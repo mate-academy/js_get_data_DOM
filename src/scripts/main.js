@@ -9,5 +9,5 @@ const totalAll = population.map(el => +el.innerText.replace(/,/g, ''))
 
 const averageAll = totalAll / population.length;
 
-total.innerText = totalAll;
-average.innerText = averageAll;
+total.innerText = totalAll.toLocaleString('en-US');
+average.innerText = averageAll.toLocaleString('en-US');
