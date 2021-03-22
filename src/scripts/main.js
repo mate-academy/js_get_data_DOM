@@ -6,8 +6,8 @@ const population = [...document.querySelectorAll('.population')]
 const total = document.querySelector('.total-population');
 const average = document.querySelector('.average-population');
 
-total.innerText = population
-  .reduce((acc, curr) => acc + curr);
+const totalPopulation = population.reduce((acc, curr) => acc + curr);
+const averagePopulation = totalPopulation / population.length;
 
-average.innerText = population
-  .reduce((acc, curr) => acc + curr) / population.length;
+total.innerText = totalPopulation.toLocaleString('en-US');
+average.innerText = averagePopulation.toLocaleString('en-US');
