@@ -1,9 +1,9 @@
 'use strict';
 
-const listItems = document.querySelector(".list").children;
+const listItems = document.querySelector('.list').children;
 
 function convertFromString(amountString) {
-  return  +amountString.replace(/,/g, '');
+  return +amountString.replace(/,/g, '');
 }
 
 function convertToString(amount) {
@@ -27,14 +27,15 @@ let totalAmount = 0;
 for (const item of listItems) {
   const countryAmount = item.querySelector('.population').innerHTML;
   const excludeComaNumber = convertFromString(countryAmount);
-  totalAmount += excludeComaNumber;  
+
+  totalAmount += excludeComaNumber;
 }
 
 const averageAmount = totalAmount / listItems.length;
-
 const totalSpan = document.querySelector('.total-population');
+
 totalSpan.innerHTML = convertToString(totalAmount);
 
 const averageSpan = document.querySelector('.average-population');
-averageSpan.innerHTML = convertToString(averageAmount);
 
+averageSpan.innerHTML = convertToString(averageAmount);
