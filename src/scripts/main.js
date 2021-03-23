@@ -1,15 +1,15 @@
 'use strict';
 
 const population = document.querySelectorAll('.population');
-const averagePopulation = document.querySelector('.total-population');
-const totalPopulation = document.querySelector('.average-population');
+const averagePopulation = document.querySelector('.average-population');
+const totalPopulation = document.querySelector('.total-population');
 
-const totalPopulationDate = [...population]
+const totalPopulationInfo = [...population]
   .map(number => +number.textContent
     .replace(/,/g, ''))
   .reduce((acc, cur) => acc + cur, 0);
 
-const averagePopulationDate = totalPopulationDate / population.length;
+const averagePopulationInfo = totalPopulationInfo / population.length;
 
-totalPopulation.textContent = totalPopulationDate.toLocaleString('en');
-averagePopulation.textContent = averagePopulationDate.toLocaleString('en');
+totalPopulation.textContent = totalPopulationInfo.toLocaleString('en');
+averagePopulation.textContent = averagePopulationInfo.toLocaleString('en');
