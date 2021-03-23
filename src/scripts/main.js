@@ -11,5 +11,5 @@ const totalPopulationResult = arrayOfPopulationNumber
 const length = spans.length;
 const averagePopulationResult = totalPopulationResult / length;
 
-totalPopulation.textContent = totalPopulationResult;
-averagePopulation.textContent = averagePopulationResult;
+totalPopulation.textContent = totalPopulationResult.toLocaleString('en-US');
+averagePopulation.textContent = averagePopulationResult.toLocaleString('en-US');
