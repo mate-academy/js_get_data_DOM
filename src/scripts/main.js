@@ -8,17 +8,8 @@ let total = [...countriesPopulation]
 
 let average = total / countriesPopulation.length;
 
-function formatText(number) {
-  const result = number.toString().split('');
-
-  for (let a = result.length - 4; a >= 0; a -= 3) {
-    result[a] = result[a] + ',';
-  }
-
-  return result.join('');
-}
-total = formatText(total);
-average = formatText(average);
+total = total.toLocaleString();
+average = average.toLocaleString();
 
 document.querySelector('.total').textContent = `Total: ${total}`;
 document.querySelector('.average').textContent = `Average: ${average}`;
