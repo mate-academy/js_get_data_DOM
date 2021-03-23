@@ -11,5 +11,7 @@ const populationSumm = population.reduce((sum, el) => {
   return sum + el;
 }, 0);
 
-totalPopulation.outerHTML = populationSumm;
-averagePopulation.outerHTML = populationSumm / population.length;
+const average = populationSumm / population.length;
+
+totalPopulation.outerHTML = populationSumm.toLocaleString();
+averagePopulation.outerHTML = average.toLocaleString();
