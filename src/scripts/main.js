@@ -12,7 +12,7 @@ const totalPopulation = populationsArray.reduce((accum, current) => {
 
 const averagePopulation = totalPopulation / populationsArray.length;
 
-const separateByCommas = (array) => {
+const splitByCommas = (array) => {
   const result = array;
   const firstComma = array.length % 3 === 0
     ? 3
@@ -27,12 +27,8 @@ const separateByCommas = (array) => {
 
 const totalSpan = document.querySelector('.total-population');
 
-totalSpan.textContent = separateByCommas(
-  totalPopulation.toString().split('')
-).join('');
+totalSpan.textContent = splitByCommas([...`${totalPopulation}`]).join('');
 
 const averageSpan = document.querySelector('.average-population');
 
-averageSpan.textContent = separateByCommas(
-  averagePopulation.toString().split('')
-).join('');
+averageSpan.textContent = splitByCommas([...`${averagePopulation}`]).join('');
