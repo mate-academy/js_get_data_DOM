@@ -1,8 +1,8 @@
 'use strict';
 
 const population = document.querySelectorAll('.population');
-const total = document.querySelector('.average-population');
-const avg = document.querySelector('.total-population');
+const total = document.querySelector('.total-population');
+const avg = document.querySelector('.average-population');
 let totalSum = 0;
 
 for (const countryPopulation of population) {
