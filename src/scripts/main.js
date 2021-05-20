@@ -1,17 +1,13 @@
 'use strict';
 
-const totalPop = document.getElementsByClassName('total-population');
+const populations = [...document.querySelectorAll('.population')]
+  .map((onePopulation) => +(onePopulation.innerText.replace(/,/g, '')));
 
-const popul = Array.from(document.getElementsByClassName('population'))
-  .map((pop) => Number(pop.innerText.replace(/,/g, '')));
+document.querySelector('.total-population').innerText = Number(
+  populations.reduce((total, amount) => total + amount)
+).toLocaleString('en');
 
-Array.from(totalPop)[0].textContent = Number(popul
-  .reduce((total, amount) => total + amount))
-  .toLocaleString('en');
-
-const averPop = document.getElementsByClassName('average-population');
-
-Array.from(averPop)[0].textContent = Number((popul
-  .reduce((total, amount) => total + amount) / popul.length)
-  .toFixed(0))
-  .toLocaleString('en');
+document.querySelector('.average-population').innerText = Number((
+  populations.reduce((total, amount) => total + amount) / populations.length)
+  .toFixed(0)
+).toLocaleString('en');
