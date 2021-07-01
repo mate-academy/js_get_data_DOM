@@ -6,17 +6,20 @@ const rechangeAverage = document.querySelector('.average-population');
 let total = 0;
 let average = 0;
 
-for (let i = 0; i < lengthOfList; i++) {
-  let numb = document.querySelectorAll('.population')[i].innerText;
+const allNum = document.querySelectorAll('.population');
 
-  numb = +numb.split(',').join('');
-  total += numb;
+[...allNum].forEach(elem => {
+  const add = parseNumber(elem);
 
-  if (i === lengthOfList - 1) {
-    average = Math.round(total / i + 1);
-  };
+  total += add;
+});
+
+function parseNumber(elem) {
+  const result = elem.innerText;
+
+  return +result.split(',').join('');
 };
-
+average = total / lengthOfList;
 total = total.toLocaleString('en-US');
 average = average.toLocaleString('en-US');
 
