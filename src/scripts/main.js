@@ -9,11 +9,8 @@ function numberWithCommas(number) {
 };
 
 const listOfNumbers = list.map(item => +item.innerText.split(',').join(''));
-let total = listOfNumbers.reduce((accumulator, item) => accumulator + item);
-let average = total / listOfNumbers.length;
+const total = listOfNumbers.reduce((accumulator, item) => accumulator + item);
+const average = total / listOfNumbers.length;
 
-total = numberWithCommas(total);
-average = numberWithCommas(average);
-
-totalPopulation.innerText = total;
-averagePopulation.innerText = average;
+totalPopulation.innerText = numberWithCommas(total);
+averagePopulation.innerText = numberWithCommas(average);
