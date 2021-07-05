@@ -6,9 +6,10 @@ const averagePopulation = document.querySelector('.average-population');
 
 countryPopulation = [ ...countryPopulation ];
 
-const sumOfPopulation
-  = countryPopulation.reduce((acc, country) =>
-    acc + +country.innerText.split(',').join(''), 0);
+const sumOfPopulation = countryPopulation.reduce(
+  (acc, country) => acc + +country.innerText.split(',').join(''), 
+   0,
+);
 
 totalPopulation.innerHTML
   = sumOfPopulation
