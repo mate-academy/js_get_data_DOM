@@ -10,8 +10,10 @@ const populationWithOutSeparator
 
 const population = populationWithOutSeparator.map(Number);
 
-const total = population.reduce((acc, el) => acc + el);
+const total = population.reduce((accamulat, element) => accamulat + element);
 const avarage = total / population.length;
 
-totaPopulation.textContent = total.toLocaleString().replace(/\s/g, ',');
-averagePopulation.textContent = avarage.toLocaleString().replace(/\s/g, ',');
+const result = (text) => text.toLocaleString().replace(/\s/g, ',');
+
+totaPopulation.textContent = result(total);
+averagePopulation.textContent = result(avarage);
