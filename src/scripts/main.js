@@ -6,7 +6,7 @@ const sumOfPopulationValues = allCountryPopulations
   .reduce((accumulator, currentPopulation) => {
     const currentPopulationValue = currentPopulation.split(',').join('');
 
-    return accumulator + +currentPopulationValue;
+    return accumulator + Number(currentPopulationValue);
   }, 0);
 const averagePopulation = sumOfPopulationValues / allCountryPopulations.length;
 const totalPopulationValue = document.querySelector('.total-population');
