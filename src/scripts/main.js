@@ -1,23 +1,13 @@
 'use strict';
 
-const isThousandsSeparator = (str) => {
-  const strRes = str.toString().split('');
+const isThousandsSeparator = (res) => res.toLocaleString().replace(/\s/g, ',');
 
-  for (let i = strRes.length - 4; i >= 0; i -= 3) {
-    strRes[i] += ',';
-  }
+const allValueOfCountry = [];
 
-  return strRes.join('');
-};
+const allOfCountry = [ ...document.querySelectorAll('.population') ];
 
-let allValueOfCountry = [];
-
-let allOfCountry = document.querySelectorAll('.population');
-
-allOfCountry = [...allOfCountry];
-
-allOfCountry.map(item => allValueOfCountry.push(item.textContent));
-allValueOfCountry = allValueOfCountry.map(x => +x.split(',').join(''));
+allOfCountry.map(item =>
+  allValueOfCountry.push(+item.textContent.split(',').join('')));
 
 const sumValueOfAllCountry = allValueOfCountry.reduce((acamulate, current) =>
   acamulate + current);
