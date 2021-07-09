@@ -2,12 +2,10 @@
 
 const isThousandsSeparator = (res) => res.toLocaleString().replace(/\s/g, ',');
 
-const allValueOfCountry = [];
-
 const allOfCountry = [ ...document.querySelectorAll('.population') ];
 
-allOfCountry.map(item =>
-  allValueOfCountry.push(+item.textContent.split(',').join('')));
+const allValueOfCountry = allOfCountry.map(item =>
+  +(item.textContent.split(',').join('')));
 
 const sumValueOfAllCountry = allValueOfCountry.reduce((acamulate, current) =>
   acamulate + current);
