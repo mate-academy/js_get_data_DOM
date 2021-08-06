@@ -13,6 +13,11 @@ const total = intArr.reduce((sum, current) => sum + current, 0);
 //  calculating avarage
 const avarage = total / intArr.length;
 
-//  replasing elements in HTML
-document.getElementsByClassName('total-population')[0].innerHTML = total;
-document.getElementsByClassName('average-population')[0].innerHTML = avarage;
+//  creating comma separator function
+function separator(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+//  replacing elements in HTML
+document.getElementsByClassName('total-population')[0].innerHTML = separator(total);
+document.getElementsByClassName('average-population')[0].innerHTML = separator(avarage);
