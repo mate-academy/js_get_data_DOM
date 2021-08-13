@@ -10,8 +10,7 @@ const outputOfAveragePopulation = document
   .querySelector('.average-population');
 
 const arrOfPopulation = [...populationOfCuntries]
-  .map((countryAverage) => countryAverage.innerText)
-  .map(el => +el.split(',').join(''))
+  .map((countryAverage) => +countryAverage.innerText.replace(/,/g, ''))
   .reduce((acc, next) => acc + next);
 
 const averageOfPopulation = arrOfPopulation / [...populationOfCuntries].length;
