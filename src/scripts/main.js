@@ -1,14 +1,14 @@
 'use strict';
 
 const threeDigitSeparator = (number) => {
-  const stringNumber = number.toString();
+  const stringNumber = number.toString().split('').reverse();
   const result = [];
 
   for (let i = 0; i < stringNumber.length; i++) {
     if (i % 3 === 0) {
       result.push(',');
     }
-    result.push(stringNumber.split('').reverse()[i]);
+    result.push(stringNumber[i]);
   }
 
   return result.reverse().slice(0, -1).join('');
