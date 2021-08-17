@@ -2,13 +2,12 @@
 
 const populations = document.querySelectorAll('[class="population"]');
 
-const resultArr = [];
 let totalPopulation = 0;
 let averagePopulation = 0;
 
-for (const item of populations) {
-  resultArr.push(+item.textContent.split(',').join(''));
-}
+const resultArr = [...populations].map(item => {
+  return item.innerHTML.split(',').join('');
+});
 
 totalPopulation = resultArr.reduce((sum, p) => sum + p, 0);
 averagePopulation = totalPopulation / resultArr.length;
