@@ -12,11 +12,17 @@ const divider = (number) => {
 
 const populations = document.querySelectorAll('.population');
 
-const total = [...populations].reduce((sum, { textContent }) => (
+const populationsFiltered = [...populations].filter(({ textContent }) => {
+  const contentToCheck = textContent.split(',').join('');
+
+  return !isNaN(contentToCheck) && isFinite(contentToCheck);
+});
+
+const total = populationsFiltered.reduce((sum, { textContent }) => (
   sum + +textContent.split(',').join('')
 ), 0);
 
-const average = total / populations.length;
+const average = Math.round(total / populationsFiltered.length);
 
 document.querySelector('.total-population').textContent = divider(total);
 
