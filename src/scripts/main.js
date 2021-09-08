@@ -1,13 +1,14 @@
 'use strict';
 
 // write your code here
-const pop = document.querySelectorAll('span.population');
-const arr = [...pop].map(item => item.innerText.replace(/,/g, ''));
+const people = document.querySelectorAll('span.population');
+const peopleSorted = [...people].map(item => item.innerText.replace(/,/g, ''));
 
-const arr2 = arr.map(el => Number(el));
+const peopleToNumber = peopleSorted.map(el => Number(el));
 
-const average = arr2.reduce((a, b) => (a + b)) / arr2.length;
-const total = arr2.reduce((a, b) => a + b, 0);
+const average = peopleToNumber.reduce((a, b) =>
+  (a + b)) / peopleToNumber.length;
+const total = peopleToNumber.reduce((a, b) => a + b, 0);
 
 const finalAverage = average.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 const finalTotal = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
