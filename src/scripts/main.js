@@ -8,12 +8,12 @@ const number = [...population].map(item => item.innerText);
 for (let i = 0; i < number.length; i++) {
   const string = number[i].split(',').join('');
 
-  obj.push(Number(string));
+  data.push(Number(string));
 }
 
-const total = obj.reduce((tot, amount) => tot + amount);
+const total = data.reduce((tot, amount) => tot + amount);
 
-const average = total / obj.length;
+const average = total / data.length;
 
 const totale = document.querySelector('.total-population');
 
