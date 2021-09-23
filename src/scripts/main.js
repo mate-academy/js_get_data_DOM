@@ -1,6 +1,6 @@
 'use strict';
 
-const obj = [];
+const data = [];
 
 const population = document.querySelectorAll('.population');
 const number = [...population].map(item => item.innerText);
