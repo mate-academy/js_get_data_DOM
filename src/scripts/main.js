@@ -6,7 +6,7 @@ const totalPopul = document.querySelector('.total-population');
 const averagePopul = document.querySelector('.average-population');
 const value = [...population].map(item => +item.innerText.split(',').join(''));
 const total = value.reduce((a, b) => a + b);
-const average = total / 10;
+const average = total / value.length;
 const totalString = separator(total);
 const averageString = separator(average);
 
