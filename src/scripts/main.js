@@ -5,8 +5,8 @@ const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
 
 const populationsCalc = [...populations]
-  .map(x => x.innerText)
-  .map(x => +x.replace(/,/g, ''))
+  .map(node => node.innerText)
+  .map(populationsToNum => +populationsToNum.replace(/,/g, ''))
   .reduce((a, b) => a + b);
 const averagePopulationCalc = populationsCalc / [...populations].length;
 
