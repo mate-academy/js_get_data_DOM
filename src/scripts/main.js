@@ -10,16 +10,18 @@ const populationsCalc = [...populations]
   .reduce((a, b) => a + b);
 const averagePopulationCalc = populationsCalc / [...populations].length;
 
-const populationsCalcArr = String(populationsCalc).split('');
-const averagePopulationCalcArr = String(averagePopulationCalc).split('');
+const stringWithSeparators = currentValue => {
+  const populationsCalcToArray = currentValue.toString().split('');
 
-for (let i = populationsCalcArr.length - 3; i > 0; i = i - 3) {
-  populationsCalcArr.splice(i, 0, ',');
+  for (let i = populationsCalcToArray.length - 3; i > 0; i = i - 3) {
+    populationsCalcToArray.splice(i, 0, ',');
+  }
+
+  return populationsCalcToArray.join('');
 };
 
-for (let i = averagePopulationCalcArr.length - 3; i > 0; i = i - 3) {
-  averagePopulationCalcArr.splice(i, 0, ',');
-};
+const populationsToString = stringWithSeparators(populationsCalc);
+const averagePopulationToString = stringWithSeparators(averagePopulationCalc);
 
-totalPopulation.innerText = (`${populationsCalcArr.join('')}`);
-averagePopulation.innerText = (`${averagePopulationCalcArr.join('')}`);
+totalPopulation.innerText = (`${populationsToString}`);
+averagePopulation.innerText = (`${averagePopulationToString}`);
