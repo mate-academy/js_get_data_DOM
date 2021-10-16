@@ -14,20 +14,7 @@ const totalPopulation = [...itemsPopulation].reduce((prev, item) => {
   return fullNumber + prev;
 }, 0);
 
-function GetThousandsFormat(num) {
-  const str = String(num);
-  const arrComma = [];
+const averagePopulation = (totalPopulation / countCountries);
 
-  for (let i = (str.length - 1); i >= 0; i -= 3) {
-    if (i <= 1) {
-      arrComma.push(str.slice(0, i + 1));
-    } else {
-      arrComma.push(str.slice(i - 2, i + 1));
-    }
-  }
-
-  return arrComma.reverse().join(',');
-};
-
-total.textContent = GetThousandsFormat(totalPopulation);
-average.textContent = GetThousandsFormat(totalPopulation / countCountries);
+total.textContent = totalPopulation.toLocaleString('en-US');
+average.textContent = averagePopulation.toLocaleString('en-US');
