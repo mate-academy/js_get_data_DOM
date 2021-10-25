@@ -10,17 +10,13 @@ const totalSumFormated = populationFormated(totalSum);
 const averagePopulation = averageCalc(totalSum, numberOfCountries);
 const averageFormated = populationFormated(averagePopulation);
 
-function getAllNumbers(arr) {
-  return arr.map((el) => +el.textContent.split(',').join(''));
+function getAllNumbers(numbers) {
+  return numbers.map((number) => Number(number.textContent.split(',').join('')));
 }
 
-function calculateSum(arrOfpopulation) {
-  return arrOfpopulation.reduce((acc, curr) => {
-    let sum = acc;
-
-    sum += curr;
-
-    return sum;
+function calculateSum(population) {
+  return population.reduce((acc, curr) => {
+    return acc + curr;
   }, 0);
 }
 
