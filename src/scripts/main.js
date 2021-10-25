@@ -1,15 +1,21 @@
 'use strict';
 
-const countriesByPopulationList = [...document.querySelectorAll('.population')]
-  .map(population => population.innerText)
-  .filter(population => typeof parseInt(population) === 'number')
-  .map(population => Number(population.split(',').join('')));
-const totalPopulation = countriesByPopulationList
+const countriesByPopulationList = document.querySelectorAll('.population');
+
+function getDataFromCollection(collection) {
+  const data = [...collection].map(population => population.innerText)
+    .filter(population => typeof parseInt(population) === 'number')
+    .map(population => Number(population.split(',').join('')));
+
+  return data;
+}
+
+const totalPopulation = getDataFromCollection(countriesByPopulationList)
   .reduce((sum, population) => sum + population, 0);
 const avaragePopulation = totalPopulation / countriesByPopulationList.length;
 
 function getNumberWithThousandsSeparator(number) {
-  const parts = number.toString().split('.').map(Number);
+  const parts = number.toString().split(',').map(Number);
   let leftPart = parts[0];
   const rightPart = parts[1];
 
