@@ -9,11 +9,10 @@ let sum = 0;
 let count = 0;
 
 for (const text of span) {
-  const x = text.textContent.replace(',', '');
-  const y = x.replace(',', '');
-  const z = +y.replace(',', '');
+  const number = +text.textContent.replace(',', '')
+    .replace(',', '').replace(',', '');
 
-  sum += z;
+  sum += number;
   count++;
 }
 
