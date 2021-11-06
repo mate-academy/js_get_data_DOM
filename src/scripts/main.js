@@ -21,10 +21,10 @@ const average = total / parsed.length;
 
 document
   .body
-  .querySelectorAll('.total-population')[0]
+  .querySelector('.total-population')
   .innerText = `${total.toLocaleString()}`;
 
 document
   .body
-  .querySelectorAll('.average-population')[0]
+  .querySelector('.average-population')
   .innerText = `${average.toLocaleString()}`;
