@@ -12,10 +12,7 @@ const parsed = [
         .split(',')
         .join('')));
 
-const total = parsed
-  .reduce((prev, curr) =>
-    prev + curr
-  , 0);
+const total = parsed.reduce((prev, curr) => prev + curr, 0);
 
 const average = total / parsed.length;
 
