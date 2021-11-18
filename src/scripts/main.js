@@ -6,8 +6,7 @@ const populationValues = [...populations].map(value => (
   +value.innerText.split(',').join('')
 ));
 const totalPopulation = populationValues.reduce((prev, value) =>
-  prev + value, 0
-);
+  prev + value, 0);
 const averagePopulation = totalPopulation / populationValues.length;
 
 document.querySelector('.total-population')
