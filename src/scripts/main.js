@@ -1,8 +1,9 @@
 'use strict';
 
 const allPopulation = document.querySelectorAll('.population');
-const populationCount = [...allPopulation].map((el) =>
-+el.innerText.split(',').join(''));
+const populationCount = [...allPopulation].map((el) => (
+  +el.innerText.split(',').join('')
+));
 const totalPopulation = populationCount.reduce((result, el) => result + el);
 const averagePopulation = totalPopulation / populationCount.length;
 
