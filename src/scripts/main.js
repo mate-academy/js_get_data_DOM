@@ -5,7 +5,7 @@ let totalPopulation = 0;
 let averagePopulation = 0;
 
 for (const value of textData) {
-  totalPopulation += +(value.firstChild.textContent).replaceAll(',', '');
+  totalPopulation += +(value.firstChild.textContent).split(',').join('');
 }
 
 averagePopulation = totalPopulation / textData.length;
