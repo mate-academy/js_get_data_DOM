@@ -1,16 +1,15 @@
 'use strict';
 
 const list = document.querySelectorAll('.population');
-const total = [...list].reduce(
-  (acc, item) => acc + Number(item.innerText.replace(/,/g, '')),
-  0
-);
+const total = [...list].map(item => item.innerText.split(',').join(''));
 
-const average = total / [...list].length;
+const totalString = total.reduce((acc, item) => +acc + +item);
+const averageString = totalString / total.length;
 
-const totalString = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-const averageString = average.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const totalPopulation = document.querySelector('.total-population');
 
-document.querySelector('.total-population').innerHTML = totalString;
+totalPopulation.innerHTML = totalString.toLocaleString('en-US');
 
-document.querySelector('.average-population').innerHTML = averageString;
+const averagePopulation = document.querySelector('.average-population');
+
+averagePopulation.innerHTML = averageString.toLocaleString('en-US');
