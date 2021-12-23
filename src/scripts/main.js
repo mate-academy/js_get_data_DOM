@@ -3,11 +3,7 @@
 const list = document.querySelectorAll('span' && '.population');
 const values = [...list];
 const value = values.map(a => +a.innerText.split(',').join(''));
-const total = value.reduce((prev, a) => {
-  const newValue = prev + a;
-
-  return newValue;
-});
+const total = value.reduce((prev, a) => (prev + a));
 
 const average = total / value.length;
 
