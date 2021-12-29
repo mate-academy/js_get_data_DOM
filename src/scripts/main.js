@@ -1,21 +1,13 @@
 'use strict';
 
-let total = 0;
-let average = 0;
-let count = 0;
-
 const span = document.querySelectorAll('.population');
+const spanNumbers = [...span].map(elem => +elem.innerText.split(',').join(''));
+const total = spanNumbers.reduce((a, b) => a + b);
+const average = total / spanNumbers.length;
 
-for (let elem of span) {
-  elem = elem.innerText.split(',').join('');
-  total += +elem;
-  count++;
-}
+const totalPopulation = total.toLocaleString('en-US');
+const averagePopulation = average.toLocaleString('en-US');
 
-average = (total / count);
+document.querySelector('.total-population').textContent = totalPopulation;
 
-document.querySelector('.total-population').textContent
-= total.toLocaleString('en-US');
-
-document.querySelector('.average-population').textContent
-= average.toLocaleString('en-US');
+document.querySelector('.average-population').textContent = averagePopulation;
