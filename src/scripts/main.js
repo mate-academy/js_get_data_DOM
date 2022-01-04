@@ -10,31 +10,24 @@ const averagePopulation = totalPopulation / arrPopulations.length;
 const spanAveragePopulation = document.querySelector('.average-population');
 const spanTotalPopulation = document.querySelector('.total-population');
 
-class DecimalFormat {
-  constructor(stringFormat) {
-    this.stringFormat = stringFormat;
+function format(num) {
+  let n = num;
+  const arr = [];
+  let str = '';
+
+  while (n !== 0) {
+    arr.unshift(n % 1000);
+    n = Math.floor(n / 1000);
   }
-  format(num) {
-    let n = num;
-    const arr = [];
-    let str = '';
 
-    while (n !== 0) {
-      arr.unshift(n % 1000);
-      n = Math.floor(n / 1000);
-    }
-
-    for (let i = 0; i < arr.length - 1; i++) {
-      str += arr[i] + ',';
-    }
-
-    str += arr[arr.length - 1];
-
-    return str;
+  for (let i = 0; i < arr.length - 1; i++) {
+    str += arr[i] + ',';
   }
+
+  str += arr[arr.length - 1];
+
+  return str;
 }
 
-const averageFormated = new DecimalFormat('000,000');
-
-spanAveragePopulation.textContent = averageFormated.format(averagePopulation);
-spanTotalPopulation.textContent = averageFormated.format(totalPopulation);
+spanAveragePopulation.textContent = format(averagePopulation);
+spanTotalPopulation.textContent = format(totalPopulation);

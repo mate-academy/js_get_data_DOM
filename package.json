@@ -41,5 +41,7 @@
   "mateAcademy": {
     "projectType": "layout"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jest": "^27.4.5"
+  }
 }
