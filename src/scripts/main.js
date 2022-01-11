@@ -2,19 +2,15 @@
 
 const listPopulation = document.querySelectorAll('.population');
 const arrayPopulation = [...listPopulation].map(
-  item => item.innerText.replace(/,/g, '')
+  item => Number(item.innerText.replace(/,/g, ''))
 );
-const numberPopulation = arrayPopulation.map(item => Number(item));
-
-const totalAmount = numberPopulation.reduce((sum, current) => sum + current);
-const total = String(totalAmount).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1,');
+const totalAmount = arrayPopulation.reduce((sum, current) => sum + current, 0);
 const totalElement = document.querySelector('.total-population');
 
-totalElement.innerText = total;
+totalElement.innerText = totalAmount.toLocaleString('en-EN');
 
-const average = totalAmount / numberPopulation.length;
-const averageResult = String(average)
-  .replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1,');
+const average = totalAmount / arrayPopulation.length;
+const averageResult = average.toLocaleString('en-EN');
 const averageElement = document.querySelector('.average-population');
 
 averageElement.innerText = averageResult;
