@@ -1,22 +1,24 @@
 'use strict';
 
-const countries = [...document.querySelectorAll('.population')];
+const population = document.querySelectorAll('.population');
+const numbers = [];
 
-const totalPopulation = countries
-  .map(country => country.innerText);
+for (const count of population) {
+  const countText = count.innerText;
 
-const arrOfNum = totalPopulation.map(el => el.split(',').join(''));
-
-let sum = 0;
-
-for (let i = 0; i < arrOfNum.length; i++) {
-  sum += +arrOfNum[i];
+  numbers.push(+countText.split(',').join(''));
 }
 
-const aver = sum / arrOfNum.length;
+const totalPopulation = document.querySelector('.total-population');
+const averagePopulation = document.querySelector('.average-population');
 
-document.querySelector('.total-population').textContent = `
-${sum.toLocaleString('en-US')}`;
+const totalPopulationNum = numbers.reduce((sum, count) => {
+  return sum + count;
+});
 
-document.querySelector('.average-population').textContent = `
-${aver.toLocaleString('en-US')}`;
+const averagePopulationNum = numbers.reduce((sum, count) => {
+  return (sum + count);
+}) / numbers.length;
+
+totalPopulation.textContent = totalPopulationNum.toLocaleString('en-EN');
+averagePopulation.textContent = averagePopulationNum.toLocaleString('en-EN');
