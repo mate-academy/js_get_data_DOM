@@ -9,7 +9,6 @@ for (const countryPopulation of population) {
 
 const result = sum.toLocaleString('en');
 const average = (sum / population.length).toLocaleString('en');
-
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
 
