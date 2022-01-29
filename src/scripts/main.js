@@ -7,10 +7,12 @@ function numberWithCommas(number) {
 const populationsDocuments = document.querySelectorAll('.population');
 const totalPopulationDocument = document.querySelector('.total-population');
 const avaragePopulationDocument = document.querySelector('.average-population');
+
 const totalPopulation = [...populationsDocuments]
   .map(number => +number.innerText.split(',').join(''))
   .reduce((a, b) => a + b);
+
 const avaragePopulation = totalPopulation / populationsDocuments.length;
 
-totalPopulationDocument.innerText = numberWithCommas(totalPopulation);
-avaragePopulationDocument.innerText = numberWithCommas(avaragePopulation);
+totalPopulationDocument.textContent = numberWithCommas(totalPopulation);
+avaragePopulationDocument.textContent = numberWithCommas(avaragePopulation);
