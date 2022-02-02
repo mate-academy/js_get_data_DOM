@@ -1,6 +1,11 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_get_data_DOM/)
+<<<<<<< HEAD
+    - [DEMO LINK](https://romafaginasiev.github.io/js_get_data_DOM/)
+2. Follow [this instructions](https://mate-acadenpm my.github.io/layout_task-guideline/)
+=======
+    - [DEMO LINK](https://github.com/romafanasiev/js_comminpmget_data_DOM)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
+>>>>>>> ecf6025d050d21e992beca9b5e9d25e0c8d42145
     - There are no tests for this task so use `npm run lint` command instead of `npm test` 
 
 ### Task: TOP 10 LARGEST COUNTRIES BY POPULATION
