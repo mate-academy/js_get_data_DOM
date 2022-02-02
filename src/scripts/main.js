@@ -4,15 +4,15 @@ function numberWithCommas(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-const populationsDocuments = document.querySelectorAll('.population');
-const totalPopulationDocument = document.querySelector('.total-population');
-const avaragePopulationDocument = document.querySelector('.average-population');
+const population = document.querySelectorAll('.population');
+const totalPopulation = document.querySelector('.total-population');
+const avaragePopulation = document.querySelector('.average-population');
 
-const totalPopulation = [...populationsDocuments]
+const totalPopulationNumber = [...population]
   .map(number => +number.innerText.split(',').join(''))
   .reduce((a, b) => a + b);
 
-const avaragePopulation = totalPopulation / populationsDocuments.length;
+const avaragePopulationNumber = totalPopulationNumber / population.length;
 
-totalPopulationDocument.textContent = numberWithCommas(totalPopulation);
-avaragePopulationDocument.textContent = numberWithCommas(avaragePopulation);
+totalPopulation.textContent = numberWithCommas(totalPopulationNumber);
+avaragePopulation.textContent = numberWithCommas(avaragePopulationNumber);
