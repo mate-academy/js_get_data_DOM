@@ -3,14 +3,14 @@
 const list = document.querySelectorAll('.population');
 const texts = [...list].map(item => item.innerText);
 let sum = 0;
+const total = document.querySelector('.total-population');
+const average = document.querySelector('.average-population');
 
 for (let i = 0; i < texts.length; i++) {
-  sum += Number(texts[i]);
+  sum += Number(texts[i].replace(/[\s.,%]/g, ''));
 }
 
 const ave = sum / (texts.length - 1);
-const total = document.querySelector('.total-population');
-const average = document.querySelector('.average-population');
 
 total.textContent = sum;
 average.textContent = ave;
