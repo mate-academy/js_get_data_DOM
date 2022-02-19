@@ -12,5 +12,5 @@ for (let i = 0; i < texts.length; i++) {
 
 const ave = sum / (texts.length - 1);
 
-total.textContent = sum;
-average.textContent = ave;
+total.textContent = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+average.textContent = ave.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
