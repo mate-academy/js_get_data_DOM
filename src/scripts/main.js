@@ -1,21 +1,14 @@
 'use strict';
 
-const dataSpan = document.querySelectorAll('.population');
+const populationCount = document.querySelectorAll('.population');
 
-let sum = 0;
+const allSum = [...populationCount].reduce((_, item) => +item
+  .textContent.replace(/[^0-9]/g, ''), 0);
 
-for (const item of dataSpan) {
-  const number = +item.textContent.replace(/[^0-9]/g, '');
+const averageSum = allSum / populationCount.length;
 
-  sum += number;
-}
+const totalCount = document.querySelector('.total-population');
+const averageCount = document.querySelector('.average-population');
 
-const average = sum / dataSpan.length;
-
-const htmlTotal = document.querySelector('.total-population');
-const htmlAverage = document.querySelector('.average-population');
-
-htmlTotal.textContent = sum;
-htmlAverage.textContent = average;
-
-// write your code here
+totalCount.textContent = allSum.toLocaleString('en-US');
+averageCount.textContent = averageSum.toLocaleString('en-US');
