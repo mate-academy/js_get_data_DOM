@@ -2,7 +2,7 @@
 
 const masive = document.querySelectorAll('.population');
 const masiveNumber = [...masive].map(
-  ke => Number(ke.textContent.replace(/,/g, '')));
+  string => Number(string.textContent.replace(/,/g, '')));
 const resultTotal = masiveNumber.reduce((sum, x) => sum + x, 0);
 const resultAverage = resultTotal / masiveNumber.length;
 
