@@ -2,6 +2,10 @@
 
 // write your code here
 
+const allPopulations = document.querySelectorAll('.population');
+
+const total = document.querySelector('.total-population');
+
 const average = document.querySelector('.average-population');
 
 let totalPopulation = 0;
@@ -12,6 +16,5 @@ allPopulations.forEach(element => {
 
 total.textContent = totalPopulation.toLocaleString('en-US');
 
-average.textContent = (totalPopulation / allPopulations.length).toLocaleString('en-US');
 average.textContent = (totalPopulation / allPopulations.length)
   .toLocaleString('en-US');
