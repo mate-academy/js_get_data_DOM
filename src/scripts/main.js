@@ -5,14 +5,10 @@ const select = document.body.querySelectorAll('.population');
 const listPopulation = [...select].reduce((acc, val) => {
   const num = +val.textContent.replaceAll(',', '');
 
-  acc.push(num);
+  return acc + num;
+}, 0);
 
-  return acc;
-}, []);
+const averagePopulation = listPopulation / select.length;
 
-const totalPopulation = listPopulation.reduce((acc, val) => acc + val);
-
-const averagePopulation = totalPopulation / listPopulation.length;
-
-document.querySelector('.total-population').innerHTML = totalPopulation;
+document.querySelector('.total-population').innerHTML = listPopulation;
 document.querySelector('.average-population').innerHTML = averagePopulation;
