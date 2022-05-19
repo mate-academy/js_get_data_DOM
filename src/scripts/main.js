@@ -15,5 +15,4 @@ const totalPopulation = [...spanCollection].reduce(
 averageEl.textContent = (totalPopulation / spanCollection.length)
   .toLocaleString('en');
 
-totalEl.textContent = (totalPopulation / spanCollection.length)
-  .toLocaleString('en');
+totalEl.textContent = totalPopulation.toLocaleString('en');
