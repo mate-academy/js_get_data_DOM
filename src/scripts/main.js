@@ -27,9 +27,10 @@ for (const number of result) {
 const average = total / length;
 
 const totalPopulation = document.querySelector('p').children[0];
+
 const averagePopulation = document.querySelector('[class="average"]')
   .children[0];
 
-averagePopulation.textContent = average;
+averagePopulation.textContent = average.toLocaleString('en-US');
 
-totalPopulation.textContent = total;
+totalPopulation.textContent = total.toLocaleString('en-US');
