@@ -1,7 +1,8 @@
 'use strict';
 
-const CountriesPopulation = document.querySelectorAll('.population');
-const populationData = [...CountriesPopulation].map(number => number.innerText);
+const countriesPopulation = document.querySelectorAll('.population');
+const populationData = [...countriesPopulation]
+  .map(populationValue => populationValue.innerText);
 
 function getTotalPopulation(populations) {
   return populations
@@ -17,19 +18,15 @@ function getCommaFormat(num) {
   return new Intl.NumberFormat('en-US', { style: 'decimal' }).format(num);
 }
 
-function showTotalPopulation(populations) {
+function showGeneralPopulationInfo(populations) {
   const totalPopulationField = document.querySelector('.total-population');
-  const totalPopulation = getTotalPopulation(populations);
-
-  totalPopulationField.textContent = getCommaFormat(totalPopulation);
-}
-
-function showAveragePopulation(populations) {
   const averagePopulationField = document.querySelector('.average-population');
+
+  const totalPopulation = getTotalPopulation(populations);
   const averagePopulation = getAveragePopulation(populations);
 
+  totalPopulationField.textContent = getCommaFormat(totalPopulation);
   averagePopulationField.textContent = getCommaFormat(averagePopulation);
 }
 
-showTotalPopulation(populationData);
-showAveragePopulation(populationData);
+showGeneralPopulationInfo(populationData);
