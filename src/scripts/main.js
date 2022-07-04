@@ -3,7 +3,9 @@
 const element = document.querySelectorAll('.population');
 
 const numbers = [...element].map(item =>
-  +item.textContent.split(',').join(''));
+  +item.textContent.split(',').join('')
+
+);
 
 const total = numbers.reduce((a, b) => (a + b), 0);
 
