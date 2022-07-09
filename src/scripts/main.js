@@ -8,12 +8,10 @@ population.forEach(countrie => {
   populationTotal += Number(countrie.textContent.split(',').join(''));
 });
 
-const populationSum = populationTotal;
-
 const populationAverage = populationTotal / population.length;
 
 document.querySelector(
-  '.total-population').textContent = populationSum.toLocaleString();
+  '.total-population').textContent = populationTotal.toLocaleString();
 
 document.querySelector(
   '.average-population').textContent = populationAverage.toLocaleString();
