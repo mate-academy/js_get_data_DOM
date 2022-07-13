@@ -1,5 +1,5 @@
 1. Replace. My Demo link:
-    - [DEMO LINK](https://07spirit.github.io/js_get_data_DOM/)
+    - [DEMO LINK](https://07spirit.github.io/js_get_data_DOM/src/index.html/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - There are no tests for this task so use `npm run lint` command instead of `npm test` 
 
