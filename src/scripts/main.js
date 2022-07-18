@@ -1,12 +1,12 @@
 'use strict';
 
-const allSpans = document.getElementsByTagName('span');
+const allSpans = document.querySelectorAll('span');
 let total = 0;
 let count = 0;
 
 for (const element of allSpans) {
   if (element.classList.contains('population')) {
-    total += +element.textContent.replace(/,/gi, '');
+    total += Number(element.textContent.replace(/,/gi, ''));
     count++;
   }
 }
