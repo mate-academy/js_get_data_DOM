@@ -4,9 +4,9 @@ const allSpans = document.querySelectorAll('span');
 let total = 0;
 let count = 0;
 
-for (const element of allSpans) {
-  if (element.classList.contains('population')) {
-    total += Number(element.textContent.replace(/,/gi, ''));
+for (const span of allSpans) {
+  if (span.classList.contains('population')) {
+    total += Number(span.textContent.replace(/,/gi, ''));
     count++;
   }
 }
