@@ -1,6 +1,6 @@
 'use strict';
 
-const population = document.getElementsByClassName('population');
+const population = document.querySelectorAll('.population');
 
 const totalPopulationElement = document.querySelector('.total-population');
 const averagePopulationElement = document.querySelector('.average-population');
