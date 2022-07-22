@@ -2,10 +2,8 @@
 
 const population = document.getElementsByClassName('population');
 
-const totalPopulationElement = document
-  .getElementsByClassName('total-population')[0];
-const averagePopulationElement = document
-  .getElementsByClassName('average-population')[0];
+const totalPopulationElement = document.querySelector('.total-population');
+const averagePopulationElement = document.querySelector('.average-population');
 
 const totalPopulation = [...population].reduce((acc, country) => {
   return acc + Number(country.innerText.split(',').join(''));
