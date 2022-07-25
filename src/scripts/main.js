@@ -15,8 +15,8 @@ const avaragePopulation = totalPopulation / population.length;
 const totalToIncert = totalPopulation.toLocaleString('en-US');
 const avarageToIncert = avaragePopulation.toLocaleString('en-US');
 
-const elementTotal = document.querySelectorAll('.total-population');
-const elementAvarage = document.querySelectorAll('.average-population');
+const elementTotal = document.querySelector('.total-population');
+const elementAvarage = document.querySelector('.average-population');
 
-elementTotal[0].innerHTML = totalToIncert;
-elementAvarage[0].innerHTML = avarageToIncert;
+elementTotal.innerHTML = totalToIncert;
+elementAvarage.innerHTML = avarageToIncert;
