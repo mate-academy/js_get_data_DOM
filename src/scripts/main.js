@@ -13,9 +13,10 @@ const totalPopulation = dataNums.reduce((sum, value) => sum + value, 0);
 const totalCommasFormat = thousandsSeparator(totalPopulation);
 const averagePopulation = thousandsSeparator(totalPopulation / dataNums.length);
 
+// insert the obtained results into the corresponding places of the code
+totalSpan.textContent = totalCommasFormat;
+averageSpan.textContent = averagePopulation;
+
 function thousandsSeparator(num) {
   return num.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace('.0', '');
 }
-
-totalSpan.textContent = totalCommasFormat;
-averageSpan.textContent = averagePopulation;
