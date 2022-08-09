@@ -18,5 +18,5 @@ totalSpan.textContent = totalCommasFormat;
 averageSpan.textContent = averagePopulation;
 
 function thousandsSeparator(num) {
-  return num.toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace('.0', '');
+  return num.toFixed(0).replace(/\d(?=(\d{3})+$)/g, '$&,');
 }
