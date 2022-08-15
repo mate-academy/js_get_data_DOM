@@ -11,7 +11,7 @@ function addCommas(number) {
   let result = '';
   const num = String(number).split('').reverse().join('');
 
-  for (let i = 0; i < String(number).length; i++) {
+  for (let i = 0; i < num.length; i++) {
     if (i % 3 === 0 && i !== 0) {
       result += ',';
     }
@@ -19,8 +19,8 @@ function addCommas(number) {
     result += num[i];
   }
 
-  return result;
+  return result.split('').reverse().join('');
 }
 
-total.textContent = addCommas(totalPopulation).split('').reverse().join('');
-average.textContent = addCommas(averagePopulation).split('').reverse().join('');
+total.textContent = addCommas(totalPopulation);
+average.textContent = addCommas(averagePopulation);
