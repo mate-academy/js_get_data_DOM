@@ -1,3 +1,22 @@
 'use strict';
 
-// write your code here
+const bodyElement = document.body;
+const spanElement = bodyElement.querySelectorAll('.population');
+let total = 0;
+const arr = [];
+
+for (const span of spanElement) {
+  const temp = span.innerHTML.split(',').join('');
+
+  total += +temp;
+  arr.push(temp);
+};
+
+const totalResult = new Intl.NumberFormat().format(total);
+const averageResult = new Intl.NumberFormat().format(total / arr.length);
+
+const textTotalPopulation = document.querySelector('.total-population');
+const textAveragePopulation = document.querySelector('.average-population');
+
+textTotalPopulation.textContent = totalResult;
+textAveragePopulation.textContent = averageResult;
