@@ -12,8 +12,8 @@ function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-document.querySelector('.total-population').innerHTML = numberWithCommas(sum);
-
 document
   .querySelector('.average-population')
   .innerHTML = numberWithCommas(sum / count);
+
+document.querySelector('.total-population').innerHTML = numberWithCommas(sum);
