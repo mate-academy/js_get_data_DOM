@@ -4,7 +4,7 @@ const populationList = document.querySelectorAll('.population');
 
 const total = [...populationList]
   .map(element => Number(element.textContent.split(',').join('')))
-  .reduce((sum, current) => sum += current);
+  .reduce((sum, current) => sum + current);
 
 const average = total / populationList.length;
 
