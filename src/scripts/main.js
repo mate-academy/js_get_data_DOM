@@ -18,7 +18,7 @@ function thousandsSeparate(num) {
   return num.toString()
     .split('')
     .reverse()
-    .map((char, i) => char + (i % 3 ? '' : ','))
+    .map((char, i) => char + (i % 3 === 0 && i !== 0 ? ',' : ''))
     .reverse()
     .join('');
 }
