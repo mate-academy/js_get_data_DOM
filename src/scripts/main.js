@@ -6,14 +6,13 @@ const arrOfPopulations = [ ...populations ];
 const sumPopulations = arrOfPopulations
   .reduce((prev, elem) => prev + +elem.innerText.split(',').join(''), 0);
 
-const totalPopulation = document.querySelector('.total-population');
+document.querySelector('.total-population')
+  .innerHTML = thousandsSeparate(sumPopulations);
 
-totalPopulation.innerHTML = thousandsSeparate(sumPopulations);
+const avergePopulation = sumPopulations / arrOfPopulations.length;
 
-const averagePopulation = document.querySelector('.average-population');
-const avergeSum = sumPopulations / arrOfPopulations.length;
-
-averagePopulation.innerHTML = thousandsSeparate(avergeSum);
+document.querySelector('.average-population')
+  .innerHTML = thousandsSeparate(avergePopulation);
 
 function thousandsSeparate(num) {
   return num.toString()
