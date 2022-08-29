@@ -1,19 +1,22 @@
 'use strict';
 
-let sum = 0;
-let count = 0;
+const populationArray = [];
 
-document.querySelectorAll('.population').forEach((item) => {
-  sum += parseInt(item.innerHTML.split(',').join(''));
-  count++;
-});
+document.querySelectorAll('.population')
+  .forEach(
+    (people) => populationArray
+      .push(parseInt(people.innerHTML.split(',').join('')))
+  );
 
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
+const totalPopulation = populationArray
+  .reduce((a, b) => a + b, 0);
 
 document
   .querySelector('.average-population')
-  .innerHTML = numberWithCommas(sum / count);
+  .innerHTML = (totalPopulation / populationArray.length)
+    .toLocaleString();
 
-document.querySelector('.total-population').innerHTML = numberWithCommas(sum);
+document
+  .querySelector('.total-population')
+  .innerHTML = (totalPopulation)
+    .toLocaleString();
