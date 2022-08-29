@@ -16,21 +16,5 @@ const average = total / populations.length;
 const averagePopulation = document.querySelector('.average-population');
 const totalPopulation = document.querySelector('.total-population');
 
-function decimalFormat(number) {
-  let n = number;
-  const result = [];
-
-  do {
-    const part = Math.trunc(n / 1000);
-
-    result.push(n - part * 1000);
-    n = part;
-  } while (n > 1000);
-
-  result.push(n);
-
-  return result.reverse().join(',');
-}
-
-totalPopulation.innerHTML = decimalFormat(total);
-averagePopulation.innerHTML = decimalFormat(average);
+totalPopulation.innerHTML = total.toLocaleString('en-US');
+averagePopulation.innerHTML = average.toLocaleString('en-US');
