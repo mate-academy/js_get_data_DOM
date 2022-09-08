@@ -13,7 +13,7 @@ const average = total / text.length;
 
 const totalResult = document.querySelector('.total-population');
 
-const averageResult = document.getElementsByClassName('.average-population');
+const averageResult = document.querySelector('.average-population');
 
 totalResult.textContent = total.toLocaleString('en-Us');
 
