@@ -1,11 +1,9 @@
 'use strict';
 
 // write your code here
-const items = document.querySelectorAll('span');
+const items = document.querySelectorAll('.population');
 
 const populationArray = [...items].map(item => item.innerText);
-
-populationArray.length = populationArray.length - 2;
 
 for (const num in populationArray) {
   populationArray[num] = +populationArray[num].replaceAll(',', '');
