@@ -3,12 +3,12 @@
 const list = document.querySelectorAll('.population');
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
-const separator = new Intl.NumberFormat('en-US');
+const formatter = new Intl.NumberFormat('en-US');
 let total = 0;
 
-for (let i = 0; i < list.length; i++) {
-  total += Number(list[i].innerHTML.split(',').join(''));
-}
+total = [...list]
+  .map(num => Number(num.innerHTML.split(',').join('')))
+  .reduce((sum, num) => sum + num);
 
-totalPopulation.innerHTML = String(separator.format(total));
-averagePopulation.innerHTML = String(separator.format(total / list.length));
+totalPopulation.innerHTML = String(formatter.format(total));
+averagePopulation.innerHTML = String(formatter.format(total / list.length));
