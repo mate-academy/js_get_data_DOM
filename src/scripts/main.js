@@ -2,21 +2,13 @@
 
 // write your code here
 const populations = document.querySelectorAll('.population');
-const numbersArray = [...populations].map(item => item.innerText);
-let total = 0;
+const summ = [...populations]
+  .map(el => el.innerHTML)
+  .map(el => +el.replaceAll(',', ''))
+  .reduce((x, sum) => x + sum, 0);
 
-for (const number of numbersArray) {
-  const temp = number.innerHTML.split(',').join('');
+document.querySelector('.total-population').textContent
+   = summ.toLocaleString('en-US');
 
-  total += +temp;
-}
-
-const average = total / numbersArray.length;
-
-const textTotalPopulation = document.querySelectorAll('.total-population');
-
-textTotalPopulation.textContent = total;
-
-const textAveragePopulation = document.querySelectorAll('.average-population');
-
-textAveragePopulation.textContent = average;
+document.querySelector('.average-population')
+  .textContent = (summ / 10).toLocaleString('en-US');
