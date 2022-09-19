@@ -4,13 +4,12 @@
 const population = document.querySelectorAll('span.population');
 const totalElement = document.querySelector('span.total-population');
 const averageElement = document.querySelector('span.average-population');
-const populationNums = [];
+const populationNums = [...population]
+  .map(populationElement => (
+    Number(populationElement.innerText.split(',').join(''))
+  ));
 
-for (const populationElement of population) {
-  populationNums.push(+populationElement.innerText.split(',').join(''));
-}
-
-const total = populationNums.reduce((a, b) => a + b);
+const total = populationNums.reduce((prev, curr) => prev + curr);
 const average = total / populationNums.length;
 
 totalElement.innerText = total.toString()
