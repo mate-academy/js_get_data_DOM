@@ -18,12 +18,6 @@ for (let i = 0; i < totalPopulationArr.length; i++) {
   }
 };
 
-totalPopulationWithComas = totalPopulationWithComas.reverse().join('');
-
-const elementTotal = document.getElementsByClassName('total-population')[0];
-
-elementTotal.innerText = totalPopulationWithComas;
-
 const averagePopulationArr = String(averagePopulation).split('').reverse();
 let averagePopulationWithComas = [];
 
@@ -35,8 +29,10 @@ for (let i = 0; i < averagePopulationArr.length; i++) {
   }
 };
 
+totalPopulationWithComas = totalPopulationWithComas.reverse().join('');
+const elementTotal = document.getElementsByClassName('total-population')[0];
+elementTotal.innerText = totalPopulationWithComas;
+
 averagePopulationWithComas = averagePopulationWithComas.reverse().join('');
-
 const elementAverage = document.getElementsByClassName('average-population')[0];
-
 elementAverage.innerText = averagePopulationWithComas;
