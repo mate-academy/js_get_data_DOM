@@ -12,9 +12,9 @@ population.forEach(item => {
 const total = arr.reduce((prev, current) => +prev + +current, 0);
 const average = total / population.length;
 
-const result = (node, num) => {
+const insertResult = (node, num) => {
   node.innerText = num.toLocaleString('de-DE').split('.').join(',');
 };
 
-result(totalPopulation, total);
-result(averagePopulation, average);
+insertResult(totalPopulation, total);
+insertResult(averagePopulation, average);
