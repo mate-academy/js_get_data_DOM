@@ -1,26 +1,26 @@
 'use strict';
 
-const numbers = [].map.call(document.querySelectorAll('.population'),
-  function(el) {
-    return el.innerHTML;
-  });
+const numbersArray = [...document.querySelectorAll('.population')].map(
+  el => el.innerHTML);
 
-const noComa = numbers.map(function minusOne(el) {
-  return el.replaceAll(',', '');
-});
+const normalizeNumber = function normalizeNumber(numbers) {
+  const noComa = numbers.map(el => el.replaceAll(',', ''));
 
-const arrOfNum = noComa.map(str => {
-  return Number(str);
-});
+  const arrOfNum = noComa.map(str => Number(str));
 
-const sum = arrOfNum.reduce((accumulator, value) => {
+  return arrOfNum;
+};
+
+const sum = normalizeNumber(numbersArray).reduce((accumulator, value) => {
   return accumulator + value;
 }, 0);
 
-const average = sum / arrOfNum.length;
+const average = sum / normalizeNumber(numbersArray).length;
 
 document.querySelector('.total-population').innerHTML
- = `${sum.toLocaleString('en-US')}`;
+= `${sum.toLocaleString('en-US')}`;
 
 document.querySelector('.average-population').innerHTML
- = `${average.toLocaleString('en-US')}`;
+= `${average.toLocaleString('en-US')}`;
+
+normalizeNumber(numbersArray);
