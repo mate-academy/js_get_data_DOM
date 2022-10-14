@@ -13,11 +13,11 @@ function makeString(number) {
 }
 
 const population = document.querySelectorAll('.population');
-const total = [...population].map(item => {
+const total = population.map(item => {
   return Number(item.innerHTML.split(',').join(''));
 }).reduce((prev, item) => prev + item, 0);
 
-const average = total / [...population].length;
+const average = total / population.length;
 
 const totalSpan = document.querySelector('.total-population');
 const averageSpan = document.querySelector('.average-population');
