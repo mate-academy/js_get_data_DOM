@@ -17,10 +17,12 @@ const sum = normalizeNumber(numbersArray).reduce((accumulator, value) => {
 
 const average = sum / normalizeNumber(numbersArray).length;
 
-document.querySelector('.total-population').innerHTML
+const totalPopulation = document.querySelector('.total-population').innerHTML
 = `${sum.toLocaleString('en-US')}`;
 
-document.querySelector('.average-population').innerHTML
+const avrPopulation = document.querySelector('.average-population').innerHTML
 = `${average.toLocaleString('en-US')}`;
 
 normalizeNumber(numbersArray);
+
+return totalPopulation && avrPopulation;
