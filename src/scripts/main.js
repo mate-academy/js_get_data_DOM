@@ -10,10 +10,10 @@ const averagePop = totalPop / arrPop.length;
 const totalPopArr = String(totalPop).split('').reverse();
 let totalPopComas = [];
 
-for (let i = 0; i < totalPopArr.length; i++) {
-  totalPopComas.push(totalPopArr[i]);
+for (let n = 0; n < totalPopArr.length; n++) {
+  totalPopComas.push(totalPopArr[n]);
 
-  if ((i + 1) % 3 === 0 && i !== totalPopArr.length - 1) {
+  if ((n + 1) % 3 === 0 && n !== totalPopArr.length - 1) {
     totalPopComas.push(',');
   }
 };
