@@ -1,6 +1,11 @@
 'use strict';
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
 const popu = document.querySelectorAll('.population');
+
 const arrPopu = [...popu];
 let total = 0;
 
@@ -20,8 +25,8 @@ for (const chap of arrPopu) {
 const average = total / arrPopu.length;
 const addTotal = document.querySelector('.total-population');
 
-addTotal.innerHTML = `${total}`;
+addTotal.innerHTML = `${numberWithCommas(total)}`;
 
 const addAverage = document.querySelector('.average-population');
 
-addAverage.innerHTML = `${average}`;
+addAverage.innerHTML = `${numberWithCommas(average)}`;
