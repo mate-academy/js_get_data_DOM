@@ -26,23 +26,15 @@ const populationAllCountry = document.getElementsByClassName('population');
 const arrayPopulationAllCountry = [...populationAllCountry].map(popular =>
   popular.innerText);
 
-let sumPopulationAllCountry = 0;
-
-for (const countryPopulation of arrayPopulationAllCountry) {
-  sumPopulationAllCountry += Number(countryPopulation.split(',').join(''));
-}
+const sumPopulationAllCountry = arrayPopulationAllCountry
+  .reduce((sumPopulation, countryPopulation) =>
+    sumPopulation + Number(countryPopulation.split(',').join('')), 0);
 
 const avaragePopulation = sumPopulationAllCountry
 / arrayPopulationAllCountry.length;
 
-document.body
-  .children[0]
-  .children[2]
-  .children[0]
+document.querySelector('.total-population')
   .innerHTML = divide(sumPopulationAllCountry);
 
-document.body
-  .children[0]
-  .children[3]
-  .children[0]
+document.querySelector('.average-population')
   .innerHTML = divide(avaragePopulation);
