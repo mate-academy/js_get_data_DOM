@@ -1,7 +1,8 @@
 'use strict';
 
 const allPop = document.querySelectorAll('.population');
-const arrPop = [...allPop].map(number => +number.innerText.split(',').join(''));
+const arrPop = [...allPop].map(number =>
+  Number(number.innerText.split(',').join('')));
 
 const totalPop = arrPop.reduce((a, b) => a + b);
 const averagePop = totalPop / arrPop.length;
