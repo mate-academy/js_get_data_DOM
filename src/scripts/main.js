@@ -6,36 +6,41 @@ const arrPop = [...allPop].map(number => +number.innerText.split(',').join(''));
 const totalPop = arrPop.reduce((a, b) => a + b);
 const averagePop = totalPop / arrPop.length;
 
-const totalPopArr = String(totalPop).split('').reverse();
-let totalPopComas = [];
+document.querySelector('.total-population')
+  .innerHTML = totalPop.toLocaleString('en-US');
 
-for (let n = 0; n < totalPopArr.length; n++) {
-  totalPopComas.push(totalPopArr[n]);
+document.querySelector('.average-population')
+  .innerHTML = averagePop.toLocaleString('en-US');
 
-  if ((n + 1) % 3 === 0 && n !== totalPopArr.length - 1) {
-    totalPopComas.push(',');
-  }
-};
+// const totalPopArr = String(totalPop).split('').reverse();
+// let totalPopComas = [];
+// const averagePopArr = String(averagePop).split('').reverse();
+// let averagePopComas = [];
 
-const averagePopArr = String(averagePop).split('').reverse();
-let averagePopComas = [];
+// for (let n = 0; n < totalPopArr.length; n++) {
+//   totalPopComas.push(totalPopArr[n]);
 
-for (let i = 0; i < averagePopArr.length; i++) {
-  averagePopComas.push(averagePopArr[i]);
+//   if ((n + 1) % 3 === 0 && n !== totalPopArr.length - 1) {
+//     totalPopComas.push(',');
+//   }
+// };
 
-  if ((i + 1) % 3 === 0 && i !== averagePopArr.length - 1) {
-    averagePopComas.push(',');
-  }
-};
+// for (let i = 0; i < averagePopArr.length; i++) {
+//   averagePopComas.push(averagePopArr[i]);
 
-totalPopComas = totalPopComas.reverse().join('');
+//   if ((i + 1) % 3 === 0 && i !== averagePopArr.length - 1) {
+//     averagePopComas.push(',');
+//   }
+// };
 
-const elementTotal = document.querySelector('.total-population');
+// totalPopComas = totalPopComas.reverse().join('');
 
-elementTotal.innerText = totalPopComas;
+// const elementTotal = document.querySelector('.total-population');
 
-averagePopComas = averagePopComas.reverse().join('');
+// elementTotal.innerText = totalPopComas;
 
-const elementAverage = document.querySelector('.average-population');
+// averagePopComas = averagePopComas.reverse().join('');
 
-elementAverage.innerText = averagePopComas;
+// const elementAverage = document.querySelector('.average-population');
+
+// elementAverage.innerText = averagePopComas;
