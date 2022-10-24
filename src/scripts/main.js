@@ -1,12 +1,14 @@
 'use strict';
 
-const doc = document.querySelectorAll('.population')
+const populationList = document.querySelectorAll('.population')
 
-const sum = [...doc].map(x => +x.innerHTML.replaceAll(',', '')).reduce((a, b) => (a + b), 0);
-const avg = sum / doc.length;
+const totalPopulationValue = [...populationList].map(item => 
+  +item.innerHTML.replaceAll(',', '')).reduce((sum, add) => (sum + add), 0);
+const averagePopulationValue = totalPopulationValue / populationList.length;
 
-const ttl = document.getElementsByClassName('total-population')[0];
-const average = document.getElementsByClassName('average-population')[0];
+const totalPopulationElement = document.getElementsByClassName('total-population')[0];
+const averagePopulationElement = document.getElementsByClassName('average-population')[0];
 
-ttl.innerHTML = sum.toLocaleString('en-US');
-average.innerHTML = avg.toLocaleString('en-US');
+totalPopulationElement.innerHTML = totalPopulationValue.toLocaleString('en-US');
+averagePopulationElement.innerHTML = averagePopulationValue.toLocaleString('en-US');
+
