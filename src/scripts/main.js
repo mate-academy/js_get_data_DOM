@@ -1,18 +1,10 @@
 'use strict';
 
-const populations = [...document.querySelectorAll('.population')]
-  .map(population => {
-    const parsedPopulation = parseInt(population
-      .textContent
-      .replaceAll(',', '')
-    );
-
-    if (!isFinite(parsedPopulation)) {
-      return 0;
-    }
-
-    return parsedPopulation;
-  });
+const populations = [...document.querySelectorAll('.population')];
+const normalizePopulation = [...population].map((text) =>
+	    parseInt(text.innerText.split(",").join(""))
+	  );
+ 
 
 const populationSum = populations.reduce((sum, population) => {
   return sum + population;
