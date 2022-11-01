@@ -2,8 +2,9 @@
 
 const population = document.querySelectorAll('.population');
 
-const text = [...population].map(data =>
-  parseInt(data.textContent.split(',').join('')));
+const text = [...population].map(data => (
+  parseInt(data.textContent.split(',').join(''))
+));
 
 const total = text.reduce((acc, cur) => acc + cur, 0);
 
