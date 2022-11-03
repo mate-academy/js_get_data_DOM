@@ -1,6 +1,6 @@
 'use strict';
 
-function getThousSep(number) {
+function getThousandSeparator(number) {
   return number.toLocaleString('en-Us');
 }
 
@@ -8,12 +8,10 @@ const totalHtml = document.querySelector('.total-population');
 const averageHtml = document.querySelector('.average-population');
 let allNum = document.querySelectorAll('.population');
 
-allNum = [...allNum].map(num => num.textContent)
-  .map(num => num.replaceAll(',', ''))
-  .map(num => +num);
+allNum = [...allNum].map(num => +num.textContent.replaceAll(',', ''));
 
 const total = allNum.reduce((sum, x) => sum + x, 0);
-const aver = total / allNum.length;
+const average = total / allNum.length;
 
-totalHtml.textContent = getThousSep(total);
-averageHtml.textContent = getThousSep(aver);
+totalHtml.textContent = getThousandSeparator(total);
+averageHtml.textContent = getThousandSeparator(average);
