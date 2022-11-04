@@ -18,4 +18,3 @@ const total = document.querySelector("span.total-population");
 total.innerHTML = sum;
 const aveRage = document.querySelector("span.average-population");
 aveRage.innerHTML = sum/count;
-
