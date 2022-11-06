@@ -1,5 +1,6 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_get_data_DOM/)
+    - [DEMO LINK](https://mariabramnik.github.io/js_get_data_DOM/src)
+      [TEST REPORT LINK](https://mariabramnik.github.io/js_get_data_DOM/src)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - There are no tests for this task so use `npm run lint` command instead of `npm test` 
 
@@ -17,3 +18,4 @@ Steps to do this challenge:
 6. Congrats, mate! You did it!
 
 ![Preview](./src/images/preview.png).
+
