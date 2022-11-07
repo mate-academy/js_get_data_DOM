@@ -27,5 +27,5 @@ const average = total / 10;
 const totalHtml = document.querySelector('.total');
 const averageHtml = document.querySelector('.average');
 
-totalHtml.innerHTML = total.toString();
-averageHtml.innerHTML = average.toString();
+totalHtml.innerHTML = total.toLocaleString('en');
+averageHtml.innerHTML = average.toLocaleString('en');
