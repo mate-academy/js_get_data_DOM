@@ -1,23 +1,15 @@
 'use strict';
 
-const population = document.getElementsByClassName('population');
-const averPopulation = document.getElementsByClassName('average-population');
+const population = [...document.getElementsByClassName('population')];
+const averagePopulation = document.getElementsByClassName('average-population');
 const totalPopulation = document.getElementsByClassName('total-population');
 
-const text = [];
+const total = population.reduce((acc, el) => {
+  return acc + Number(el.innerText.split(',').join(''));
+}, 0);
 
-for (let i = 0; i < population.length; i++) {
-  const newAmount = population[i].innerText.split(',').join('');
-
-  text.push(+newAmount);
-}
-
-const total = text.reduce((acc, el) => {
-  return acc + el;
-});
-
-totalPopulation[0].innerText = total.toLocaleString(); ;
+totalPopulation[0].innerText = total.toLocaleString();
 
 const average = total / population.length;
 
-averPopulation[0].textContent = average.toLocaleString();
+averagePopulation[0].textContent = average.toLocaleString();
