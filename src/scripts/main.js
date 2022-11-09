@@ -3,9 +3,7 @@
 const populationCollection = document.querySelectorAll('span.population');
 
 const allPopulation = Array.from(populationCollection)
-  .map(population => population.innerText)
-  .map(population => population.replaceAll(',', ''))
-  .map(Number)
+  .map(population => Number(population.innerText.replaceAll(',', '')))
   .reduce((sum, item) => sum + item, 0);
 const averagePopulation = allPopulation / populationCollection.length;
 
