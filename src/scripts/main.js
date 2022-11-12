@@ -6,7 +6,7 @@ const number = text.map(elem => +elem.split(',').join(''));
 const totalSumm = number.reduce((a, b) => a + b);
 const desima = new Intl.NumberFormat('en-GB');
 const correctSumm = desima.format(totalSumm);
-const average = desima.format(totalSumm / number.length);
+const average1 = desima.format(totalSumm / number.length);
 
 document.querySelector('.total-population').innerHTML = correctSumm;
-document.querySelector('.average-population').innerHTML = average;
+document.querySelector('.average-population').innerHTML = average1;
