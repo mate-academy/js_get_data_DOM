@@ -1,14 +1,14 @@
 'use strict';
 
-const thousandsSeparator = (n) => n.toLocaleString('en-Us');
+const thousandsSeparator = (number) => number.toLocaleString('en-Us');
 const total = document.querySelector('.total-population');
 const average = document.querySelector('.average-population');
-const pop = document.querySelectorAll('.population');
-const arrPop = [...pop].map(el => el.innerText);
-const arrPopToNum = arrPop.map(el => +el.split(',').join(''));
+const population = document.querySelectorAll('.population');
+const arrPopulations = [...population].map(el => el.innerText);
+const arrPopToNum = arrPopulations.map(el => +el.split(',').join(''));
 const len = arrPopToNum.length;
-const totPop = arrPopToNum.reduce((acc, el) => acc + el);
-const averagePop = totPop / len;
+const totalPopulation = arrPopToNum.reduce((acc, el) => acc + el);
+const averagePopulation = totalPopulation / len;
 
-total.textContent = thousandsSeparator(totPop);
-average.textContent = thousandsSeparator(averagePop);
+total.textContent = thousandsSeparator(totalPopulation);
+average.textContent = thousandsSeparator(averagePopulation);
