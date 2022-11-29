@@ -5,10 +5,10 @@ const total = document.querySelector('.total-population');
 const average = document.querySelector('.average-population');
 const population = document.querySelectorAll('.population');
 const arrPopulations = [...population].map(el => el.innerText);
-const arrPopToNum = arrPopulations.map(el => +el.split(',').join(''));
-const len = arrPopToNum.length;
-const totalPopulation = arrPopToNum.reduce((acc, el) => acc + el);
-const averagePopulation = totalPopulation / len;
+const arrToNumPopulations = arrPopulations.map(el => +el.split(',').join(''));
+const numberOfElementsArray = arrToNumPopulations.length;
+const totalPopulation = arrToNumPopulations.reduce((acc, el) => acc + el);
+const averagePopulation = totalPopulation / numberOfElementsArray;
 
 total.textContent = thousandsSeparator(totalPopulation);
 average.textContent = thousandsSeparator(averagePopulation);
