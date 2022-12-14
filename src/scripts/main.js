@@ -2,7 +2,8 @@
 
 const populationNodes = document.querySelectorAll('span.population');
 const populationArray
-= Array.from(populationNodes).map(e => parseFloat(e.innerHTML));
+= Array.from(populationNodes).map(e =>
+  parseFloat(e.innerHTML.replaceAll(',', '')));
 
 const total = populationArray.reduce((a, b) => a + b, 0);
 const avg = (total / populationArray.length);
