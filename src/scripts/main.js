@@ -13,20 +13,5 @@ const total = numbers.reduce(
 
 const average = total / numbers.length;
 
-function numberToString(number = 0) {
-  return (
-    number.toString().split('').reverse().map((elem, index) => {
-      if ((index) % 3 === 0 && index !== 0) {
-        return elem.concat(',');
-      }
-
-      return elem;
-    }).reverse().join('')
-  );
-}
-
-const totalString = numberToString(total);
-const averageString = numberToString(average);
-
-totalPopulation.textContent = totalString;
-averagePopulation.textContent = averageString;
+totalPopulation.textContent = total.toLocaleString('En');
+averagePopulation.textContent = average.toLocaleString('En');
