@@ -12,8 +12,12 @@ for (const item of list) {
 
 const total = document.querySelector('.total-population');
 
-total.innerHTML = population.reduce((acc, el) => acc + el, 0);
+total
+  .innerHTML = (population.reduce((acc, el) => acc + el, 0))
+    .toLocaleString('en');
 
 const average = document.querySelector('.average-population');
 
-average.innerHTML = population.reduce((acc, el) => acc + el, 0) / list.length;
+average
+  .innerHTML = (population.reduce((acc, el) => acc + el, 0) / list.length)
+    .toLocaleString('en');
