@@ -1,17 +1,16 @@
 'use strict';
 
-// write your code here
-
-
-const [...ppl] = document.querySelectorAll('.population');
+const people = document.querySelectorAll('.population');
 const total = document.querySelector('.total-population');
 const average = document.querySelector('.average-population');
 
-const totalPpl = [...ppl]
+console.log(people);
+
+const totalPeople = [...people]
 .map(el => Number(el.textContent.split(',').join('')))
 .reduce((sum, elem) => sum + elem);
 
-const avgPpl = totalPpl / ppl.length;
+const avgPeople = totalPeople / people.length;
 
-total.textContent = totalPpl.toLocaleString();
-average.textContent = avgPpl.toLocaleString();
+total.textContent = totalPeople.toLocaleString("en-US");
+average.textContent = avgPeople.toLocaleString("en-US");
