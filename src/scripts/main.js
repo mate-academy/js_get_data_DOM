@@ -12,5 +12,5 @@ for (const span of spans) {
 const total = document.querySelector('.total-population');
 const avrg = document.querySelector('.average-population');
 
-total.textContent = totalNumber.toLocaleString();
-avrg.textContent = (totalNumber / count).toLocaleString();
+total.textContent = totalNumber.toLocaleString('en-Us');
+avrg.textContent = (totalNumber / count).toLocaleString('en-Us');
