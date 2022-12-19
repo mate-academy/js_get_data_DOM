@@ -3,21 +3,21 @@
 const population = document.querySelectorAll('.population');
 const textData = [];
 
-population.map(item => {
+population.forEach(item => {
   textData.push(item.textContent);
 });
 
 let total = 0;
 
-textData.map(item => {
-  const number = item.split(',').join('');
+textData.forEach(item => {
+  const num = item.split(',').join('');
 
-  total += Number(number);
+  total += Number(num);
 });
 
 const average = total / textData.length;
 const averageField = document.querySelector('.average-population');
 const totalField = document.querySelector('.total-population');
 
-totalField.textContent = total;
-averageField.textContent = average;
+totalField.textContent = total.toLocaleString('en-US');
+averageField.textContent = average.toLocaleString('en-US');
