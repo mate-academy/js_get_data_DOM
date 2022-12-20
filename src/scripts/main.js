@@ -2,15 +2,15 @@
 
 // write your code here
 
-const element = document.querySelectorAll('.population');
+const population = document.querySelectorAll('.population');
 
 let total = 0;
 let count = 0;
 
-for (let el of element) {
-  el = +el.textContent.split(',').join('');
+for (let pop of population) {
+  pop = +pop.textContent.split(',').join('');
 
-  total += el;
+  total += pop;
 
   count++;
 }
