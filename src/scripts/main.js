@@ -2,21 +2,16 @@
 
 // write your code here
 
-const population = document.querySelectorAll('.population');
+const population = [...document.querySelectorAll('.population')]
+  .map(person => +(person.textContent.split(',').join('')));
 
-let total = 0;
-let count = 0;
+const total = population.reduce((previous, current) => previous + current, 0); 
+const fullNode = document.querySelector('.total-population');
+fullNode.textContent = `${total.toLocaleString()}`;
 
-for (let pop of population) {
-  pop = +pop.textContent.split(',').join('');
+const average = total / population.length;
 
-  total += pop;
+const averageNode = document.querySelector('.average-population');
 
-  count++;
-}
 
-const full = document.querySelector('.total-population');
-const average = document.querySelector('.average-population');
-
-full.textContent = total.toLocaleString();
-average.textContent = (total / count).toLocaleString();
+averageNode.textContent = `${average.toLocaleString()}`;
