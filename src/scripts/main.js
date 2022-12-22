@@ -11,25 +11,17 @@ for (let i = 0; i < convertString.length; i++) {
   numbersStr += convertString[i].replace(',', '');
 }
 
-const arr = numbersStr.split(' ');
 const numbersArr = [];
 
-for (let i = 0; i < arr.length; i++) {
-  numbersArr.push(+arr[i]);
-}
-
-const total = numbersArr.reduce((x, y) => {
-  return x + y;
-}, 0);
-
-const average = numbersArr.reduce((x, y) => {
-  return Math.round((x + y) / numbersArr.length);
-}, 0);
+numbersStr.split(' ').forEach(value => numbersArr.push(+value));
 
 elementTotal.innerHTML = `
-<p class="total">Total: ${total.toLocaleString('en-US')}</p>
+<p class="total">Total:
+  ${(numbersArr.reduce((x, y) => x + y)).toLocaleString('en-US')}</p>
 `;
 
 elementAverage.innerHTML = `
-<p class="average">Average: ${average.toLocaleString('en-US')}</p>
+<p class="average">Average: 
+  ${(numbersArr.reduce((x, y) => Math.round((x + y) / numbersArr.length)))
+    .toLocaleString('en-US')}</p>
 `;
