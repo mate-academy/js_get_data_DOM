@@ -3,7 +3,7 @@
 const population = [...document.querySelectorAll('.population')].map(
   el => el.innerText);
 const populationWoComa = population.map(
-  el => +(el.split('').filter(els => els !== ',').join('')));
+  item => +(item.split('').filter(els => els !== ',').join('')));
 
 const total = populationWoComa.reduce((sum, x) => sum + x, 0);
 const average = total / populationWoComa.length;
