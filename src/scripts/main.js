@@ -1,4 +1,5 @@
 'use strict';
+// updated
 
 const population = [...document.querySelectorAll('.population')].map(
   el => el.innerText);
