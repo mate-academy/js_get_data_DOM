@@ -1,30 +1,14 @@
 'use strict';
 
-const numbers = document.querySelectorAll('.population');
+const numbers = document.querySelectorAll('span.population');
 
-const populations = [...numbers].map((el) => el.innerText);
+const totalNumber = [...numbers].reduce(
+  (sum, span) => sum + +span.innerHTML.split(',').join(''), 0);
 
-const separatedNumbers = populations.join('/');
-let modified = '';
+const average = Math.round(totalNumber / numbers.length);
 
-for (const number of separatedNumbers) {
-  if (number !== ',') {
-    modified += number;
-  }
-}
+document.querySelector('.total-population').innerHTML
+  = Number(totalNumber).toLocaleString();
 
-const newData = modified.split('/');
-
-const parsed = newData.map((el) => parseInt(el));
-
-const total = parsed.reduce((sum, x) => sum + x, 0);
-
-const formattedTotal = total.toLocaleString('en-Us');
-
-const average = (total / parsed.length).toLocaleString('en-Us');
-
-const totalCalculate = document.querySelector('.total-population');
-const totalAverage = document.querySelector('.average-population');
-
-totalCalculate.innerText = formattedTotal;
-totalAverage.innerText = average;
+document.querySelector('.average-population').innerHTML
+  = Number(average).toLocaleString();
