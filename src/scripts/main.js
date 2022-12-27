@@ -13,9 +13,9 @@ population.forEach(item => {
 
 const averageNumberPop = total / population.length;
 
-function thousandSeparator(num) {
+function makeThousandSeparator(num) {
   return String(num).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-totalPopulation.innerText = thousandSeparator(total);
-averagePopulation.innerText = thousandSeparator(averageNumberPop);
+totalPopulation.innerText = makeThousandSeparator(total);
+averagePopulation.innerText = makeThousandSeparator(averageNumberPop);
