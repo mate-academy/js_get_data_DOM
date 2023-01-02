@@ -10,5 +10,5 @@ const totalPopulation = [ ...populationSpans ]
 
 const averagelPopulation = totalPopulation / populationSpans.length;
 
-totalPopSpan.innerHTML = totalPopulation.toLocaleString();
-averagePopSpan.innerHTML = averagelPopulation.toLocaleString();
+totalPopSpan.innerText = totalPopulation.toLocaleString('en-GB');
+averagePopSpan.innerText = averagelPopulation.toLocaleString('en-GB');
