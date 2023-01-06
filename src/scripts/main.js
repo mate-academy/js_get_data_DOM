@@ -6,7 +6,7 @@ const populations = [...document.querySelectorAll('.population')]
     .split(',')
     .join(''));
 
-const total = populations.reduce((x, y) => x + y, 0);
+const total = populations.reduce((sum, population) => sum + population, 0);
 const average = total / populations.length;
 
 document
