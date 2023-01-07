@@ -1,18 +1,21 @@
 'use strict';
 
 const content = document.querySelectorAll('.population');
-let count = 0;
 let total = 0;
 let avarage = 0;
+const arr = [];
 
 for (const child of content) {
   const re = /,/gi;
 
-  total += parseInt(child.textContent.replace(re, ''));
-  count++;
+  arr.push(+child.textContent.replace(re, ''));
+
+  total = arr.reduce((a, b) => {
+    return a + b;
+  });
 };
 
-avarage = total / count;
+avarage = total / content.length;
 
 const numFor = Intl.NumberFormat('en-US');
 const newForTotal = numFor.format(total);
