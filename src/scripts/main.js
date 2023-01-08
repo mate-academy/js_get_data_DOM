@@ -4,13 +4,10 @@ const population = document.querySelectorAll('.population');
 const total = document.querySelector('.total-population');
 const average = document.querySelector('.average-population');
 
-let numericPopulation = [...population].map(number => number.textContent);
+let numericPopulation = [...population].map(number =>
+  number.textContent.split(',').join(''));
 
-numericPopulation = numericPopulation.map(number => {
-  const arr = number.split(',');
-
-  return arr.join('');
-})
+numericPopulation = numericPopulation
   .filter(number => number.trim() && isFinite(number))
   .map(number => +number);
 
