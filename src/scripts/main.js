@@ -11,7 +11,7 @@ const totalPopulationSpan = document
 const averagePopulationSpan = document
   .getElementsByClassName('average-population')[0];
 
-totalPopulationSpan.innerHTML = totalPopulation.toLocaleString('en-US');
+totalPopulationSpan.textContent = totalPopulation.toLocaleString('en-US');
 
-averagePopulationSpan.innerHTML = averagePopulation
+averagePopulationSpan.textContent = averagePopulation
   .toLocaleString('en-US');
