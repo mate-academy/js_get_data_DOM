@@ -20,8 +20,19 @@ const totalSum = totalNumber.reduce((a, b) => a + b, 0);
 
 const totalHtml = document.querySelector('.total-population');
 
-totalHtml.innerText = totalSum;
+let stringSum = String(totalSum)
+
+let result= stringSum.split( /(?=(?:\d{3})+(?!\d))/ );
+
+const resultJoined = result.join(',');
+
+totalHtml.innerText = resultJoined;
 
 const average = document.querySelector('.average-population');
 
-average.innerHTML = totalSum / totalNumber.length;
+const averageString = String(totalSum / totalNumber.length);
+
+const averageResult = averageString.split(/(?=(?:\d{3})+(?!\d))/);
+
+average.innerText = averageResult;
+
