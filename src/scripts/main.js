@@ -10,5 +10,5 @@ const total = parsedArr.reduce((a, b) => a + b);
 
 const average = total / parsedArr.length;
 
-totalSpan.textContent = total.toLocaleString('en-US');
-averageSpan.textContent = average.toLocaleString('en-US');
+totalSpan.innerText = total.toLocaleString('en-US');
+averageSpan.innerText = average.toLocaleString('en-US');
