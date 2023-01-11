@@ -18,10 +18,7 @@ function addSeparator(number) {
 }
 
 let total = 0;
-// let count = 0;
 let average = 0;
-// let totalStr = '';
-// let averageStr = '';
 const listNode = document.querySelectorAll('.population');
 const list = [...listNode];
 
@@ -35,18 +32,6 @@ average = total / list.length;
 
 const averageString = addSeparator('' + average);
 const totalString = addSeparator('' + total);
-
-// for (let i = averageString.length - 1; i >= 0; i--) {
-//   averageStr = averageString[i] + averageStr;
-//   count++;
-
-//   if (count >= 3 && i >= 3) {
-//     averageStr = ',' + averageStr;
-//     count = 0;
-//   }
-
-//   console.log(averageStr);
-// }
 
 const totalResult = document.querySelector('.total-population');
 const averageResult = document.querySelector('.average-population');
