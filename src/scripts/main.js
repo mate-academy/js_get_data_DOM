@@ -4,35 +4,20 @@
 
 const countries = document.querySelectorAll('.population');
 
-const totalPeople = [];
+const totalPeople = [...countries].map(country => country.innerText);
 
-for (let i = 0; i < countries.length; i++) {
-  const temp = [countries[i]].map(country => country.innerText);
-
-  totalPeople.push(temp[0]);
-}
-
-const total = totalPeople.map(string => string.replaceAll(',', ''));
-
-const totalNumber = total.map(string2 => +string2);
+const totalNumber = totalPeople.map(string => +string.replaceAll(',', ''));
 
 const totalSum = totalNumber.reduce((a, b) => a + b, 0);
 
 const totalHtml = document.querySelector('.total-population');
 
-let stringSum = String(totalSum)
+const stringSum = totalSum.toLocaleString();
 
-let result= stringSum.split( /(?=(?:\d{3})+(?!\d))/ );
-
-const resultJoined = result.join(',');
-
-totalHtml.innerText = resultJoined;
+totalHtml.innerText = stringSum;
 
 const average = document.querySelector('.average-population');
 
-const averageString = String(totalSum / totalNumber.length);
+const averageString = (totalSum / totalNumber.length).toLocaleString();
 
-const averageResult = averageString.split(/(?=(?:\d{3})+(?!\d))/);
-
-average.innerText = averageResult;
-
+average.innerText = averageString;
