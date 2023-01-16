@@ -1,12 +1,14 @@
 'use strict';
 
-const listPopulation = document.querySelectorAll('.population');
-const listNumber = [...listPopulation].map(item =>
-  +item.textContent.split(',').join(''));
-const total = listNumber.reduce((a, b) => a + b, 0);
+const dataOfPopulation = document.querySelectorAll('.population');
+const totalPopulation = document.querySelector('.total-population');
+const averagePopulation = document.querySelector('.average-population');
 
-document.querySelector('.total-population').replaceWith(
-  total.toLocaleString('en-US'));
+const listOfPopulation = [...dataOfPopulation].map(data =>
+  +(data.innerText.replaceAll(',', '')));
+const total = listOfPopulation.reduce((a, b) => a + b, 0);
 
-document.querySelector('.average-population').replaceWith(
-  (total / listPopulation.length).toLocaleString('en-US'));
+const average = total / listOfPopulation.length;
+
+totalPopulation.innerText = total.toLocaleString('en-GB');
+averagePopulation.innerText = average.toLocaleString('en-GB');
