@@ -2,17 +2,16 @@
 
 const population = document.querySelectorAll('.population');
 
-const allArrInOne = [...population].map(el => el.textContent);
-
-const convToNum = allArrInOne.map(el => +el.split(',').join(''));
+const convToNum = [...population].map(el =>
+  +el.textContent.split(',').join(''));
 
 const totalPopulation = convToNum.reduce((sum, el) => sum + el, 0);
 
-const averagePopulation = totalPopulation / allArrInOne.length;
+const averagePopulation = totalPopulation / convToNum.length;
 
 const allAmount = document.querySelector('.total-population');
 
-allAmount.innerText = totalPopulation.toLocaleString('en-US');
+allAmount.innerText = totalPopulation.toLocaleString('en');
 
 const averageAmount = document.querySelector('.average-population');
 
