@@ -4,11 +4,7 @@
 const populationArray = [...document.querySelectorAll(".population")];
 
 const totalPopulation = populationArray.reduce(
-  (acc, p) =>
-    isNaN(parseInt(p.textContent.replace(/,/g, "")))
-      ? 0
-      : acc + parseInt(p.textContent.replace(/,/g, "")),
-  0
+  (acc, p) => acc + +p.textContent.split(",").join("")
 );
 const averagePopulation = totalPopulation / populationArray.length;
 
