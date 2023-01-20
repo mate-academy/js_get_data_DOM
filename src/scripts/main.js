@@ -1,19 +1,19 @@
-'use strict';
+"use strict";
 
 // write your code here
-const populationArray = [...document.querySelectorAll('.population')];
+const populationArray = [...document.querySelectorAll(".population")];
 
 const totalPopulation = populationArray.reduce(
   (acc, p) =>
-    isNaN(parseInt(p.textContent.replace(/,/g, '')))
+    isNaN(parseInt(p.textContent.replace(/,/g, "")))
       ? 0
-      : acc + parseInt(p.textContent.replace(/,/g, '')),
+      : acc + parseInt(p.textContent.replace(/,/g, "")),
   0
 );
 const averagePopulation = totalPopulation / populationArray.length;
 
-document.querySelector('.average-population').textContent
-  = averagePopulation.toLocaleString();
+document.querySelector(".average-population").textContent =
+  averagePopulation.toLocaleString("en-US");
 
-document.querySelector('.total-population').textContent
-  = totalPopulation.toLocaleString();
+document.querySelector(".total-population").textContent =
+  totalPopulation.toLocaleString("en-US");
