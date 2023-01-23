@@ -1,14 +1,14 @@
 'use strict';
 
-const population = document.querySelectorAll('.population');
-const arrOfStr = [...population].map(element => element.innerHTML);
-const arrOfNumber = arrOfStr.map(string => +string.split(',').join(''));
+const amount = document.querySelectorAll('.population');
+const arrOfNumber = [...amount]
+  .map(element => +element.innerHTML.split(',').join(''));
 
 let total = arrOfNumber.reduce((sum, value) => sum + value, 0);
 let average = total / arrOfNumber.length;
 
-total = total.toLocaleString('en-US');
-average = average.toLocaleString('en-US');
+total = total.toLocaleString('en');
+average = average.toLocaleString('en');
 
 const totalPopulation = document.querySelector('.total-population');
 
