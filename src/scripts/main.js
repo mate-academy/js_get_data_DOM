@@ -1,6 +1,5 @@
 'use strict';
 
-const spans = document.body.querySelectorAll('span');
 const populationSpans = document.body.querySelectorAll('.population');
 
 let populationSum = 0;
@@ -13,7 +12,10 @@ const totalElement = document.body.querySelector('.total');
 const averageElement = document.body.querySelector('.average');
 
 const totalPopulation = populationSum.toLocaleString() + ' people';
-const averagePopulation = Math.round(populationSum / populationSpans.length).toLocaleString() + ' people/country'
+const averagePopulation = Math.round(populationSum / populationSpans.length)
+    .toLocaleString() + ' people/country'
 
-totalElement.querySelector('.total-population').textContent = totalPopulation;
-averageElement.querySelector('.average-population').textContent = averagePopulation;
+totalElement.querySelector('.total-population')
+    .textContent = totalPopulation;
+averageElement.querySelector('.average-population')
+    .textContent = averagePopulation;
