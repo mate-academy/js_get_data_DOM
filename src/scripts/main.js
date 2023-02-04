@@ -2,22 +2,23 @@
 
 const element = document.body.getElementsByClassName('population');
 let total = 0;
-let counter = 0;
 
 for (const node of element) {
-  counter++;
-
   const fromNumberToText = parseInt(node.innerText.replace(/\D/g, ''));
 
   total += fromNumberToText;
 }
 
-const average = total / counter;
+const average = total / element.length;
+
+const commas = function(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
 
 const aver = document.body.querySelector('.average-population');
 
-aver.textContent = average.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+aver.textContent = commas(average);
 
 const tot = document.body.querySelector('.total-population');
 
-tot.textContent = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+tot.textContent = commas(total);
