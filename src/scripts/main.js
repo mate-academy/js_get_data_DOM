@@ -9,6 +9,8 @@ for (const item of elements) {
 
 const total = res.reduce((el, sum) => el + sum, 0);
 const average = (total / res.length).toLocaleString('en-US');
+const totalConverted = total.toLocaleString('en-Us');
 
-document.querySelector('.total-population').innerHTML = total.toLocaleString('en-US');
+document.querySelector('.total-population').innerHTML = totalConverted;
+
 document.querySelector('.average-population').innerHTML = average;
