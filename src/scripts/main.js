@@ -16,8 +16,8 @@ function getTotal(countries) {
 
 function putSeparator(number, amount, separator) {
   const arrayOfNumbers = String(number).split('');
-  let string = '';
   let count = 0;
+  let string = '';
 
   for (let i = arrayOfNumbers.length - 1; i >= 0; i--) {
     count++;
