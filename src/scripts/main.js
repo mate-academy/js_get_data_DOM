@@ -1,22 +1,20 @@
 'use strict';
 
-const list = document.querySelectorAll('.population');
+const list = [...document.querySelectorAll('.population')];
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
 
-let total = 0;
-
-list.forEach((item) => {
+const total = list.reduce((acc, item) => {
   const population = item.innerText.split(',').join('');
 
   if (!isNaN(population)) {
-    total += parseInt(population);
+    return acc + parseInt(population);
   }
-});
+
+  return acc;
+}, 0);
 
 const average = (total / list.length).toLocaleString('en-US');
 
-total = total.toLocaleString('en-US');
-
-totalPopulation.innerText = total;
+totalPopulation.innerText = total.toLocaleString('en-US');
 averagePopulation.innerText = average;
