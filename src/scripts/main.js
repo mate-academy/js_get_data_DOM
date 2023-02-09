@@ -1,35 +1,35 @@
 'use strict';
 
-const population = document.querySelectorAll('.population');
+const population = [...document.querySelectorAll('.population')];
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
 const total = getTotal(population);
 const average = total / population.length;
 
 function getTotal(countries) {
-  return [...countries].reduce((acc, country) => {
-    const amount = Number(country.textContent.replaceAll(',', ''));
+  return countries.reduce((acc, country) => {
+    const amount = +country.textContent.replaceAll(',', '');
 
     return acc + amount;
   }, 0);
 }
 
 function putSeparator(number, amount, separator) {
-  const arrayOfNumbers = String(number).split('');
+  const inputString = String(number);
   let count = 0;
-  let string = '';
+  let outputSring = '';
 
-  for (let i = arrayOfNumbers.length - 1; i >= 0; i--) {
+  for (let i = inputString.length - 1; i >= 0; i--) {
     count++;
 
     if (count % amount === 0 && i !== 0) {
-      string = separator + arrayOfNumbers[i] + string;
+      outputSring = separator + inputString[i] + outputSring;
     } else {
-      string = arrayOfNumbers[i] + string;
+      outputSring = inputString[i] + outputSring;
     }
   }
 
-  return string;
+  return outputSring;
 }
 
 totalPopulation.textContent = putSeparator(total, 3, ',');
