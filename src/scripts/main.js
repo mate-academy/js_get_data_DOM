@@ -11,8 +11,8 @@ for (let i = 0; i < populationList.length; i++) {
 
 let totalPopulation = 0;
 
-populationArrey.map(sum => {
-  totalPopulation += sum;
+totalPopulation = populationArrey.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
 });
 
 const formattedTotal = totalPopulation.toLocaleString('en-US');
