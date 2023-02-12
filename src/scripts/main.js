@@ -9,11 +9,9 @@ for (let i = 0; i < populationList.length; i++) {
   populationArrey.push(item = +item.replaceAll(',', ''));
 }
 
-let totalPopulation = 0;
-
-totalPopulation = populationArrey.reduce((accumulator, currentValue) => {
+const totalPopulation = populationArrey.reduce((accumulator, currentValue) => {
   return accumulator + currentValue;
-});
+}, 0);
 
 const formattedTotal = totalPopulation.toLocaleString('en-US');
 
