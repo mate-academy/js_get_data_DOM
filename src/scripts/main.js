@@ -4,35 +4,16 @@ const population = document.querySelectorAll('.population');
 const totalPeople = document.querySelector('.total-population');
 const averagePeople = document.querySelector('.average-population');
 
-const { total, acount } = [...population].reduce((acc, elem) => {
+const { total, count } = [...population].reduce((acc, elem) => {
   const populationContry = +elem.innerText.replaceAll(',', '');
 
-  acc.acount++;
+  acc.count++;
   acc.total += populationContry;
 
   return acc;
 }, {
-  total: 0, acount: 0,
+  total: 0, count: 0,
 });
 
-totalPeople.innerText = getNumber(total);
-averagePeople.innerText = getNumber(total / acount);
-
-function getNumber(num) {
-  const arr = num.toString().split('');
-  const arrNum = [];
-
-  for (let i = arr.length - 1, a = 0; i >= 0; i--) {
-    if (a < 3) {
-      arrNum.unshift(arr[i]);
-      a++;
-      continue;
-    }
-
-    arrNum.unshift(',');
-    arrNum.unshift(arr[i]);
-    a = 1;
-  }
-
-  return arrNum.join('');
-}
+totalPeople.innerText = total.toLocaleString('en-US');
+averagePeople.innerText = (total / count).toLocaleString('en-US');
