@@ -9,8 +9,8 @@ const list = [...textData]
 
 const numberFormatter = Intl.NumberFormat('en-US');
 
-totalValue.textContent = list.reduce((a, b) => a + b, 0);
-averageValue.textContent = totalValue.textContent / list.length;
+const total = list.reduce((a, b) => a + b, 0);
+const average = total / list.length;
 
-totalValue.textContent = numberFormatter.format(totalValue.textContent);
-averageValue.textContent = numberFormatter.format(averageValue.textContent);
+totalValue.textContent = numberFormatter.format(total);
+averageValue.textContent = numberFormatter.format(average);
