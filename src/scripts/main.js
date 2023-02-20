@@ -7,10 +7,8 @@ const pops = [...document.querySelectorAll('.population')]
 const total = pops.reduce((acc, num) => acc + num, 0);
 const avg = total / pops.length;
 
-const formattedTotal = total.toLocaleString();
-const formattedAvg = avg.toLocaleString(undefined, {
-  maximumFractionDigits: 2,
-});
+const formattedTotal = total.toLocaleString('en-US');
+const formattedAvg = avg.toLocaleString('en-US');
 
 document.querySelector('.total-population').textContent = formattedTotal;
 document.querySelector('.average-population').textContent = formattedAvg;
