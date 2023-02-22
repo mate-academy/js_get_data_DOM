@@ -1,19 +1,16 @@
 'use strict';
 
-const array = [];
-const spans = document.querySelectorAll('.population');
+const populationSpans = document.querySelectorAll('.population');
 
-for (const population of spans) {
-  array.push(population.innerText);
-}
+const totalPopulation = [...populationSpans]
+  .reduce((sum, population) => {
+    return sum + Number(population.innerText.replace(/,/g, ''));
+  }, 0);
 
-const numbersArray = array.map(elem => +elem.replace(/,/g, ''));
-
-const total = numbersArray.reduce((a, b) => a + b, 0);
-const average = total / 10;
+const averagePopulation = totalPopulation / populationSpans.length;
 
 const totalSpan = document.querySelector('.total-population');
 const averageSpan = document.querySelector('.average-population');
 
-totalSpan.innerText = total.toLocaleString('en-US');
-averageSpan.innerText = average.toLocaleString('en-US');
+totalSpan.innerText = totalPopulation.toLocaleString('en-US');
+averageSpan.innerText = averagePopulation.toLocaleString('en-US');
