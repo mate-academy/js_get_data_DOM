@@ -12,7 +12,7 @@ const sum = (prev, current) => {
   return prev + current;
 };
 const total = arr.reduce(sum);
-const avg = Math.round(arr.reduce(sum) / arr.length);
+const avg = Math.round(arr.reduce(sum, 0) / arr.length);
 
 function convert(number) {
   return Intl.NumberFormat('en-US').format(number);
@@ -20,7 +20,7 @@ function convert(number) {
 
 const sumSpan = document.querySelector('.total-population');
 
-sumSpan.textContent = `${convert(total)}`;
+sumSpan.textContent = convert(total);
 
 const avgSpan = document.querySelector('.average-population');
 
