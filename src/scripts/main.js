@@ -9,10 +9,10 @@ function countPopulation() {
   const averagePopulation = totalPopulation / nums.length;
 
   document.querySelector('.total-population').innerText
-  = totalPopulation.toLocaleString();
+  = totalPopulation.toLocaleString('en-US');
 
   document.querySelector('.average-population').innerText
-  = averagePopulation.toLocaleString();
+  = averagePopulation.toLocaleString('en-US');
 }
 
 countPopulation();
