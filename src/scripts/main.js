@@ -4,11 +4,11 @@ const item = document.querySelectorAll('.population');
 const newStorke = [...item]
   .map(type => parseInt(type.innerHTML.split(',').join('')));
 
-const itemTotal = newStorke.reduce((a, b) => a + b);
-const itemAvarage = itemTotal / newStorke.length;
+const total = newStorke.reduce((a, b) => a + b);
+const avarage = total / newStorke.length;
 
 const totalElement = document.querySelector('.total-population');
 const avarageElement = document.querySelector('.average-population');
 
-totalElement.textContent = itemTotal.toLocaleString('en-US');
-avarageElement.textContent = itemAvarage.toLocaleString('en-US');
+totalElement.textContent = total.toLocaleString('en-US');
+avarageElement.textContent = avarage.toLocaleString('en-US');
