@@ -13,8 +13,6 @@ const avaragePopulation = totlalPopulation / populationNumbers.length;
 const blockTotal = document.body.querySelector('.total-population');
 const blockAverage = document.body.querySelector('.average-population');
 
-blockTotal.textContent = totlalPopulation
-  .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+blockTotal.textContent = totlalPopulation.toLocaleString('en-US');
 
-blockAverage.textContent = avaragePopulation
-  .toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+blockAverage.textContent = avaragePopulation.toLocaleString('en-US');
