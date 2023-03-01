@@ -7,8 +7,8 @@ const newStorke = [...item]
 const itemTotal = newStorke.reduce((a, b) => a + b);
 const itemAvarage = itemTotal / newStorke.length;
 
-const TotalElement = document.querySelector('.total-population');
+const totalElement = document.querySelector('.total-population');
 const avarageElement = document.querySelector('.average-population');
 
-TotalElement.textContent = itemTotal.toLocaleString('en-US');
+totalElement.textContent = itemTotal.toLocaleString('en-US');
 avarageElement.textContent = itemAvarage.toLocaleString('en-US');
