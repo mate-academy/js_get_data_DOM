@@ -3,12 +3,6 @@
 const values = document.getElementsByClassName('population');
 const textNumber = [];
 
-function sortTextNumber(array) {
-  for (let i = 0; i < array.length; i++) {
-    textNumber.push(array[i].innerText);
-  }
-}
-
 function formatNumberInText(number) {
   const options = {
     minimumFractionDigits: 0,
@@ -18,11 +12,15 @@ function formatNumberInText(number) {
   return number.toLocaleString('en-US', options);
 };
 
-sortTextNumber(values);
+const normalizeNumber = (str) => {
+  return parseFloat(str.replace(/,/g, ''));
+};
 
-const format = textNumber.map(item => parseFloat(item.replace(/,/g, '')));
+for (let i = 0; i < values.length; i++) {
+  textNumber.push(normalizeNumber(values[i].textContent));
+}
 
-const totalNumber = format.reduce((a, b) => a + b);
+const totalNumber = textNumber.reduce((a, b) => a + b);
 const avgNumber = totalNumber / values.length;
 
 const total = formatNumberInText(totalNumber);
