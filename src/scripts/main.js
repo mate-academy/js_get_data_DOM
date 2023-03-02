@@ -2,11 +2,15 @@
 
 const populationItem = document.querySelectorAll('.population');
 
-const total = [...populationItem].map(item =>
-  strToNum(item.innerText))
-  .filter(num => !isNaN(num))
-  .reduce((accumulator, currentValue) => accumulator + currentValue);
-
+const total = [...populationItem].reduce((accumulator, currentValue) => { 
+  const num = strToNum(currentValue.innerText);
+  if (isNaN(num)) {
+    return accumulator;
+  }
+  
+  return accumulator + num;
+}, 0);
+  
 function strToNum(str) {
   return parseInt(str.replace(/,/g, ''));
 }
