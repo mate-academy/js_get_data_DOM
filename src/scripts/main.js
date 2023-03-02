@@ -2,21 +2,19 @@
 
 const populationItem = document.querySelectorAll('.population');
 
-const arrayOfNumbers = [...populationItem].map(item =>
-  strToNum(item.innerText)).filter(num => !isNaN(num));
-
-const total = arrayOfNumbers.reduce((accumulator, currentValue) =>
-  accumulator + currentValue);
-
-const result = total.toLocaleString('en-US');
-
-const average = total / arrayOfNumbers.length;
-
-const resultAver = average.toLocaleString('en-US');
+const total = [...populationItem].map(item =>
+  strToNum(item.innerText))
+  .filter(num => !isNaN(num))
+  .reduce((accumulator, currentValue) => accumulator + currentValue);
 
 function strToNum(str) {
   return parseInt(str.replace(/,/g, ''));
 }
+const result = total.toLocaleString('en-US');
+
+const average = total / [...populationItem].length;
+
+const resultAver = average.toLocaleString('en-US');
 
 const totalPop = document.querySelector('.total-population');
 
