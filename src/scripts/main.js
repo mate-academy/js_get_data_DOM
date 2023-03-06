@@ -1,20 +1,16 @@
 'use strict';
 
-const allSpan = document.querySelectorAll('.population');
+const populationElements = document.querySelectorAll('.population');
 const sumSpan = document.querySelector('.total-population');
 const average = document.querySelector('.average-population');
 
 let sum = 0;
-let count = 0;
 
-for (const span of allSpan) {
+for (const span of populationElements) {
   const number = span.innerHTML.split(',').join('');
-
   sum += +number;
-  count++;
 };
 
-const totalAverage = sum / count;
-
+const totalAverage = sum / populationElements.length;
 sumSpan.innerText = `${sum.toLocaleString('en-US')}`;
 average.innerText = `${totalAverage.toLocaleString('en-US')}`;
