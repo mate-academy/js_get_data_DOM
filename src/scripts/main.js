@@ -21,7 +21,8 @@ function totalPopulation(collection) {
   return sum;
 }
 
-const avarageAge = totalPopulation(population) / population.length;
+const avarageAge = (totalPopulation(population) / population.length)
+  .toLocaleString();
 
-total.textContent = totalPopulation(population);
+total.textContent = totalPopulation(population).toLocaleString();
 avarage.innerHTML = avarageAge;
