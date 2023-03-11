@@ -22,7 +22,7 @@ function totalPopulation(collection) {
 }
 
 const avarageAge = (totalPopulation(population) / population.length)
-  .toLocaleString();
+  .toLocaleString("en-US");
 
-total.textContent = totalPopulation(population).toLocaleString();
+total.textContent = totalPopulation(population).toLocaleString("en-US");
 avarage.innerHTML = avarageAge;
