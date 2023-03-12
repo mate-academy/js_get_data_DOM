@@ -1,23 +1,13 @@
 'use strict';
 
-const population = document.querySelectorAll('.population');
-const textData = [];
+const populations = document.querySelectorAll('.population');
 
-population.forEach(item => {
-  textData.push(item.textContent);
-});
+const total = [...populations].reduce((acc, element) =>
+  +element.textContent.replaceAll(',', '') + acc, 0);
+const average = total / populations.length;
 
-let total = 0;
+document.querySelector('.total-population')
+  .textContent = total.toLocaleString('en-us');
 
-textData.forEach(item => {
-  const num = item.split(',').join('');
-
-  total += Number(num);
-});
-
-const average = total / textData.length;
-const averageField = document.querySelector('.average-population');
-const totalField = document.querySelector('.total-population');
-
-totalField.textContent = total.toLocaleString('en-US');
-averageField.textContent = average.toLocaleString('en-US');
+document.querySelector('.average-population')
+  .textContent = average.toLocaleString('en-us');
