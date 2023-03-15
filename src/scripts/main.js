@@ -1,8 +1,8 @@
 'use strict';
 
 const population = document.querySelectorAll('.population');
-const totalPopulation = document.querySelectorAll('.total-population');
-const averagePopulation = document.querySelectorAll('.average-population');
+const totalPopulation = document.querySelector('.total-population');
+const averagePopulation = document.querySelector('.average-population');
 
 const countryPopulation = [...population].map((item) =>
   Number(item.innerText.split(',').join('')));
