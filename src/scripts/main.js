@@ -8,21 +8,19 @@ const avarage = document.querySelector('.average-population');
 
 function totalPopulation(collection) {
   const arrayPopulation = [...collection];
-  let sum = 0;
 
   const numbers = arrayPopulation.map(elem => elem.innerHTML);
 
-  for (const number of numbers) {
-    const parsedNumber = parseFloat(number.replace(/,/g, ''));
+  const reduced = numbers.reduce((sum, number) =>
+    sum + (parseFloat(number.replace(/,/g, ''))), 0);
 
-    sum += parsedNumber;
-  }
-
-  return sum;
+  return reduced;
 }
 
-const avarageAge = (totalPopulation(population) / population.length)
-  .toLocaleString("en-US");
+const populationSum = totalPopulation(population);
 
-total.textContent = totalPopulation(population).toLocaleString("en-US");
+const avarageAge = (populationSum / population.length)
+  .toLocaleString('en-US');
+
+total.textContent = populationSum.toLocaleString('en-US');
 avarage.innerHTML = avarageAge;
