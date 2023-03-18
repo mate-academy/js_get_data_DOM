@@ -9,8 +9,20 @@ const transformToNum = [...contry]
 
 const sumCount = transformToNum
   .reduce((acc, num) => acc + num, 0);
+const averageCount = (sumCount / transformToNum.length).toString();
+const result = sumCount.toString();
 
-const averageCount = sumCount / transformToNum.length;
+function addCommas(str) {
+  const res = str.split('');
 
-total.innerText = sumCount;
-average.innerText = averageCount;
+  for (let i = 0; i <= res.length; i += 3) {
+    if (res[i] <= res.length) {
+      res[i] += ',';
+    }
+  }
+
+  return res.join('');
+}
+
+total.innerText = addCommas(result).slice(0, -1);
+average.innerText = addCommas(averageCount);
