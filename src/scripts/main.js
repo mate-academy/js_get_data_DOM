@@ -16,7 +16,5 @@ for (const span of spanTags) {
 
 const totalAverage = sum / count;
 
-sumSpan.innerText = `${sum.toLocaleString('en-US')}`;
-averageSpan.innerText = `${totalAverage.toLocaleString('en-US')}`;
-
-// write your code here
+sumSpan.innerText = sum.toLocaleString('en-US');
+averageSpan.innerText = totalAverage.toLocaleString('en-US');
