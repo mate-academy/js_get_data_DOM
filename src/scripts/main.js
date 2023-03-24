@@ -2,7 +2,7 @@
 
 const allPopulation
   = [...document.querySelectorAll('.population')]
-    .map(obj => obj.innerText).map(value => convertToNumber(value));
+    .map(value => convertToNumber(value));
 
 const totalPopulationValue = allPopulation
   .reduce((total, population) => total + population, 0);
@@ -15,8 +15,8 @@ const averagePopulation = document.querySelector('.average-population');
 totalPopulation.innerText = convertToString(totalPopulationValue);
 averagePopulation.innerText = convertToString(averagePopulationValue);
 
-function convertToNumber(string) {
-  return Number(string.split(',').join(''));
+function convertToNumber(obj) {
+  return Number(obj.innerText.split(',').join(''));
 };
 
 function convertToString(number) {
@@ -27,11 +27,10 @@ function convertToString(number) {
   for (let i = check.length - 1; i >= 0; i--) {
     if (count % 3 === 0) {
       result = ',' + check[i] + result;
-      count++;
     } else {
       result = check[i] + result;
-      count++;
     };
+    count++;
   };
 
   return result[0] === ','
