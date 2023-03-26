@@ -2,18 +2,17 @@
 
 const textCollection = document.querySelectorAll('.population');
 
-const arr = [...textCollection];
-const textArray = [];
+const normalizedData = [];
 
-for (const item of arr) {
+for (const item of textCollection) {
   const textData = item.textContent;
   const digitData = Number(textData.split(',').join(''));
 
-  textArray.push(digitData);
+  normalizedData.push(digitData);
 }
 
-const total = textArray.reduce((start, acc) => (start + acc), 0);
-const average = total / textArray.length;
+const total = normalizedData.reduce((start, acc) => (start + acc), 0);
+const average = total / normalizedData.length;
 
 const modifiedTotal = total.toLocaleString('en-Us');
 const modifiedAverage = average.toLocaleString('en-Us');
