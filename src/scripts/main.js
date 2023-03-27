@@ -11,8 +11,8 @@ const average = total / [...spanNumbers].length;
 
 const totalAmount = document.querySelector('.total-population');
 
-totalAmount.innerText = `${total.toLocaleString('en-US')}`;
+totalAmount.innerText = total.toLocaleString('en-US');
 
 const averageAmount = document.querySelector('.average-population');
 
-averageAmount.innerText = `${average.toLocaleString('en-US')}`;
+averageAmount.innerText = average.toLocaleString('en-US');
