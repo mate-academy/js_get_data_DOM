@@ -14,12 +14,8 @@ for(let el of populationsAll){
 let average = (total/amountOfCountries).toLocaleString('en-US')
 let totalWithSeparator = total.toLocaleString('en-US')
 
-
 let totalPopulation = document.querySelector('.total-population')
 totalPopulation.innerHTML = totalWithSeparator;
 let averagePopulation = document.querySelector('.average-population')
 averagePopulation.innerHTML = average;
-
-
-
 // write your code here
