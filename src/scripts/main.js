@@ -10,12 +10,7 @@ const populationsArray = [...populations]
     return +number;
   });
 
-let total = 0;
-
-for (const elem of populationsArray) {
-  total += elem;
-}
-
+const total = populationsArray.reduce((sum, index) => sum + index, 0);
 const avarage = total / populationsArray.length;
 
 const totalPopulation = document.querySelector('.total-population');
