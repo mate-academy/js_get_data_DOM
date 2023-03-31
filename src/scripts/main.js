@@ -6,9 +6,11 @@ const average = document.querySelector('.average-population');
 
 const totalPopulation = [...population].reduce((acc, item) => {
   const valuePopulation = +item.textContent.split(',').join('');
+  let result = acc;
 
-  // eslint-disable-next-line no-param-reassign
-  return (acc += valuePopulation);
+  result += valuePopulation;
+
+  return result;
 }, 0);
 
 total.textContent = totalPopulation.toLocaleString('en-US');
