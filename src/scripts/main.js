@@ -2,18 +2,12 @@
 // write your code here
 
 const spanCollection = document.querySelectorAll('.population');
-const allData = [];
-let finalNumbersData;
 
-for (const number of spanCollection) {
-  const textData = number.textContent;
+const total = [...spanCollection].reduce((prev, curr) => {
+  return prev + +curr.textContent.split(',').join('');
+}, 0);
 
-  allData.push(textData);
-  finalNumbersData = allData.map(num => Number(num.replace(/,/g, '')));
-}
-
-const total = finalNumbersData.reduce((sum, x) => sum + x, 0);
-const average = total / finalNumbersData.length;
+const average = total / spanCollection.length;
 
 const totalValue = document.querySelector('.total-population');
 const avrgValue = document.querySelector('.average-population');
