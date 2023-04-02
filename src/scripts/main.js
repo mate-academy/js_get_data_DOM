@@ -1,8 +1,7 @@
 'use strict';
 
-const allSelectors = document.querySelectorAll('.population');
-
-let allData = [ ...allSelectors ].map(el => el.innerHTML);
+let allData = [...document.querySelectorAll('.population')]
+  .map(el => el.innerHTML);
 
 allData = allData.map(el => +el.split(',').join(''));
 
