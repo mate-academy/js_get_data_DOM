@@ -1,9 +1,8 @@
 'use strict';
 
-let allData = [...document.querySelectorAll('.population')]
-  .map(el => el.innerHTML);
-
-allData = allData.map(el => +el.split(',').join(''));
+const allData = [...document.querySelectorAll('.population')]
+  .map(el => el.innerHTML)
+  .map(el => +el.split(',').join(''));
 
 const totalValue = allData.reduce((prev, current) => prev + current);
 
