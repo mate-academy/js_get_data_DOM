@@ -1,15 +1,27 @@
 'use strict';
 
-const populationArray = [...document.querySelectorAll('.population')];
+const population = document.getElementsByClassName('population');
+const arr = [];
+const texts = [...population].map(item => item.innerText);
 
-const totalPopulation = populationArray.reduce(
-  (acc, p) => acc + +p.textContent.split(',').join(''),
-  0
-);
-const averagePopulation = totalPopulation / populationArray.length;
+for (let i = 0; i < texts.length; i++) {
+  arr.push(+texts[i].split(',').join(''));
+}
 
-document.querySelector('.average-population').textContent
-  = averagePopulation.toLocaleString('en-US');
+const sum = (prev, current) => {
+  return prev + current;
+};
+const total = arr.reduce(sum);
+const avg = Math.round(arr.reduce(sum, 0) / arr.length);
 
-document.querySelector('.total-population').textContent
-  = totalPopulation.toLocaleString('en-US');
+function convert(number) {
+  return Intl.NumberFormat('en-US').format(number);
+}
+
+const sumSpan = document.querySelector('.total-population');
+
+sumSpan.textContent = convert(total);
+
+const avgSpan = document.querySelector('.average-population');
+
+avgSpan.textContent = `${convert(avg)}`;
