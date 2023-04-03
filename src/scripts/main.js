@@ -4,24 +4,21 @@ const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
 const population = document.querySelectorAll('.population');
 
-function totalSum(numbers) {
-  let sum = 0;
+// function getPopulationNumber(country) {
+//   return country.textContent.split(',').join('');
+// }
 
-  for (const pop of numbers) {
-    const countryPopulation = pop.textContent.split(',').join('');
-
-    sum += +countryPopulation;
-  }
-
-  return +sum;
-}
-totalSum(population);
-
-function numberWithCommas(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+function countTotalSum(populations) {
+  return [...populations].reduce((sum, element) => (
+    sum + +element.textContent.split(',').join('')
+  ), 0);
 }
 
-const averageSum = totalSum(population) / population.length;
+function splitThousandByComa(number) {
+  return number.toLocaleString('en-US');
+}
 
-totalPopulation.textContent = numberWithCommas(totalSum(population));
-averagePopulation.textContent = numberWithCommas(averageSum);
+const averageSum = countTotalSum(population) / population.length;
+
+totalPopulation.textContent = splitThousandByComa(countTotalSum(population));
+averagePopulation.textContent = splitThousandByComa(averageSum);
