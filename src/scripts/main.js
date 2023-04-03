@@ -12,5 +12,5 @@ const total = document.querySelector('.total-population');
 
 const average = document.querySelector('.average-population');
 
-total.innerHTML = totalValue;
-average.innerHTML = averageValue;
+total.innerHTML = totalValue.toLocaleString();
+average.innerHTML = averageValue.toLocaleString();
