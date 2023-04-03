@@ -4,10 +4,6 @@ const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
 const population = document.querySelectorAll('.population');
 
-// function getPopulationNumber(country) {
-//   return country.textContent.split(',').join('');
-// }
-
 function countTotalSum(populations) {
   return [...populations].reduce((sum, element) => (
     sum + +element.textContent.split(',').join('')
