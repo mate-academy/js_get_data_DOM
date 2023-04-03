@@ -1,18 +1,13 @@
 'use strict';
 
 const population = document.getElementsByClassName('population');
-const arr = [];
-const texts = [...population].map(item => item.innerText);
-
-for (let i = 0; i < texts.length; i++) {
-  arr.push(+texts[i].split(',').join(''));
-}
+const arr = [...population].map(item => +item.innerText.split(',').join(''));
 
 const sum = (prev, current) => {
   return prev + current;
 };
-const total = arr.reduce(sum);
-const avg = Math.round(arr.reduce(sum, 0) / arr.length);
+const total = arr.reduce(sum, 0);
+const avg = Math.round(total / arr.length);
 
 function convert(number) {
   return Intl.NumberFormat('en-US').format(number);
