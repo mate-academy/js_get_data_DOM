@@ -5,10 +5,9 @@ const populationInCountries = [...populationArray].map(el =>
   el.innerText.split(',').join(''));
 
 const sum = populationInCountries.reduce((res, el) => +el + res, 0);
-const average = sum / populationInCountries.length;
 
 document.querySelector('[class=total-population]').textContent
-  = new Intl.NumberFormat('ja-JP').format(sum);
+  = sum.toLocaleString('en-US');
 
 document.querySelector('[class=average-population]').textContent
-  = new Intl.NumberFormat('ja-JP').format(average);
+  = (sum / populationInCountries.length).toLocaleString('en-US');
