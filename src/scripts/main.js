@@ -6,13 +6,7 @@ const populations = [...spans].map(span =>
 const spanTotal = document.querySelector('.total-population');
 const spanAverage = document.querySelector('.average-population');
 const total = populations.reduce((sum, population) => sum + population);
+const average = total / populations.length;
 
-spanTotal.innerText = addComa(total);
-spanAverage.innerText = addComa(total / populations.length);
-
-function addComa(num) {
-  const x = num.toString().split('').reduce((sum, n, index) =>
-    (num.toString().length - index) % 3 === 0 ? sum + ',' + n : sum + n);
-
-  return x;
-}
+spanTotal.innerText = total.toLocaleString().replace(/[\s]/g, ',');
+spanAverage.innerText = average.toLocaleString().replace(/[\s]/g, ',');
