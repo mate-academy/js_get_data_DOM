@@ -1,6 +1,6 @@
 'use strict';
 
-const collection = document.querySelectorAll('[class="population"]');
+const collection = document.querySelectorAll('.population');
 
 const values = [...collection]
   .map(item => +(item.innerText.replaceAll(',', '')));
