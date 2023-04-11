@@ -8,8 +8,8 @@ const values = [...collection]
 const total = values.reduce((sum, x) => sum + x);
 const average = total / values.length;
 
-document.querySelector('.total-population').innerText
-  = total.toLocaleString();
+const totalPopulation = document.querySelector('.total-population');
+const averagePopulation = document.querySelector('.average-population');
 
-document.querySelector('.average-population').innerText
-  = average.toLocaleString();
+totalPopulation.innerText = total.toLocaleString();
+averagePopulation.innerText = average.toLocaleString();
