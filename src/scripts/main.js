@@ -3,7 +3,7 @@
 // write your code here
 const populationSpans = [...document.querySelectorAll('.population')];
 const populationValues = populationSpans.map(item =>
-  +item.innerHTML.split(',').join(''));
+  +item.innerText.split(',').join(''));
 
 const populationTotal = populationValues.reduce((acc, item) => acc + item, 0);
 const populationAverage = populationTotal / populationValues.length;
