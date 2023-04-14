@@ -4,16 +4,11 @@ const population = document.querySelectorAll('.population');
 
 let total = 0;
 
-for (const countriePopulation of population) {
-  const stringArray = countriePopulation.innerHTML.split(',');
-  let result = '';
+const callback = (x) => {
+  total += +(x.innerHTML.split(',').join(''));
+};
 
-  for (const number of stringArray) {
-    result += number;
-  }
-
-  total += +result;
-}
+population.forEach(callback);
 
 const average = total / population.length;
 
@@ -22,7 +17,7 @@ function toFormat(data) {
   const result = [];
 
   do {
-    if (resultString.length % 3 !== 0) {
+    if (resultString.length % 3) {
       result.push(resultString.slice(0, resultString.length % 3));
       resultString = resultString.slice(resultString.length % 3);
     }
