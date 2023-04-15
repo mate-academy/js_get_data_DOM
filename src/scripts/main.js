@@ -2,13 +2,11 @@
 
 const population = document.querySelectorAll('.population');
 
-let total = 0;
-
-const callback = (x) => {
-  total += +(x.innerHTML.split(',').join(''));
+const callback = (prev, x) => {
+  return prev + +(x.innerHTML.split(',').join(''));
 };
 
-population.forEach(callback);
+const total = [ ...population ].reduce(callback, 0);
 
 const average = total / population.length;
 
