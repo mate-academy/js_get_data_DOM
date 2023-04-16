@@ -1,22 +1,11 @@
 'use strict';
 
-const spans = document.querySelectorAll('.population');
+const populationList = document.querySelectorAll('.population');
 
-const populations = [];
+const totalPopulation = [...populationList].reduce((acc, item) =>
+  acc + parseInt(item.textContent.replace(/,/g, '')), 0);
 
-spans.forEach(span => {
-  populations.push(span.textContent);
-});
-
-const populationValue = [];
-
-populations.forEach(population => {
-  populationValue.push(parseInt(population.replace(/,/g, '')));
-});
-
-const totalPopulation = populationValue.reduce((a, b) => a + b, 0);
-
-const numberOfCountries = populationValue.length;
+const numberOfCountries = populationList.length;
 const averagePopulation = totalPopulation / numberOfCountries;
 
 const formattedTotalPopulation = totalPopulation.toLocaleString('en-US');
