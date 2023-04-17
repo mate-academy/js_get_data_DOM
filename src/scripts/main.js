@@ -1,23 +1,16 @@
 /* eslint-disable max-len */
 'use strict';
 
-function getNumbersFromNodes(nodeList) {
-  const numbersArray = [];
+function getTotal(nodeList) {
+  let total = 0;
 
   for (const node of nodeList) {
     const number = +node.textContent.split(',').join('');
 
-    numbersArray.push(number);
+    total += number;
   }
 
-  return numbersArray;
-}
-
-function getTotalAndAverage(numbersArray) {
-  const total = numbersArray.reduce((acc, curr) => acc + curr);
-  const average = total / numbersArray.length;
-
-  return [total, average];
+  return total;
 }
 
 function displayAverageAndTotal() {
@@ -25,8 +18,8 @@ function displayAverageAndTotal() {
   const totalPopulationElement = document.querySelector('.total-population');
   const averagePopulationElement = document.querySelector('.average-population');
 
-  const numbersArray = getNumbersFromNodes(populationList);
-  const [total, average] = getTotalAndAverage(numbersArray);
+  const total = getTotal(populationList);
+  const average = total / populationList.length;
 
   totalPopulationElement.textContent = total.toLocaleString('en-us');
   averagePopulationElement.textContent = average.toLocaleString('en-us');
