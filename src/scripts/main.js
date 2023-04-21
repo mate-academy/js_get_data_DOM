@@ -1,7 +1,5 @@
 'use strict';
 
-// write your code here
-
 const populationList = document.querySelectorAll('.population');
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
