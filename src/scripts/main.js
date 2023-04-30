@@ -4,11 +4,8 @@ const population = document.querySelectorAll('.population');
 const total = document.querySelector('.total-population');
 const average = document.querySelector('.average-population');
 
-let totalPopulation = 0;
-
-[...population].map(countryPopulation => {
-  totalPopulation += +(countryPopulation.innerText.replaceAll(',', ''));
-});
+const totalPopulation = [...population].reduce((acc, countryPopulation) =>
+  acc + +countryPopulation.innerText.replaceAll(',', ''), 0);
 
 const averagePopulation = totalPopulation / population.length;
 
