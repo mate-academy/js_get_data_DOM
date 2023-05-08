@@ -7,5 +7,9 @@ const populations = Array.from(document.querySelectorAll('.population'));
 const totalAmaunt = populations.reduce((accum, e) => (
   accum + +e.textContent.replaceAll(',', '')), 0);
 
-total.textContent = totalAmaunt.toLocaleString();
-average.textContent = (totalAmaunt / populations.length).toLocaleString();
+function thousandsSeparator(num) {
+  return num.toLocaleString().replaceAll(',', ' ');
+}
+
+total.textContent = thousandsSeparator(totalAmaunt);
+average.textContent = thousandsSeparator(totalAmaunt / populations.length);
