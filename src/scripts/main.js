@@ -4,8 +4,12 @@ const total = document.querySelector('.total-population');
 const average = document.querySelector('.average-population');
 const populations = Array.from(document.querySelectorAll('.population'));
 
+populations.map(population => (
+  population.textContent = population.textContent.replaceAll(',', ' ')
+));
+
 const totalAmaunt = populations.reduce((accum, e) => (
-  accum + +e.textContent.replaceAll(',', '')), 0);
+  accum + +e.textContent.replaceAll(' ', '')), 0);
 
 function thousandsSeparator(num) {
   return num.toLocaleString().replaceAll(',', ' ');
