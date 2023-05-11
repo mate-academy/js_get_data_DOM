@@ -1,7 +1,7 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_get_data_DOM/)
+    - [DEMO LINK](https://Absolution26.github.io/js_get_data_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
-    - There are no tests for this task so use `npm run lint` command instead of `npm test` 
+    - There are no tests for this task so use `npm run lint` command instead of `npm test`
 
 ### Task: TOP 10 LARGEST COUNTRIES BY POPULATION
 
@@ -15,5 +15,6 @@ Steps to do this challenge:
 4. Replace `Calculate it!` with calculated average numbers in `span` with classes `average-population` and `total-population`.
 5. Calculated `average` and `total` numbers must be separated by a [thousands separator](https://chortle.ccsu.edu/java5/Notes/chap24B/ch24B_9.html)(same numeric style as populations presented).
 6. Congrats, mate! You did it!
+
 
 ![Preview](./src/images/preview.png).
