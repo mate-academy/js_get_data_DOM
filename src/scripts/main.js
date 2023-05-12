@@ -12,5 +12,17 @@ for (const count of population) {
   average = total / population.length;
 }
 
-totalPopulation.textContent = total;
-avaragePopulation.textContent = average;
+totalPopulation.textContent = conversionNumber(total);
+avaragePopulation.textContent = conversionNumber(average);
+
+function conversionNumber(value) {
+  const arrayThousands = [];
+  let number = value;
+
+  while (number > 0) {
+    arrayThousands.unshift(number % 1000);
+    number = Math.floor(number / 1000);
+  }
+
+  return arrayThousands.join(',');
+};
