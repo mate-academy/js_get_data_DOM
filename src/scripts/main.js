@@ -6,7 +6,7 @@ const numberPopulation = populationArray.map(population =>
   +(population.textContent.split(',').join('')));
 
 const totalPopulation = numberPopulation.reduce((total, amount) =>
-  total + amount);
+  total + amount, 0);
 
 const averagePopulation = totalPopulation / numberPopulation.length;
 
