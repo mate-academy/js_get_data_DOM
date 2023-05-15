@@ -3,11 +3,11 @@
 const populationList = document.querySelectorAll('.population');
 const populationArr = [...populationList].map(el =>
   +(el.innerText.split(',').join('')));
-const total = populationArr.reduce((a, b) => (a + b));
+const total = populationArr.reduce((acc, number) => (acc + number));
 const average = total / populationArr.length;
 
 document.querySelector('.total-population').textContent
-  = total.toLocaleString();
+  = total.toLocaleString('en-US');
 
 document.querySelector('.average-population').textContent
-  = average.toLocaleString();
+  = average.toLocaleString('en-US');
