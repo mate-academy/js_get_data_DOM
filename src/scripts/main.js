@@ -10,4 +10,4 @@ document.querySelector('.total-population')
   .textContent = totalSum.toLocaleString('en-us');
 
 document.querySelector('.average-population')
-  .textContent = averageValue.toLocaleString('en-us');
+  .textContent = averageValue.toLocaleString('en-US');
