@@ -1,9 +1,12 @@
 'use strict';
 
 const populationInfo = document.querySelectorAll('.population');
+
 const arrOfStatistics = [...populationInfo]
   .map(value => +value.textContent.replaceAll(',', ''));
+
 const totalSum = arrOfStatistics.reduce((sum, x) => sum + x, 0);
+
 const averageValue = (totalSum / arrOfStatistics.length);
 
 document.querySelector('.total-population')
