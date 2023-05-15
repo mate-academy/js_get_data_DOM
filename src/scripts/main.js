@@ -2,12 +2,12 @@
 
 const populationInfo = document.querySelectorAll('.population');
 
-const arrOfStatistics = [...populationInfo]
-  .map(value => +value.textContent.replaceAll(',', ''));
+const countryPopulations = [...populationInfo]
+  .map(population => +population.textContent.replaceAll(',', ''));
 
-const totalSum = arrOfStatistics.reduce((sum, x) => sum + x, 0);
+const totalSum = countryPopulations.reduce((sum, x) => sum + x, 0);
 
-const averageValue = (totalSum / arrOfStatistics.length);
+const averageValue = (totalSum / countryPopulations.length);
 
 document.querySelector('.total-population')
   .textContent = totalSum.toLocaleString('en-us');
