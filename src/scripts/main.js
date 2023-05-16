@@ -1,6 +1,5 @@
 'use strict';
 
-// write your code here
 const populationsHtml
   = document.getElementsByClassName('population');
 const totalPopultaionHtml
