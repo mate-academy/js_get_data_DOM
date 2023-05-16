@@ -13,5 +13,8 @@ for (const population of populationsHtml) {
   totalPopulation += parseInt(population.innerText.replaceAll(',', ''));
 }
 
-totalPopultaionHtml.innerText = totalPopulation;
-avaragePopultaionHtml.innerHTML = totalPopulation / populationsHtml.length;
+totalPopultaionHtml.innerText
+  = totalPopulation.toLocaleString('en-US', { useGrouping: true });
+
+avaragePopultaionHtml.innerHTML = (totalPopulation / populationsHtml.length)
+  .toLocaleString('en-US', { useGrouping: true });
