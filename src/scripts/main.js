@@ -8,14 +8,10 @@ const avaragePopultaionHtml
   = document.getElementsByClassName('average-population')[0];
 
 let totalPopulation = 0;
-let avgPopulation = 0;
-let i = 0;
 
 for (const population of populationsHtml) {
-  i++;
   totalPopulation += parseInt(population.innerText.replaceAll(',', ''));
 }
 
-avgPopulation = totalPopulation / i;
 totalPopultaionHtml.innerText = totalPopulation;
-avaragePopultaionHtml.innerHTML = avgPopulation;
+avaragePopultaionHtml.innerHTML = totalPopulation / populationsHtml.length;
