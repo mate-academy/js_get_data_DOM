@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const averagePopulation = document.querySelector('.average-population');
 
   const totalPopulationValue = [...population].reduce((total, country) => {
-    // get value from span
     const countryPopulation = +(country.textContent).replace(/,/g, '');
 
     return total + countryPopulation;
