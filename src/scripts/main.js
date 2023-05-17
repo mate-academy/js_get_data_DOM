@@ -1,8 +1,8 @@
 'use strict';
 
-const countryList = [...document.querySelectorAll('population')];
-const totalHuman = document.querySelector('total-population');
-const averageHuman = document.querySelector('average-population');
+const countryList = [...document.querySelectorAll('.population')];
+const totalHuman = document.querySelector('.total-population');
+const averageHuman = document.querySelector('.average-population');
 
 const valueHuman = countryList.reduce((sum, country) => {
   const peoples = +country.textContent.split(',').join('');
