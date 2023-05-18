@@ -1,18 +1,20 @@
 'use strict';
 
 const populations = document.querySelectorAll('.population');
-let totalPopulation = 0;
 let validPopulations = 0;
 
-populations.forEach(population => {
+const totalPopulation = [...populations].reduce((total, population) => {
   const populationText = population.textContent;
   const populationNumber = Number(populationText.replace(/,/g, ''));
 
   if (!isNaN(populationNumber)) {
-    totalPopulation += populationNumber;
     validPopulations++;
+
+    return total + populationNumber;
   }
-});
+
+  return total;
+}, 0);
 
 const averagePopulation = totalPopulation / validPopulations;
 const averagePopulationFormatted = averagePopulation.toLocaleString();
