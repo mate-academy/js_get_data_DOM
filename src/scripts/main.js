@@ -17,8 +17,8 @@ const totalPopulation = [...populations].reduce((total, population) => {
 }, 0);
 
 const averagePopulation = totalPopulation / validPopulations;
-const averagePopulationFormatted = averagePopulation.toLocaleString();
-const totalPopulationFormatted = totalPopulation.toLocaleString();
+const averagePopulationFormatted = averagePopulation.toLocaleString('en-US');
+const totalPopulationFormatted = totalPopulation.toLocaleString('en-US');
 
 document.querySelector('.average-population').textContent
 = averagePopulationFormatted;
