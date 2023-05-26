@@ -1,13 +1,18 @@
 'use strict';
 
-const populations = document.querySelectorAll('.population');
 let total = 0;
 
-for (const population of populations) {
-  const number = +population.textContent.split(',').join('');
+const calculateTotal = (num) => {
+  total += num;
+};
 
-  total += number;
-}
+const populations = document.querySelectorAll('.population');
+
+populations.forEach(el => {
+  const number = Number(el.textContent.split(',').join(''));
+
+  calculateTotal(number);
+});
 
 const average = total / populations.length;
 
