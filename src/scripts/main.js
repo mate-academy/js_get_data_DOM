@@ -8,10 +8,10 @@ const calculateTotal = (num) => {
 
 const populations = document.querySelectorAll('.population');
 
-populations.forEach(el => {
-  const number = Number(el.textContent.split(',').join(''));
+populations.forEach(population => {
+  const populationNumber = Number(population.textContent.split(',').join(''));
 
-  calculateTotal(number);
+  calculateTotal(populationNumber);
 });
 
 const average = total / populations.length;
