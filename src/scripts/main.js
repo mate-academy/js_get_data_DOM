@@ -11,17 +11,21 @@ population.forEach(string => {
   populationArray.push(number);
 });
 
+const options = {
+  useGrouping: true,
+};
+
 function calculateTotal(array) {
   return array
     .reduce((acc, item) => acc + item, 0)
-    .toLocaleString();
+    .toLocaleString(undefined, options);
 }
 
 function calculateAverage(array) {
   const averagePopulation = array
-    .reduce((acc, item) => acc + item, 0) / (populationArray.length - 1);
+    .reduce((acc, item) => acc + item, 0) / (array.length - 1);
 
-  return parseInt(averagePopulation).toLocaleString();
+  return parseInt(averagePopulation).toLocaleString(undefined, options);
 }
 
 const total = calculateTotal(populationArray);
