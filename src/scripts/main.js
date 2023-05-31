@@ -7,12 +7,11 @@ const arrayOfNumbers = [...listOfPopulations].map(el =>
 );
 
 const totalPopulation = document.querySelector('.total-population');
+const sumOfPopulation = arrayOfNumbers.reduce((sum, el) => sum + el, 0);
 
-totalPopulation.innerText = arrayOfNumbers.reduce((sum, el) => sum + el, 0)
-  .toLocaleString('en-US');
+totalPopulation.innerText = sumOfPopulation.toLocaleString('en-US');
 
 const avgPopulation = document.querySelector('.average-population');
 
-avgPopulation.innerText = (arrayOfNumbers.reduce((sum, el) => sum + el, 0)
-  / arrayOfNumbers.length)
+avgPopulation.innerText = (sumOfPopulation / arrayOfNumbers.length)
   .toLocaleString('en-US');
