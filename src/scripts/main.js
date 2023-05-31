@@ -5,14 +5,17 @@ let total = 0;
 
 const populationClassList = document.getElementsByClassName('population');
 
-for (let countryPopulation of populationClassList) {
-  let number = parseInt(countryPopulation.textContent.replaceAll(',', ''));
-  console.log(number);
-  if (number !== NaN) {
+for (const countryPopulation of populationClassList) {
+  const number = parseInt(countryPopulation.textContent.replaceAll(',', ''));
+
+  if (!isNaN(number)) {
     count++;
     total += number;
   }
 }
 
-document.querySelector('.total-population').textContent = total.toLocaleString('en-US');
-document.querySelector('.average-population').textContent = (total / count).toLocaleString('en-US');
+const totalPopulationClass = document.querySelector('.total-population');
+const averagepopulationClass = document.querySelector('.average-population');
+
+totalPopulationClass.textContent = total.toLocaleString('en-US');
+averagepopulationClass.textContent = (total / count).toLocaleString('en-US');
