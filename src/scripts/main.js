@@ -1,16 +1,11 @@
 'use strict';
 
 const popTags = document.querySelectorAll('.population');
-let items = [];
-
-popTags.forEach(element => {
+const items = [...popTags].map(element => {
   const text = element.innerText;
 
-  items.push(text);
+  return parseFloat(text.replace(/,/g, ''));
 });
-
-items.map(n => n.toLocaleString('en-Us'));
-items = items.map(str => parseFloat(str.replace(/,/g, '')));
 
 const totalPop = items.reduce((sum, currentVal) => sum + currentVal, 0);
 const averagePop = totalPop / items.length;
