@@ -4,7 +4,7 @@ const populationClass = [...document.querySelectorAll('.population')];
 let total = 0;
 
 populationClass.forEach(item => {
-  total += +item.innerText.replaceAll(',', '');
+  total += +item.innerText.replaceAll(',', '') || 0;
 });
 
 const average = total / populationClass.length;
