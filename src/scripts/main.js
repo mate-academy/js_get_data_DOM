@@ -12,5 +12,5 @@ for (const item of arr) {
   sum += value;
 }
 
-total.innerText = sum.toLocaleString('en-US') + `!`;
-average.innerText = (sum / arr.length).toLocaleString('en-US') + `!`;
+total.innerText = sum.toLocaleString('en-US');
+average.innerText = (sum / arr.length).toLocaleString('en-US');
