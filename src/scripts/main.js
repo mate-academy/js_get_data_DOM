@@ -9,10 +9,10 @@ for (let i = 0; i < list.length; i++) {
 }
 
 const total = population.reduce(function(sum, current) {
-  return sum + +current;
+  return sum + Number(current);
 }, 0);
 
-const average = total / 10;
+const average = total / population.length;
 
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
