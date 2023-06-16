@@ -3,19 +3,16 @@
 const totalPopulationElem = document.querySelector('.total-population');
 const avgPopulationElem = document.querySelector('.average-population');
 
-const populationElements = document.querySelectorAll('.population');
+const populationElements = [...document.querySelectorAll('.population')];
 
-const populationList = [...populationElements].map(population => {
-  return population.innerText;
-});
+const totalPopulation = populationElements.reduce((sum, population) => {
+  const currPopulationText = population.innerText;
+  const currPopulationValue = +currPopulationText.split(',').join('');
 
-const totalPopulation = populationList.reduce((sum, population) => {
-  const currPopulation = +population.split(',').join('');
-
-  return sum + currPopulation;
+  return sum + currPopulationValue;
 }, 0);
 
-const avgPopulation = totalPopulation / populationList.length;
+const avgPopulation = totalPopulation / populationElements.length;
 
 totalPopulationElem.innerText = totalPopulation.toLocaleString('en-US');
 avgPopulationElem.innerText = avgPopulation.toLocaleString('en-US');
