@@ -3,13 +3,11 @@
 // write your code here
 const populations = document.getElementsByClassName('population');
 
-let totalPopulation = 0;
+const populationToArray = Array.from(populations);
 
-for (let i = 0; i < populations.length; i++) {
-  const commaGone = Number(populations[i].textContent.replaceAll(',', ''));
-
-  totalPopulation += commaGone;
-}
+const totalPopulation = populationToArray.map(pop =>
+  Number(pop.textContent.replaceAll(',', ''))).reduce((start, toAdd) =>
+  start + toAdd);
 
 const htmlTotalPop = document.getElementsByClassName('total-population');
 
