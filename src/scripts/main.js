@@ -1,8 +1,9 @@
 'use strict';
 
 const populationElements = document.querySelectorAll('.population');
-// eslint-disable-next-line max-len
-const populationValues = Array.from(populationElements).map(span => span.textContent.trim());
+
+const populationValues = Array.from(populationElements)
+  .map(span => span.textContent.trim());
 
 const parsedPopulations = populationValues.map(population => {
   const numericValue = parseInt(population.replace(/,/g, ''));
@@ -10,8 +11,10 @@ const parsedPopulations = populationValues.map(population => {
   return isNaN(numericValue) ? 0 : numericValue;
 });
 
-// eslint-disable-next-line max-len
-const totalPopulation = parsedPopulations.reduce((total, population) => total + population, 0);
+const totalPopulation = parsedPopulations.reduce(
+  (total, population) => total + population, 0
+);
+
 const averagePopulation = totalPopulation / parsedPopulations.length;
 
 const averagePopulationSpan = document.querySelector('.average-population');
