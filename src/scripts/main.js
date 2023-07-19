@@ -1,14 +1,12 @@
 'use strict';
 
 const population = document.getElementsByClassName('population');
-const populationStrings = [];
 let total = 0;
 
 for (let i = 0; i < population.length; i++) {
   const string = population[i].innerText.replace(new RegExp(',', 'g'), '');
 
-  populationStrings.push(Number(string));
-  total += populationStrings[i];
+  total += Number(string);
 }
 
 const average = total / population.length;
