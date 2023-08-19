@@ -1,30 +1,22 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   const populationSpans = document.querySelectorAll('.population');
   const averageSpan = document.querySelector('.average-population');
   const totalSpan = document.querySelector('.total-population');
 
-  let totalPopulation = 0;
-  let validCount = 0;
+  const totalPopulation = [...populationSpans]
+    .map(span => parseInt(span.textContent.replace(/,/g, '')))
+    .filter(Number.isFinite)
+    .reduce((total, population) => total + population, 0);
 
-  populationSpans.forEach(span => {
-    const populationText = span.textContent.trim();
-    const populationNumber = parseInt(populationText.replace(/,/g, ''));
+  const averagePopulation = totalPopulation / populationSpans.length;
 
-    if (!isNaN(populationNumber)) {
-      totalPopulation += populationNumber;
-      validCount++;
-    }
-  });
+  const formatNumberWithCommas = number =>
+    number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-  const averagePopulation = totalPopulation / validCount;
-
-  averageSpan.textContent = formatNumberWithCommas(averagePopulation.toFixed(0)
+  averageSpan.textContent = formatNumberWithCommas(
+    Math.round(averagePopulation)
   );
   totalSpan.textContent = formatNumberWithCommas(totalPopulation);
 });
-
-function formatNumberWithCommas(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
