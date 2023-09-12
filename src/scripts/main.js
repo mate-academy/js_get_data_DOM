@@ -8,7 +8,9 @@ const populationCounts = populationValues.map(
   value => +value.split(',').join('')
 );
 
-const total = populationCounts.reduce((totalCount, count) => totalCount + count, 0);
+const total = populationCounts.reduce(
+  (totalCount, count) => totalCount + count, 0
+);
 const average = total / populationCounts.length;
 
 const totalPopulation = document.querySelector('.total-population');
