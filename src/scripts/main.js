@@ -12,11 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const averagePopulation = totalPopulation / populationSpans.length;
 
-  const formatNumberWithCommas = number =>
-    number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-  averageSpan.textContent = formatNumberWithCommas(
-    Math.round(averagePopulation)
-  );
-  totalSpan.textContent = formatNumberWithCommas(totalPopulation);
+  averageSpan.textContent = Math.round(averagePopulation)
+    .toLocaleString('en-US');
+  totalSpan.textContent = totalPopulation.toLocaleString('en-US');
 });
