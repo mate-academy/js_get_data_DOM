@@ -1,5 +1,4 @@
 'use strict';
-
 // write your code here
 
 const populationspans = document.querySelectorAll('.population');
