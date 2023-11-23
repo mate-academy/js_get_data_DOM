@@ -4,7 +4,7 @@ const countryPopulation = document.getElementsByClassName('population');
 const countryPopulationArr = [];
 
 for (const el of countryPopulation) {
-  const tmp = el.innerText.split(',').join('');
+  const tmp = parseInt(el.innerText.split(',').join(''));
 
   if (!isNaN(tmp)) {
     countryPopulationArr.push(tmp);
