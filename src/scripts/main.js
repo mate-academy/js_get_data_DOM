@@ -5,8 +5,9 @@ const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
 
 const totalPopulationNumber = allCountriesPopulation
-  .map(country => Number(country.textContent.split(',').join('')))
+  .map(country => +country.textContent.split(',').join(''))
   .reduce((prev, acc) => prev + acc, 0);
+
 const averagePopulationNumber = totalPopulationNumber
   / allCountriesPopulation.length;
 
