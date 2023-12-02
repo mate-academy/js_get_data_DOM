@@ -1,8 +1,8 @@
 'use strict';
 
 const itemsOfPopulation = document.querySelectorAll('.population');
-const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
+const totalPopulation = document.querySelector('.total-population');
 
 const textData
   = [...itemsOfPopulation].map(item => +(item.innerText.replaceAll(',', '')));
