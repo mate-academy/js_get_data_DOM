@@ -3,20 +3,17 @@
 document.addEventListener('DOMContentLoaded', function() {
   const populationElements = document.querySelectorAll('.population');
 
-  let totalPopulation = 0;
-  let populationCount = 0;
+  const populationNumbers = Array.from(populationElements).map((element) => {
+    const populationNumber = Number(element.textContent.replace(/,/g, ''));
 
-  populationElements.forEach(function(element) {
-    const populationNumber = parseInt(
-      element.textContent.replace(/,/g, ''),
-      10,
-    );
-
-    if (!isNaN(populationNumber)) {
-      totalPopulation += populationNumber;
-      populationCount++;
-    }
+    return !isNaN(populationNumber) ? populationNumber : 0;
   });
+
+  const totalPopulation = populationNumbers.reduce(
+    (sum, populationNumber) => sum + populationNumber,
+    0,
+  );
+  const populationCount = populationNumbers.length;
 
   const averagePopulation
     = populationCount > 0 ? totalPopulation / populationCount : 0;
@@ -28,6 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.average-population').textContent = formattedAverage;
 
   function numberWithCommas(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return number.toLocaleString();
   }
 });
