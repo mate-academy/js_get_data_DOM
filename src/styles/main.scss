@@ -32,7 +32,7 @@ h1 {
       margin-right: 8px;
     }
 
-    &:before {
+    &::before {
       color: #565754;
       counter-increment: section;
       content: counter(section);
