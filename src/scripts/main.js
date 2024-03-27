@@ -1,40 +1,26 @@
 'use strict';
 
+function addCommasEveryThreeChars(text) {
+  if (text.length <= 3) {
+    return text;
+  }
+
+  return addCommasEveryThreeChars(text.slice(0, -3)) + ',' + text.slice(-3);
+}
+
 const populations = document.querySelectorAll('.population');
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
-let sum = 0;
+const sum = Array.from(populations).reduce(
+  (total, population) =>
+    total + parseInt(population.textContent.replaceAll(',', '')),
+  0,
+);
 let average = 0;
 
 if (populations.length > 0) {
-  for (let i = 0; i < populations.length; i++) {
-    sum += parseInt(populations[i].textContent.replaceAll(',', ''));
-  }
-
   average = sum / populations.length;
 }
 
-sum = sum.toString();
-average = average.toString();
-
-let separatedSum = '';
-let separatedAverage = '';
-
-for (let i = 0; i < sum.length; i++) {
-  if ((sum.length - i) % 3 === 0 && i !== 0) {
-    separatedSum += ',';
-  }
-
-  separatedSum += sum[i];
-}
-
-for (let i = 0; i < average.length; i++) {
-  if ((average.length - i) % 3 === 0 && i !== 0) {
-    separatedAverage += ',';
-  }
-
-  separatedAverage += average[i];
-}
-
-totalPopulation.textContent = separatedSum;
-averagePopulation.textContent = separatedAverage;
+totalPopulation.textContent = addCommasEveryThreeChars(sum.toString());
+averagePopulation.textContent = addCommasEveryThreeChars(average.toString());
