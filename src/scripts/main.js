@@ -9,24 +9,21 @@ function removeCommas(string) {
 }
 
 function getTotalPopulation() {
-  let total = 0;
+  const total = [...populationByCountries].reduce((acc, country) => {
+    const data = country.textContent.trim();
 
-  for (const countryPopulation of populationByCountries) {
-    const data = countryPopulation.textContent.trim();
-    const population = +parseInt(removeCommas(data));
-
-    total += population;
-  }
+    return acc + Number(parseInt(removeCommas(data)));
+  }, 0);
 
   return total.toLocaleString('en-US');
 }
 
 function getAveragePopulation() {
-  const total = +removeCommas(getTotalPopulation());
+  const total = Number(removeCommas(getTotalPopulation()));
   const countryAmount = populationByCountries.length;
 
   if (countryAmount === 0) {
-    return 0;
+    return countryAmount;
   }
 
   const average = Math.round(total / countryAmount);
