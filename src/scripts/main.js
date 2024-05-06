@@ -6,11 +6,11 @@ const mySeparator = ',';
 const spanCollection = document.querySelectorAll('span.population');
 const arrayPopulation = [...spanCollection];
 
-const total = arrayPopulation.reduce((acum, elem) => {
-  return acum + Number(elem.innerHTML.replace(/,/g, ''));
+const total = arrayPopulation.reduce((sum, elem) => {
+  return sum + Number(elem.innerHTML.replace(/,/g, ''));
 }, 0);
 
-const average = total / 10;
+const average = total / arrayPopulation.length;
 
 const divide = (number, divider, separator) => {
   let string = '';
@@ -32,5 +32,4 @@ const totalResult = divide(total, myDivider, mySeparator);
 const averageResult = divide(average, myDivider, mySeparator);
 
 document.querySelector('span.total-population').innerHTML = totalResult;
-
 document.querySelector('span.average-population').innerHTML = averageResult;
