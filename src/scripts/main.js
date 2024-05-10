@@ -14,10 +14,8 @@ populationArray.forEach((population) => {
 
 const average = total / populationArray.length;
 
-const numberFormatter = Intl.NumberFormat('en-US');
-
 const totalSpan = document.querySelector('.total-population');
 const averageSpan = document.querySelector('.average-population');
 
 totalSpan.textContent = total.toLocaleString('en-US');
-averageSpan.textContent = numberFormatter.format(average);
+averageSpan.textContent = average.toLocaleString('en-US');
