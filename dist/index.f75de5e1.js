@@ -1,23 +1,22 @@
 "use strict";
-const allPopulation = document.querySelectorAll(".population");
-const allPopulationArray = Array.from(allPopulation);
+const allPopulation = [
+    ...document.querySelectorAll(".population")
+];
 const allAveragePopulation = document.querySelectorAll(".average-population");
-const allAveragePopulationArray = Array.from(allAveragePopulation);
-const allTotalPopulation = document.querySelectorAll(".total-population");
-const allPopulationNumbers = allPopulationArray.map((element)=>element.textContent.replace(/,/g, "")).map((text)=>{
+const allPopulationNumbers = allPopulation.map((element)=>element.textContent.replace(/,/g, "")).map((text)=>{
     const number = parseInt(text, 10);
     return isNaN(number) ? null : number;
 }).filter((number)=>number !== null);
-let totalPopulation = 0;
-for(let i = 0; i < allPopulationNumbers.length; i++)totalPopulation += allPopulationNumbers[i];
+const totalPopulation = allPopulationNumbers.reduce((total, number)=>{
+    return total + number;
+}, 0);
 const totalPopulationFormatted = totalPopulation.toLocaleString("en-US");
 const averagePopulationValue = totalPopulation / allPopulationNumbers.length;
 const averagePopulation = averagePopulationValue.toLocaleString("en-US");
-allAveragePopulationArray.forEach((element)=>{
+allAveragePopulation.forEach((element)=>{
     if (element.textContent === "Calculate it!") element.textContent = averagePopulation;
 });
-allTotalPopulation.forEach((element)=>{
-    if (element.textContent === "Calculate it!") element.textContent = totalPopulationFormatted;
-});
+const totalElement = document.querySelector(".total-population");
+if (totalElement && totalElement.textContent === "Calculate it!") totalElement.textContent = totalPopulationFormatted;
 
 //# sourceMappingURL=index.f75de5e1.js.map
