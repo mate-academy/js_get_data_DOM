@@ -9,7 +9,7 @@ const totalPopulation = allPopulations.reduce((prev, num) => prev + num, 0);
 const totalPopulationTag = document.querySelector('.total-population');
 const averagePopulationTag = document.querySelector('.average-population');
 
-totalPopulationTag.textContent = totalPopulation.toLocaleString();
+totalPopulationTag.textContent = totalPopulation.toLocaleString('en-US');
 
 averagePopulationTag.textContent = Math.round(
   totalPopulation / allPopulations.length,
