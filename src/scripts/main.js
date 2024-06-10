@@ -24,7 +24,7 @@ const totalPopulation = totals.sum;
 const averagePopulation = totals.average;
 
 document.querySelector('.total-population').textContent =
-  totalPopulation.toLocaleString();
+  totalPopulation.toLocaleString('en-US');
 
 document.querySelector('.average-population').textContent =
-  averagePopulation.toLocaleString();
+  averagePopulation.toLocaleString('en-US');
