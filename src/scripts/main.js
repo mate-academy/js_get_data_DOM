@@ -1,26 +1,30 @@
 'use strict';
 
+'use strict';
+
 const populationElements = [...document.querySelectorAll('.population')];
 
-function calculateAverage(elements) {
-  let totalPopulation = 0;
+function calculateTotals(elements) {
+  let sum = 0;
+  const count = elements.length;
 
   elements.forEach((element) => {
     const population = parseInt(element.textContent.replace(/,/g, ''), 10);
 
-    totalPopulation += population;
+    sum += population;
   });
 
-  const averagePopulation = totalPopulation / elements.length;
+  const average = sum / count;
 
-  return { totalPopulation, averagePopulation };
+  return { sum, average };
 }
 
-const { sum, average } = calculateAverage(populationElements);
+const totals = calculateTotals(populationElements);
+const totalPopulation = totals.sum;
+const averagePopulation = totals.average;
 
-document.querySelector('.total-population').textContent = sum.toLocaleString();
+document.querySelector('.total-population').textContent =
+  totalPopulation.toLocaleString();
 
 document.querySelector('.average-population').textContent =
-  average.toLocaleString();
-
-// write your code here
+  averagePopulation.toLocaleString();
