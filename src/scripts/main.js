@@ -4,7 +4,6 @@ const populationElements = [...document.querySelectorAll('.population')];
 
 function calculateAverage(elements) {
   let totalPopulation = 0;
-  const count = elements.length;
 
   elements.forEach((element) => {
     const population = parseInt(element.textContent.replace(/,/g, ''), 10);
@@ -12,7 +11,7 @@ function calculateAverage(elements) {
     totalPopulation += population;
   });
 
-  const averagePopulation = totalPopulation / count;
+  const averagePopulation = totalPopulation / elements.length;
 
   return { totalPopulation, averagePopulation };
 }
