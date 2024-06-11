@@ -16,7 +16,7 @@ function formatNumber(num) {
 }
 
 const formattedTotal = formatNumber(totalPopulation);
-const formattedAverage = formatNumber(averagePopulation.toFixed(2));
+const formattedAverage = formatNumber(averagePopulation);
 
 document.querySelector('span.average-population').textContent =
   formattedAverage;
