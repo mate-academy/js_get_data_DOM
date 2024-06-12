@@ -7,10 +7,10 @@ const averagePopulation = document.querySelector('.average-population');
 let total = 0;
 
 spanNumber.forEach((num) => {
-  total += parseInt(num.textContent);
+  total += parseInt(num.textContent.replace(/,/g, ''));
 });
 
 const average = total / spanNumber.length;
 
-totalPopulation.textContent = total;
-averagePopulation.textContent = average.toFixed(2);
+totalPopulation.textContent = total.toLocaleString();
+averagePopulation.textContent = Math.round(average).toLocaleString();
