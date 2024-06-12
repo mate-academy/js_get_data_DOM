@@ -1,3 +1,6 @@
 'use strict';
 
-// write your code here
+const container = document.querySelector('container');
+const arrayOfCountryPeople = [...container.querySelectorAll('population')];
+
+console.log('12313');
