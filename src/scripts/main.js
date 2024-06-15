@@ -6,9 +6,9 @@ const averagePopulation = document.querySelector('.average-population');
 
 const total = population
   .map((el) => +el.textContent.split(',').join(''))
-  .reduce((num, sum) => num + sum, 0);
+  .reduce((sum, num) => sum + num, 0);
 
 const average = total / population.length;
 
-totalPopulation.textContent = total.toLocaleString('en - US');
-averagePopulation.textContent = average.toLocaleString('en - US');
+totalPopulation.textContent = total.toLocaleString('en-US');
+averagePopulation.textContent = average.toLocaleString('en-US');
