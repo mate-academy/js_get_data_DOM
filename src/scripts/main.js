@@ -1,14 +1,6 @@
-const allItems = [...document.querySelectorAll('span')];
-
-const populations = allItems.filter(
-  (element) => element.className === 'population',
-);
-const total = allItems.filter(
-  (element) => element.className === 'total-population',
-)[0];
-const average = allItems.filter(
-  (element) => element.className === 'average-population',
-)[0];
+const populations = [...document.querySelectorAll('.population')];
+const total = document.querySelector('.total-population');
+const average = document.querySelector('.average-population');
 
 const totalResult = populations
   .map((element) => element.textContent.replace(/,/g, ''))
