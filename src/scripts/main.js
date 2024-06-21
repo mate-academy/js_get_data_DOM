@@ -19,11 +19,8 @@ for (let p of population) {
 };
 
 const textTotal = document.querySelector('.total-population');
+textTotal.textContent = sum.toLocaleString('en-US');
 
-const sumThousands = sum.toLocaleString('en-US');
-textTotal.textContent = `${sumThousands}`;
-
-const average = Math.floor(sum / populationLength).toLocaleString('en-US');
 const textAverage = document.querySelector('.average-population');
-textAverage.textContent = `${average};`
+textAverage.textContent = Math.floor(sum / populationLength).toLocaleString('en-US');
 
