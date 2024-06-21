@@ -2,7 +2,6 @@
 
 const population = document.querySelectorAll('.population');
 const populationLength = Object.keys(population).length;
-console.log(population);
 let sum = 0;
 
 for (let p of population) {
