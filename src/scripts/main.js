@@ -6,11 +6,11 @@ const populationNumbers = Array.from(populations).map((pop) => {
   return parseInt(pop.textContent.replace(/,/g, ''), 10);
 });
 
-const totalPopulaton = populationNumbers.reduce((total, num) => total + num, 0);
+const totalPopulati = populationNumbers.reduce((total, num) => total + num, 0);
 
-const averagePopulation = totalPopulaton / populationNumbers.length;
+const averagePopulation = totalPopulati / populationNumbers.length;
 
-const formattedTotal = totalPopulaton.toLocaleString();
+const formattedTotal = totalPopulati.toLocaleString();
 const formattedAverage = Math.round(averagePopulation).toLocaleString();
 
 document.querySelector('.total').textContent = formattedTotal;
