@@ -1,5 +1,4 @@
 'use strict';
-// const
 
 const populationArr = [...document.querySelectorAll('.population')];
 const elTotalPopulation = document.querySelector('.total-population');
