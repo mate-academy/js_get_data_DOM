@@ -1,13 +1,14 @@
 'use strict';
+
 const populationItems = document.querySelectorAll('.population');
 const averagePopulationItem = document.querySelector('.average-population');
 const totalPopulationItem = document.querySelector('.total-population');
 const populationData = [];
 
-populationItems.forEach(item => populationData.push(item.textContent));
+populationItems.forEach((item) => populationData.push(item.textContent));
 
 function parseNumber(str) {
-    return parseInt(str.replace(/,/g, ''), 10);
+  return parseInt(str.replace(/,/g, ''), 10);
 }
 
 const populationNumbers = populationData.map(parseNumber);
