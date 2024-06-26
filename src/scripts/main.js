@@ -3,11 +3,11 @@
 // write your code here
 
 document.addEventListener('DOMContentLoaded', function () {
-  const POPULATION_ELEMENTS = document.querySelectorAll('.population');
+  const populationElement = document.querySelectorAll('.population');
   let totalAmount = 0;
-  let count = POPULATION_ELEMENTS.length;
+  let count = populationElement.length;
 
-  POPULATION_ELEMENTS.forEach(function (element) {
+  populationElement.forEach(function (element) {
     const populationText = element.textContent.replace(/,/g, '');
     const populationNumber = parseInt(populationText, 10);
 
