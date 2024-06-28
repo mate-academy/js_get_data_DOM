@@ -17,4 +17,3 @@ const sum = popList.reduce((acc, cur, i, arr) => acc + cur);
 
 popTotal.textContent = sum.toLocaleString('en-US');
 popAvg.textContent = averg.toLocaleString('en-US');
-console.log('----');
