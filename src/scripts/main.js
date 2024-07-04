@@ -9,10 +9,11 @@ for (const key of elements ){
 
 const averagePopulation = allPopulationNumber / elements.length;
 
-let classTotalPopulation = document.getElementsByClassName('total-population');
+let classTotalPopulation = document.querySelector('.total-population');
+let classAveragePopulation = document.querySelector('.average-population');
+
 classTotalPopulation.innerHTML = allPopulationNumber;
 
-let classAveragePopulation = document.getElementsByClassName('average-population');
 classAveragePopulation.innerHTML = averagePopulation;
 
 console.log(averagePopulation);
