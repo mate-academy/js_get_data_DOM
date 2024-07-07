@@ -1,23 +1,19 @@
-const spanEl = document.querySelectorAll('.population');
+const spanEl = [...document.querySelectorAll('.population')];
 const totalEl = document.querySelector('.total-population');
 const averageEl = document.querySelector('.average-population');
 
-const num = [];
-
-spanEl.forEach((span) => {
-  const textContent = span.innerHTML;
-
-  const numericContent = textContent.replace(/[^\d.-]/g, '');
-
+const total = spanEl.reduce((accum, el) => {
+  const textContent = el.innerHTML;
+  const numericContent = textContent.replace(/[^\d]/g, '');
   const number = Number(numericContent);
+  let acc = accum;
 
-  num.push(number);
-});
+  acc += number;
 
-const total = num.reduce((acc, i) => acc + i)
+  return acc;
+}, 0);
 
-let average = total / num.length;
+const average = total / spanEl.length;
 
 totalEl.innerHTML = total.toLocaleString('en-US');
 averageEl.innerHTML = average.toLocaleString('en-US');
-
