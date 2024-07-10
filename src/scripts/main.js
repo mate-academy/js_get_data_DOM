@@ -1,8 +1,8 @@
 'use strict';
 
 const populationSpan = document.querySelectorAll('span.population');
-const totalPopulation = document.querySelectorAll('total-population');
-const averagePopulation = document.querySelectorAll('average-population');
+const totalPopulation = document.querySelectorAll('span.total-population');
+const averagePopulation = document.querySelectorAll('span.average-population');
 
 let numberOfPopulation = 0;
 
