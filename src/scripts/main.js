@@ -6,9 +6,9 @@ const averagePopulation = document.querySelectorAll('span.average-population');
 
 let numberOfPopulation = 0;
 
-populationSpan.forEach = (span) => {
+populationSpan.forEach((span) => {
   numberOfPopulation += Number(span.textContent.replaceAll(',', ''));
-};
+});
 
 const averagePeople = numberOfPopulation / populationSpan.length;
 
