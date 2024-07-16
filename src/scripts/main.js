@@ -1,3 +1,14 @@
 'use strict';
 
-// write your code here
+let total = 0;
+
+document
+  .querySelectorAll('.population')
+  .forEach((el) => (total += +el.textContent.split(',').join('')));
+
+document.querySelector('.total-population').textContent =
+  total.toLocaleString();
+
+document.querySelector('.average-population').textContent = (
+  total / 10
+).toLocaleString();
