@@ -7,8 +7,8 @@ document
   .forEach((el) => (total += +el.textContent.split(',').join('')));
 
 document.querySelector('.total-population').textContent =
-  total.toLocaleString();
+  total.toLocaleString('en-US');
 
 document.querySelector('.average-population').textContent = (
   total / 10
-).toLocaleString();
+).toLocaleString('en-US');
