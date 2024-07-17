@@ -8,7 +8,7 @@ let avaragePopulation = 0;
 
 populations.forEach((populationElement) => {
   const populationText = populationElement.textContent;
-  const populationNumber = parseFloat(populationText.replace(',', ''));
+  const populationNumber = parseFloat(populationText.split(',').join(''));
 
   totalPopulation += populationNumber;
 });
