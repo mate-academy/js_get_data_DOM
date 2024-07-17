@@ -17,4 +17,4 @@ Steps to do this challenge:
 5. Calculated `average` and `total` numbers must be separated by a [thousands separator](https://www.codingem.com/comma-thousand-separator-in-javascript/)(same numeric style as populations presented).
 6. Congrats, mate! You did it!
 
-![Preview](./src/images/preview.png).
+![Preview](./src/images/preview.png)...
