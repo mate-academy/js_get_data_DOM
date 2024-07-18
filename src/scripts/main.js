@@ -7,25 +7,18 @@ const populationNumbers = [];
 
 population.forEach((element) => {
   const populationText = element.textContent;
-  const populationNumber = parseInt(populationText.split(',').join(''));
+  const populationNumber = parseInt(populationText.replaceAll(',', ''));
 
   if (!isNaN(populationNumber)) {
     populationNumbers.push(populationNumber);
   }
 });
 
-let total = 0;
-
-populationNumbers.forEach((populationNumber) => {
-  total += populationNumber;
-});
+const total = populationNumbers.reduce((acc, sum) => acc + sum, 0);
 
 totalPopulation.textContent = total.toString();
 
-let average = 0;
-
-if (populationNumbers.length > 0) {
-  average = total / populationNumbers.length;
-}
+const average =
+  populationNumbers.length > 0 ? total / populationNumbers.length : 'Error';
 
 averagePopulation.textContent = average.toString();
