@@ -16,9 +16,9 @@ population.forEach((element) => {
 
 const total = populationNumbers.reduce((acc, sum) => acc + sum, 0);
 
-totalPopulation.textContent = total.toString();
+totalPopulation.textContent = total.toLocaleString('en-US');
 
 const average =
   populationNumbers.length > 0 ? total / populationNumbers.length : 'Error';
 
-averagePopulation.textContent = average.toString();
+averagePopulation.textContent = average.toLocaleString('en-US');
