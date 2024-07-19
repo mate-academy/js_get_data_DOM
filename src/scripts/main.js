@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const avaragePopulation = totalPopulation / populations.length;
 
-  const formatNumber = (num) => num.toLocaleString();
+  const formatNumber = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
 
   document.querySelector('.total-population').textContent =
     formatNumber(totalPopulation);
