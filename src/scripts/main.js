@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const formatNumber = (num) => num.toLocaleString();
 
-  document.querySelector('.totalPopulation').textContent =
+  document.querySelector('.total-population').textContent =
     formatNumber(totalPopulation);
 
-  document.querySelector('.avaragePopulation').textContent =
+  document.querySelector('.average-population').textContent =
     formatNumber(avaragePopulation);
 });
