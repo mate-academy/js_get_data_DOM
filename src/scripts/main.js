@@ -1,28 +1,25 @@
-'use strict'
+'use strict';
 
-// get data dom
-const populations = [...document.querySelectorAll('.population')]
+const populations = document.querySelectorAll('.population');
 const totalPopulation = document.querySelector('.total-population');
 const avaragePopulation = document.querySelector('.average-population');
 
 const getParsedData = (data) => {
   const parsed = data.textContent;
-  const result = +(parsed.replaceAll(',', ''));
+  const result = +parsed.replaceAll(',', '');
 
-  return result
-}
+  return result;
+};
 
 const getSum = (data) => {
-  let result = 0
+  let result = 0;
 
-
-  for (const population of data) {
-    result += getParsedData(population);
+  for (const item of data) {
+    result += getParsedData(item);
   }
 
   return result;
-}
-
+};
 
 const getDataFromPopulations = () => {
   const sum = getSum(populations) || 0;
@@ -33,6 +30,6 @@ const getDataFromPopulations = () => {
 
   totalPopulation.textContent = formatedSum;
   avaragePopulation.textContent = formatedAvarage;
-}
+};
 
-getDataFromPopulations()
+getDataFromPopulations();

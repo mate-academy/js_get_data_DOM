@@ -2,7 +2,6 @@
 
 body {
   background: #eee;
-  font-family: Roboto, Arial, Helvetica, sans-serif;
   display: flex;
   margin: 0;
   width: 100vw;
@@ -26,9 +25,8 @@ h1 {
   margin: 32px 0;
   list-style: none;
   padding: 0;
-}
 
-.list__item {
+  &__item {
     margin: 8px;
     border-bottom: 1px solid darkgrey;
     display: flex;
@@ -50,6 +48,7 @@ h1 {
       transform: translateY(-60%);
     }
   }
+}
 
 .total,
 .average {
