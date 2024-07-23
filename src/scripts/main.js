@@ -2,13 +2,13 @@
 
 // write your code here
 const collection = document.querySelectorAll('.population');
-const population = [...collection].map((item) => {
-  item.innerText.split(',').join('');
-});
 
-const totalPopulation = population.reduce((initial, item) => {
-  return initial + Number(item);
-}, 0);
+const population = [...collection]
+  .map((item) => item.innerText.split(',').join(''))
+  .map((item) => Number(item))
+  .filter((item) => !isNaN(item)); // Переконуємося, що це число
+
+const totalPopulation = population.reduce((initial, item) => initial + item, 0);
 const avgPopulation = totalPopulation / population.length;
 
 const avgPopulationElement = document.querySelector('.average-population');
