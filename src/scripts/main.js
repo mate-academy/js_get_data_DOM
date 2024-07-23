@@ -16,5 +16,5 @@ populationSpans.forEach((span) => {
 
 const average = total / populationSpans.length;
 
-totalPopulationElement.textContent = total.toLocaleString();
-averagePopulationElement.textContent = average.toLocaleString();
+totalPopulationElement.textContent = total.toLocaleString('en-US');
+averagePopulationElement.textContent = average.toLocaleString('en-US');
