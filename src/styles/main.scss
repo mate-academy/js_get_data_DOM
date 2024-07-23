@@ -16,10 +16,16 @@ h1 {
   width: 460px;
 }
 
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .list {
   margin: 32px 0;
   list-style: none;
   padding: 0;
+
   &__item {
     margin: 8px;
     border-bottom: 1px solid darkgrey;
