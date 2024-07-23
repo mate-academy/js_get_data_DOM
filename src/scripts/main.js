@@ -3,7 +3,9 @@
 // write your code here
 const collection = document.querySelectorAll('.population');
 
-const population = [...collection].map((item) => Number(item.innerText.split(',').join('')));
+const population = [...collection].map((item) => {
+  Number(item.innerText.split(',').join(''));
+});
 
 const totalPopulation = population.reduce((initial, item) => initial + item, 0);
 const avgPopulation = totalPopulation / population.length;
