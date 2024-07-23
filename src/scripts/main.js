@@ -7,7 +7,7 @@ const population = [...collection].map((item) => {
 });
 
 const totalPopulation = population.reduce((initial, item) => {
-  return +initial + +item;
+  return initial + Number(item);
 }, 0);
 const avgPopulation = totalPopulation / population.length;
 
