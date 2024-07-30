@@ -9,5 +9,5 @@ const averageCount = totalCount / popArrWC.length;
 const totalPop = document.querySelector('.total-population');
 const averagePop = document.querySelector('.average-population');
 
-totalPop.textContent = totalCount.toLocaleString();
-averagePop.textContent = averageCount.toLocaleString();
+totalPop.textContent = totalCount.toLocaleString('en');
+averagePop.textContent = averageCount.toLocaleString('en');
