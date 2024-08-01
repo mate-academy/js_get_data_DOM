@@ -7,7 +7,8 @@ let sum = 0;
 let average = 0;
 
 for (let i = 0; i < population.length; i++) {
-  sum += parseInt(population[i]);
+  let countryPopulation = Number(population[i]);
+  sum += countryPopulation;
   average = sum / population.length;
 }
 
