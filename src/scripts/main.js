@@ -1,13 +1,13 @@
 'use strict';
 
 // write your code here
-const population = [...document.querySelectorAll('.population')] * 1;
+const population = [...document.querySelectorAll('.population')];
 
 let sum = 0;
 let average = 0;
 
 for (let i = 0; i < population.length; i++) {
-  sum += population[i];
+  sum += parseInt(population[i]);
   average = sum / population.length;
 }
 
