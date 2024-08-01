@@ -21,5 +21,3 @@ const averageOfPopulation = sumOfPopulation / totalPopulation.length;
 const average = document.querySelector('.average-population');
 
 average.textContent = averageOfPopulation.toLocaleString('en-US');
-
-// console.log(averageOfPopulation);
