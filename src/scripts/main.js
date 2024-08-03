@@ -1,17 +1,23 @@
 'use strict';
 
 // write your code here
-const population = [...document.querySelectorAll('.population').value];
+const populationList = document.getElementsByClassName('population');
 let sum = 0;
 let average = 0;
+let mainArray = [];
 
-for (let i = 0; i < population.length; i++) {
-  
-  population[i] = parseFloat(population[i]);
-  sum += population[i];
+for (let i = 0; i < populationList.length; i++) {
+  const population = populationList[i].innerHTML;
+
+  mainArray.push(population);
 }
 
-average = sum / population.length;
+for (let i = 0; i < mainArray.length; i++) {
+  mainArray[i] = parseFloat(mainArray[i]);
+  sum += mainArray[i];
+}
+
+average = sum / mainArray.length;
 
 document.querySelector('.total-population').innerHTML =
   sum.toLocaleString('en-US');
