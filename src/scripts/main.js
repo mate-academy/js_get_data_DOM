@@ -9,12 +9,11 @@ const mainArray = [];
 for (let i = 0; i < populationList.length; i++) {
   const population = populationList[i].innerHTML;
 
-  mainArray.push(Number(population));
+  mainArray.push((population));
 }
 
 for (let i = 0; i < mainArray.length; i++) {
-  
-  sum += mainArray[i];
+  sum += mainArray[i]*1;
 }
 
 average = sum / mainArray.length;
