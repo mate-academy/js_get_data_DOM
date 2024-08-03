@@ -8,7 +8,7 @@ const mainArray = [];
 
 for (let i = 0; i < populationList.length; i++) {
   const population = populationList[i].innerHTML;
-
+  population.replaceAll(',', '');
   mainArray.push(population);
 }
 
@@ -19,7 +19,7 @@ for (let i = 0; i < mainArray.length; i++) {
 average = sum / mainArray.length;
 
 document.querySelector('.total-population').innerHTML =
-  sum;
+  sum.toLocaleString('en-US');
 
 document.querySelector('.average-population').innerHTML =
-  average;
+  average.toLocaleString('en-US');
