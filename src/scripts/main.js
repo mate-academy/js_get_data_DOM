@@ -19,7 +19,7 @@ for (let i = 0; i < mainArray.length; i++) {
 average = sum / mainArray.length;
 
 document.querySelector('.total-population').innerHTML =
-  sum.toLocaleString('en-US');
+  sum;
 
 document.querySelector('.average-population').innerHTML =
-  average.toLocaleString('en-US');
+  average;
