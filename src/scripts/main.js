@@ -1,15 +1,14 @@
 'use strict';
 
 // write your code here
-const population = document.querySelectorAll('.population');
+const population = document.getElementsByClassName('population');
 let sum = 0;
 let average = 0;
 
 for (let i = 0; i < population.length; i++) {
-  if (!isNaN) {
-    population[i] = parseFloat(population[i]);
-    sum += population[i]; 
-  }
+
+  population[i] = parseFloat(population[i]);
+  sum += population[i];
 }
 
 average = sum / population.length;
@@ -19,4 +18,3 @@ document.querySelector('.total-population').innerHTML =
 
 document.querySelector('.average-population').innerHTML =
   average.toLocaleString('en-US');
-
