@@ -4,16 +4,16 @@
 const populationList = document.getElementsByClassName('population');
 let sum = 0;
 let average = 0;
-let mainArray = [];
+const mainArray = [];
 
 for (let i = 0; i < populationList.length; i++) {
   const population = populationList[i].innerHTML;
 
-  mainArray.push(population);
+  mainArray.push(Number(population));
 }
 
 for (let i = 0; i < mainArray.length; i++) {
-  mainArray[i] = parseFloat(mainArray[i]);
+  
   sum += mainArray[i];
 }
 
