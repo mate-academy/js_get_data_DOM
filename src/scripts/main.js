@@ -8,8 +8,9 @@ const mainArray = [];
 
 for (let i = 0; i < populationList.length; i++) {
   const population = populationList[i].innerHTML;
-  population.replaceAll(',', '');
-  mainArray.push(population);
+
+  let populationWithoutCommas = population.split(',').join('');
+  mainArray.push(populationWithoutCommas);
 }
 
 for (let i = 0; i < mainArray.length; i++) {
