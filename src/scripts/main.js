@@ -1,12 +1,11 @@
 'use strict';
 
 // write your code here
-const population = document.getElementsByClassName('population');
+const population = [...document.querySelectorAll('.population')] ;
 let sum = 0;
 let average = 0;
 
 for (let i = 0; i < population.length; i++) {
-
   population[i] = parseFloat(population[i]);
   sum += population[i];
 }
