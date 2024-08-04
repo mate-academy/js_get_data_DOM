@@ -19,25 +19,5 @@ for (let i = 0; i < arrPrice.length; i++) {
 
 const average = total / arrPrice.length;
 
-function getNumberSeparatedByCommas(number) {
-  const strNumber = '' + number;
-  const remainder = strNumber.length % 3;
-  const arrResult = [];
-
-  for (let i = 0; i < strNumber.length; ) {
-    if (i === 0 && remainder > 0) {
-      arrResult.push(strNumber.slice(0, remainder));
-      i += remainder;
-    }
-
-    arrResult.push(strNumber.slice(i, i + 3));
-    i += 3;
-  }
-
-  const result = arrResult.join(',');
-
-  return result;
-}
-
-totalPopulation.innerHTML = getNumberSeparatedByCommas(total);
-averagePopulation.innerHTML = getNumberSeparatedByCommas(average);
+totalPopulation.innerHTML = total.toLocaleString('en-US');
+averagePopulation.innerHTML = average.toLocaleString('en-US');
