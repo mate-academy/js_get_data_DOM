@@ -11,5 +11,8 @@ for (const item of items) {
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
 
-totalPopulation.innerHTML = totalSum;
-averagePopulation.innerHTML = Math.round(totalSum / items.length);
+totalPopulation.innerHTML = totalSum.toLocaleString('en-US');
+
+averagePopulation.innerHTML = Math.round(
+  totalSum / items.length,
+).toLocaleString('en-US');
