@@ -5,7 +5,7 @@ let totalPopulation = 0;
 
 populationList.forEach((element) => {
   const text = element.innerText;
-  const num = text.replace(/,/g, '');
+  const num = text.replace(/\D/g, '');
 
   totalPopulation += +num;
 });
