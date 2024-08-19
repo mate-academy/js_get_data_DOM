@@ -20,23 +20,5 @@ const average = total / populationText.length;
 const totalSpan = document.querySelector('.total-population');
 const averageSpan = document.querySelector('.average-population');
 
-function makeNumberWithComas(number) {
-  const stringNumber = number.toString();
-
-  if (stringNumber.length > 3) {
-    const splittedStringNum = stringNumber.split('');
-
-    // Цикл для вставки ком
-    for (let i = splittedStringNum.length - 3; i > 0; i -= 3) {
-      splittedStringNum.splice(i, 0, ',');
-    }
-
-    // Повертаємо рядок з вставленими комами
-    return splittedStringNum.join('');
-  }
-
-  return stringNumber;
-}
-
-totalSpan.textContent = makeNumberWithComas(total);
-averageSpan.textContent = makeNumberWithComas(average);
+totalSpan.textContent = total.toLocaleString('En-US');
+averageSpan.textContent = average.toLocaleString('En-US');
