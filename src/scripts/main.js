@@ -1,23 +1,19 @@
 'use strict';
 
-function convertToNum (str) {
-  return +str.replaceAll(',', '');
-}
-
 const population = [...document.querySelectorAll('.population')];
 
 const convertedPopulation = population.map((populations) => {
-  return convertToNum(populations.textContent);
+  return Number(populations.textContent.replaceAll(',',''));
 });
 
 const totalPopulation = convertedPopulation.reduce((sum, p) => {
   return sum + p;
-}, 0)
+}, 0);
 
 const avgPopulation = totalPopulation / convertedPopulation.length;
 
-const totalElement = document.querySelector('.total-population');
-const averageElement = document.querySelector('.average-population');
+document.querySelector('.total-population').textContent =
+  totalPopulation.toLocaleString('en-US');
 
-totalElement.textContent = totalPopulation;
-averageElement.textContent = avgPopulation;
+document.querySelector('.average-population').textContent =
+  avgPopulation.toLocaleString('en-US');
