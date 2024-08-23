@@ -3,7 +3,7 @@
 const population = [...document.querySelectorAll('.population')];
 
 const convertedPopulation = population.map((populations) => {
-  return Number(populations.textContent.replaceAll(',',''));
+  return Number(populations.textContent.replaceAll(',', ''));
 });
 
 const totalPopulation = convertedPopulation.reduce((sum, p) => {
