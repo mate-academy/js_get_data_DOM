@@ -6,7 +6,6 @@ const averagePopulationElement = document.querySelector('.average-population');
 let totalPopulation = 0;
 
 populationArray.forEach((item) => {
-  // const population = +item.firstChild.nodeValue.replaceAll(',', '');
   const population = +item.textContent.replaceAll(',', '');
 
   totalPopulation += population;
