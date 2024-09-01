@@ -7,9 +7,7 @@ const averagePopulation = document.querySelector('.average-population');
 let totalValue = 0;
 
 for (const population of populations) {
-  population.innerHTML = population.innerHTML.replaceAll(',', '');
-
-  totalValue += +population.innerHTML;
+  totalValue += +population.innerHTML.replaceAll(',', '');
 }
 
 const avarageValue = totalValue / populations.length;
