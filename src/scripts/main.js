@@ -6,17 +6,19 @@ const docTotal = document.querySelector('.total-population');
 
 const docAverage = document.querySelector('.average-population');
 
-const populationArray = [];
+const populationNumbers = [];
 
-docPopulationArray.forEach((item) => populationArray.push(item.textContent));
-
-const populationNumbers = populationArray.map(
-  (item) => +item.replaceAll(',', ''),
-);
+docPopulationArray.forEach((item) => {
+  populationNumbers.push(parseInt(item.textContent.replaceAll(',', '')));
+});
 
 const totalPopulation = populationNumbers.reduce((total, curr) => total + curr);
 
-const averagePopulation = totalPopulation / populationArray.length;
+let averagePopulation;
+
+if (populationNumbers.length > 0) {
+  averagePopulation = totalPopulation / populationNumbers.length;
+}
 
 docTotal.textContent = totalPopulation.toLocaleString('en-US');
 docAverage.textContent = averagePopulation.toLocaleString('en-US');
