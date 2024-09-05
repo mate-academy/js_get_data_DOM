@@ -1,24 +1,24 @@
 'use strict';
 
 // write your code here
-const allElementSpan = document.querySelectorAll('span.population');
+const allElementSpan = document.querySelectorAll('.population');
 
 let totalValue = 0;
 let count = 0;
 
 for (let i = 0; i < allElementSpan.length; i++) {
   // eslint-disable-next-line no-unused-vars
-  const value = allElementSpan[i].textContent;
-}
-
-// eslint-disable-next-line no-undef
-if (!isNaN(value)) {
-  // eslint-disable-next-line no-unused-expressions, no-undef
-  value = +value;
+  let value = allElementSpan[i].textContent;
 
   // eslint-disable-next-line no-undef
-  totalValue += value;
-  count++;
+  if (!isNaN(value)) {
+    // eslint-disable-next-line no-unused-expressions, no-undef
+    value = +value;
+
+    // eslint-disable-next-line no-undef
+    totalValue += value;
+    count++;
+  }
 }
 
 const avarageValue = totalValue / count;
