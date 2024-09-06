@@ -7,45 +7,14 @@ const elements = {
   averagePopulation: document.querySelector('.average-population'),
 };
 
-const getNumberFromString = (array) => {
-  const customIndex = 1;
+const totalPopulation = elements.countriesList
+  .reduce((total, country) => {
+    const population = country.textContent;
 
-  return array.reduce((total, item, index) => {
-    const currentFactor = Math.pow(1000, array.length - (customIndex + index));
-    const newTotal = total + Number(item) * currentFactor;
-
-    return newTotal;
+    return total + parseInt(population.replace(/,/g, '',), 10);
   }, 0);
-};
 
-const totalPopulation = elements.countriesList.reduce((total, country) => {
-  const population = country.textContent.split(',');
+const averagePopulation = (totalPopulation / elements.countriesList.length);
 
-  return total + getNumberFromString(population);
-}, 0);
-
-const SplitNumberByComma = (number) => {
-  const numberToArray = String(number).split('').reverse();
-
-  const separatedArray = numberToArray
-    .reduce((result, item, index, arr) => {
-      const newResult =
-        (index + 1) % 3 === 0 && index !== arr.length - 1
-          ? result + item + ','
-          : result + item;
-
-      return newResult;
-    }, '')
-    .split(',');
-
-  return separatedArray
-    .reverse()
-    .map((item) => item.split('').reverse().join(''))
-    .join(',');
-};
-
-elements.totalPopulation.textContent = SplitNumberByComma(totalPopulation);
-
-elements.averagePopulation.textContent = SplitNumberByComma(
-  totalPopulation / elements.countriesList.length,
-);
+elements.totalPopulation.textContent = totalPopulation.toLocaleString();
+elements.averagePopulation.textContent = averagePopulation.toLocaleString();
