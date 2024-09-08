@@ -13,7 +13,7 @@ function calculateTotal() {
 
     totalPopulation += +population.split(',').join('');
   });
-  total.textContent = totalPopulation;
+  total.textContent = totalPopulation.toLocaleString();
 }
 
 function calculateAverage() {
@@ -26,7 +26,7 @@ function calculateAverage() {
     totalPopulation += +population.split(',').join('');
   });
   averagePopulation = Math.floor(totalPopulation / items.length);
-  average.textContent = averagePopulation;
+  average.textContent = averagePopulation.toLocaleString();
 }
 
 calculateTotal();
