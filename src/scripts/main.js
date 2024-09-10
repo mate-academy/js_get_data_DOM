@@ -1,33 +1,41 @@
 'use strict';
 
-const population = [...document.querySelectorAll('.population')];
-const totalTag = document.querySelector('.total');
-const averageTag = document.querySelector('.average');
+const elements = [...document.querySelectorAll('.population')];
+const numbers = [];
 
-const valuesArray = [];
+elements.forEach((element) => {
+  const numStr = element.textContent.trim().split(',').join('');
+  const num = Number(numStr);
 
-population.forEach((county) => {
-  const value = parseInt(county.textContent.replaceAll(',', ''));
-
-  valuesArray.push(value);
+  numbers.push(num);
 });
 
-const total = valuesArray.reduce((acc, curr) => acc + curr);
-const average = total / valuesArray.length;
+function sumNumbers() {
+  let sum = 0;
 
-function preparePopulation(param) {
-  const prepared = ('' + param).split('').reverse();
-  let res = '';
-
-  for (let i = 0; i < prepared.length; i++) {
-    if (i !== 0 && i % 3 === 0) {
-      res += ',';
-    }
-    res += prepared[i];
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
   }
 
-  return res.split('').reverse().join('');
+  return sum.toLocaleString('en-US');
 }
 
-totalTag.textContent = `Total: ${preparePopulation(total)}`;
-averageTag.textContent = `Average: ${preparePopulation(average)}`;
+function averageNumbers() {
+  let average = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    average += numbers[i];
+  }
+
+  const avarageNum = average / numbers.length;
+
+  return avarageNum.toLocaleString('en-US');
+}
+
+const textSumContent = document.querySelector('.total-population');
+
+textSumContent.innerHTML = `${sumNumbers()}`;
+
+const textAverageContent = document.querySelector('.average-population');
+
+textAverageContent.innerHTML = `${averageNumbers()}`;
