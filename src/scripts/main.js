@@ -10,8 +10,8 @@ const populations = Array.from(populationElements).map((span) => {
 const totalPopulation = populations.reduce((total, num) => total + num, 0);
 const averagePopulation = totalPopulation / populations.length;
 
-const formattedTotal = totalPopulation.toLocaleString();
-const formattedAverage = averagePopulation.toLocaleString(undefined, {
+const formattedTotal = totalPopulation.toLocaleString('en-US');
+const formattedAverage = averagePopulation.toLocaleString('en-US', {
   maximumFractionDigits: 0,
 });
 
