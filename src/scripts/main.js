@@ -11,29 +11,5 @@ const total = [...populationCollection].reduce((result, population) => {
 }, 0);
 const average = Math.floor(total / populationCollection.length);
 
-function addComma(str, divideBy = 3) {
-  const numberToString = typeof str !== 'string' ? str.toString() : str;
-  const result = [];
-
-  for (let i = 0; i < numberToString.length; ) {
-    let part = '';
-
-    if (numberToString.length % divideBy && i === 0) {
-      part = numberToString.slice(i, i + (numberToString.length % divideBy));
-
-      result.push(part);
-      i = i + (numberToString.length % divideBy);
-      continue;
-    }
-
-    part = numberToString.slice(i, i + divideBy);
-
-    result.push(part);
-    i = i + divideBy;
-  }
-
-  return result.join(',');
-}
-
-totalElement.innerText = addComma(total);
-averageElement.innerText = addComma(average );
+totalElement.innerText = total.toLocaleString('en-US');
+averageElement.innerText = average.toLocaleString('en-US');
