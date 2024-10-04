@@ -2,38 +2,38 @@
 
 const populationCollection = document.querySelectorAll('.population');
 const totalElement = document.querySelector('.total-population');
-const avarangeElement = document.querySelector('.average-population');
+const averageElement = document.querySelector('.average-population');
 
 const total = [...populationCollection].reduce((result, population) => {
   const number = population.innerText.split(',').join('');
 
   return result + +number;
 }, 0);
-const avarange = Math.floor(total / populationCollection.length);
+const average = Math.floor(total / populationCollection.length);
 
-function addComma(str, diviteBy = 3) {
-  const numberToStirng = typeof str !== 'string' ? str.toString() : str;
+function addComma(str, divideBy = 3) {
+  const numberToString = typeof str !== 'string' ? str.toString() : str;
   const result = [];
 
-  for (let i = 0; i < numberToStirng.length; ) {
+  for (let i = 0; i < numberToString.length; ) {
     let part = '';
 
-    if (numberToStirng.length % diviteBy && i === 0) {
-      part = numberToStirng.slice(i, i + (numberToStirng.length % diviteBy));
+    if (numberToString.length % divideBy && i === 0) {
+      part = numberToString.slice(i, i + (numberToString.length % divideBy));
 
       result.push(part);
-      i = i + (numberToStirng.length % diviteBy);
+      i = i + (numberToString.length % divideBy);
       continue;
     }
 
-    part = numberToStirng.slice(i, i + diviteBy);
+    part = numberToString.slice(i, i + divideBy);
 
     result.push(part);
-    i = i + diviteBy;
+    i = i + divideBy;
   }
 
   return result.join(',');
 }
 
 totalElement.innerText = addComma(total);
-avarangeElement.innerText = addComma(avarange);
+averageElement.innerText = addComma(average );
