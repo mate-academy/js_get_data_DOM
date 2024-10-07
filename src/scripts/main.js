@@ -13,8 +13,7 @@ const averagePopulation = totalPopulation / populations.length;
 
 const formatNumber = (num) => num.toLocaleString();
 
-document.querySelector('.total-population').textContent =
-  formatNumber(totalPopulation);
+document.querySelector('.total-population').textContent = formatNumber(totalPopulation);
 
 document.querySelector('.average-population').textContent = formatNumber(
   Math.round(averagePopulation),
