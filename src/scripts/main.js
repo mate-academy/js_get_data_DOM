@@ -1,22 +1,24 @@
 'use strict';
 
 // write your code here
-const population = [...document.querySelector(`.population`)];
-const countCountries = population.length();
+const population = [...document.querySelectorAll('.population')];
+const populationNumber = population.map((item) => {
+  const number = [];
 
-population.forEach((item) => {
-  return parseInt(item.textContent.split(',').join(''));
+  number.push(item.textContent.replace(/,/g, ''));
+
+  return number;
 });
 
-const total = population.reduce(
-  (accumulator, currentValue) => accumulator + currentValue,
+const total = populationNumber.reduce(
+  (accumulator, currentValue) => accumulator + parseInt(currentValue),
   0,
 );
 
-const average = total / countCountries;
-
-document.getElementsByClassName(average - population).textContent =
-  average.toLocaleString('en-US');
+const average = total / populationNumber.length;
 
 document.querySelector('.total-population').textContent =
-  total.toLocaleString('en-US');
+  total.toLocaleString('en-Us');
+
+document.querySelector('.average-population').textContent =
+  average.toLocaleString('en-US');
