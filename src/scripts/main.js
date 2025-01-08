@@ -11,5 +11,5 @@ let averagePopulation = Math.round(totalPopulation / amountPopulation.length);
 totalPopulation = totalPopulation.toLocaleString('en-US');
 averagePopulation = averagePopulation.toLocaleString('en-US');
 
-document.querySelector('total-population').innerHTML = totalPopulation;
-document.querySelector('average-population').innerHTML = averagePopulation;
+document.querySelector('.total-population').innerHTML = totalPopulation;
+document.querySelector('.average-population').innerHTML = averagePopulation;
