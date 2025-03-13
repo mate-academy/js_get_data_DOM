@@ -28,4 +28,4 @@ total = total.match(/(\d{3}|\d+)/g).join(',');
 average = average.match(/(\d{3}|\d+)/g).join(',');
 
 totalLocation.innerHTML = total;
-averageLocation.innerHTML = average;
+averageLocation.innerHTML = average; //
