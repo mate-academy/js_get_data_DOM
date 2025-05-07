@@ -1,15 +1,19 @@
 @import 'fonts';
 
 body {
-  background: #eee;
+  counter-reset: section;
+
   display: flex;
-  margin: 0;
+  align-items: center;
+  justify-content: center;
+
   width: 100vw;
   height: 100vh;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+
   font-family: Roboto, sans-serif;
-  counter-reset: section;
+
+  background: #eee;
 }
 
 h1 {
@@ -18,34 +22,39 @@ h1 {
 
 .list {
   margin: 32px 0;
-  list-style: none;
   padding: 0;
+  list-style: none;
   &__item {
-    margin: 8px;
-    border-bottom: 1px solid darkgrey;
-    display: flex;
-    justify-content: space-between;
-    padding: 4px 4px 4px 30px;
     position: relative;
 
-    img {
-      margin-right: 8px;
-    }
+    display: flex;
+    justify-content: space-between;
+
+    margin: 8px;
+    padding: 4px 4px 4px 30px;
+    border-bottom: 1px solid darkgrey;
 
     &::before {
-      color: #565754;
-      counter-increment: section;
       content: counter(section);
+      counter-increment: section;
+
       position: absolute;
       top: 50%;
       left: 5px;
       transform: translateY(-60%);
+
+      color: #565754;
+    }
+
+    img {
+      margin-right: 8px;
     }
   }
 }
 
 .total,
 .average {
+  cursor: pointer;
   font-size: 20px;
   &-population {
     font-size: 24px;
