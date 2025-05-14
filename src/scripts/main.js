@@ -1,5 +1,6 @@
 'use strict';
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const populationSpans = document.querySelectorAll('.population');
   const totalPopulationSpan = document.querySelector('.total-population');
