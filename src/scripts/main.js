@@ -8,12 +8,13 @@ let average = 0;
 for (let i = 0; i < collection.length; i++) {
   const num = collection[i].innerText.replace(/,/g, '');
 
-  population.push(num);
+  population.push(parseInt(num));
 }
 
 total = population.reduce((acc, curr) => {
-  return acc + parseInt(curr);
+  return acc + curr;
 }, 0);
+
 average = total / population.length;
 
 document.getElementsByClassName('total-population')[0].innerText = total;
