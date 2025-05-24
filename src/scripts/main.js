@@ -1,9 +1,9 @@
 'use strict';
 
 const allSpan = document.querySelectorAll('.population');
-const allNumber = [];
 const totalNumber = document.querySelector('.total-population');
 const averageNumber = document.querySelector('.average-population');
+const allNumber = [];
 
 allSpan.forEach((item) => {
   const span = Number(item.textContent.replace(/,/g, ''));
