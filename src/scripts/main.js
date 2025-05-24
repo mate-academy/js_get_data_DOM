@@ -1,3 +1,22 @@
 'use strict';
 
-// write your code here
+const allSpan = document.querySelectorAll('.population');
+const totalNumber = document.querySelector('.total-population');
+const averageNumber = document.querySelector('.average-population');
+const allNumber = [];
+
+allSpan.forEach((item) => {
+  const span = Number(item.textContent.replace(/,/g, ''));
+
+  if (!isNaN(span)) {
+    allNumber.push(span);
+  }
+});
+
+if (totalNumber && averageNumber) {
+  const total = allNumber.reduce((acc, num) => acc + num, 0);
+  const average = total / allNumber.length;
+
+  totalNumber.textContent = total.toLocaleString('en-US');
+  averageNumber.textContent = average.toLocaleString('en-US');
+}
