@@ -1,17 +1,16 @@
 'use strict';
 
-const populationElements = document.getElementsByClassName('population');
+const populationElements = document.querySelectorAll('.population');
 
 const valuesOfPopulation = Array.from(populationElements).map((el) => {
-  Number(el.textContent.replaceAll(',', ''));
+  return Number(el.textContent.replaceAll(',', ''));
 });
 
-const sumOfValues = valuesOfPopulation.reduce((sum, num) => sum + num, 0);
+const sum = valuesOfPopulation.reduce((acc, num) => acc + num, 0);
 
-const average = Math.floor(sumOfValues / valuesOfPopulation.length);
+const average = Math.floor(sum / valuesOfPopulation.length);
 
-document.querySelector('.total-population').textContent =
-  `${addComas(sumOfValues)}`;
+document.querySelector('.total-population').textContent = `${addComas(sum)}`;
 
 document.querySelector('.average-population').textContent =
   `${addComas(average)}`;
