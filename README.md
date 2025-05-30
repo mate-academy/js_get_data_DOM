@@ -5,7 +5,8 @@
 
 ### Task: TOP 9 LARGEST COUNTRIES BY POPULATION
 
-Hello! In this task, you need to parse data from the list, and based on it get the average and total value.
+Hello!
+In this task, you need to parse data from the list, and based on it get the average and total value.
 You no need to change styles or HTML layout in this task. Change only `main.js` file.
 
 Steps to do this challenge:
