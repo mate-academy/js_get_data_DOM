@@ -5,7 +5,8 @@ const populationValues = Array.from(populationElements)
   .filter(Number.isFinite);
 
 const totalPopulation = populationValues.reduce((sum, val) => sum + val, 0);
-const averagePopulation = totalPopulation / populationValues.length;
+const averagePopulation =
+  populationValues.length > 0 ? totalPopulation / populationValues.length : 0;
 
 const formatNumber = (num) => num.toLocaleString();
 
