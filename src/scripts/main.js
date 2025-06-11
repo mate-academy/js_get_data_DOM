@@ -8,8 +8,8 @@ const numbers = Array.from(spans).map((span) => {
   return Number(cleaned);
 });
 
-const average = numbers.reduce((sum, num) => sum + num, 0) / numbers.length;
 const total = numbers.reduce((sum, num) => sum + num, 0);
+const average = numbers.length > 0 ? total / numbers.length : 0;
 
 const averageSpan = document.querySelector('.average-population');
 const totalSpan = document.querySelector('.total-population');
