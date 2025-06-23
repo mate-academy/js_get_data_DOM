@@ -12,14 +12,13 @@ for (let i = 0; i < populations.length; i++) {
   sumOfPopulation += population;
 }
 
-sumOfPopulation = '' + sumOfPopulation;
-
-const total = sumOfPopulation.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
 let averagePopulation = Math.round(sumOfPopulation / populations.length);
+
+sumOfPopulation = '' + sumOfPopulation;
 
 averagePopulation = '' + averagePopulation;
 
+const total = sumOfPopulation.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 const avrPopulation = averagePopulation.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const spanTotalPopulation = document.querySelector('span.total-population');
