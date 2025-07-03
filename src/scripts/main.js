@@ -12,6 +12,6 @@ document.querySelector('span.total-population').textContent = String(
   total.toLocaleString(),
 );
 
-document.querySelector('span.average-population ').textContent = String(
+document.querySelector('span.average-population').textContent = String(
   average.toLocaleString(),
 );
