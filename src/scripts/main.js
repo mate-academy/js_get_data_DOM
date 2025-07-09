@@ -18,4 +18,4 @@ const average = total / populations.length;
 
 document.querySelector('.total-population').textContent = formatNumber(total);
 document.querySelector('.average-population').textContent = formatNumber(Math.round(average));
-ent.querySelector('.average-population').textContent = formatNumber(Math.round(average));
+document.querySelector('.average-population').textContent = formatNumber(Math.round(average));
