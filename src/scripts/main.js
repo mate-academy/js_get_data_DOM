@@ -12,7 +12,7 @@ populations = populations.map((str) => Number(str.replace(/\D/g, '')));
 
 let total = populations.reduce((sum, num) => sum + num, 0);
 
-let average = Math.floor(total / 9);
+let average = Math.floor(total / populations.length);
 
 total = total.toLocaleString('en-US');
 
