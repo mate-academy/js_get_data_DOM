@@ -2,8 +2,7 @@
 
 const dates = document.getElementsByTagName('span');
 const totalPopulationSpan = document.getElementsByClassName('total-population');
-const averagePopulationSpan =
-  document.getElementsByClassName('average-population');
+const avgPopSpan = document.getElementsByClassName('average-population');
 let totalPopulation = 0;
 
 for (const data of dates) {
@@ -50,4 +49,4 @@ for (let i = 2; i < totalPopulationArr.length - 1; i++) {
 }
 
 totalPopulationSpan[0].textContent = totalPopulationArr.join('');
-averagePopulationSpan[0].textContent = averagePopulationArr.join('');
+avgPopSpan[0].textContent = averagePopulationArr.join('');
