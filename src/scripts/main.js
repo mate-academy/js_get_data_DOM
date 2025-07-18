@@ -4,6 +4,13 @@ const dates = document.getElementsByTagName('span');
 const totalPopulationSpan = document.getElementsByClassName('total-population');
 const avgPopSpan = document.getElementsByClassName('average-population');
 let totalPopulation = 0;
+let countOfCountries = 0;
+
+for (const data of dates) {
+  if (data.className === 'population') {
+    countOfCountries++;
+  }
+}
 
 for (const data of dates) {
   if (data.classList.contains('population')) {
@@ -13,9 +20,7 @@ for (const data of dates) {
   }
 }
 
-const averagePopulation = String(
-  Math.ceil(totalPopulation / (dates.length - 2)),
-);
+const averagePopulation = String(Math.ceil(totalPopulation / countOfCountries));
 const averagePopulationArr = averagePopulation.split('');
 const totalPopulationArr = String(totalPopulation).split('');
 let count = 0;
