@@ -1,7 +1,6 @@
 'use strict';
 
 const populationElements = document.querySelectorAll('span.population');
-
 let total = 0;
 let count = 0;
 
