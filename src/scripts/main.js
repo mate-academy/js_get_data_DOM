@@ -9,7 +9,7 @@ for (let q = 0; q < population.length; q++) {
 }
 
 for (let w = 0; w < numbers.length; w++) {
-  numbers[w] = parseInt(numbers[w].split(',').join());
+  numbers[w] = parseInt(numbers[w].split(',').join(''));
   sum += numbers[w];
 }
 
