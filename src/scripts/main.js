@@ -9,7 +9,7 @@ let total = 0;
 populationCollection.forEach((population) => {
   const data = population.innerHTML.replaceAll(',', '');
 
-  if (+data || +data === 0) {
+  if (!Number.isNaN(+data)) {
     averageAmount++;
 
     total += +data;
