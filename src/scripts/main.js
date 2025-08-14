@@ -15,7 +15,19 @@ for (const value of values) {
   }
 }
 
-const averageValue = Math.floor(sum / values.length);
+let count = 0;
+let validCount = 0;
+
+values.forEach((val) => {
+  const num = parseInt(val.replace(/,/g, ''), 10);
+
+  if (!isNaN(num)) {
+    count += num;
+    validCount++;
+  }
+});
+
+const average = validCount > 0 ? Math.floor(count / validCount) : 0;
 
 const totalPopulation = document.querySelector('.total-population');
 const averPopulation = document.querySelector('.average-population');
@@ -40,4 +52,4 @@ function getPopulation(val) {
 }
 
 totalPopulation.textContent = getPopulation(sum);
-averPopulation.textContent = getPopulation(averageValue);
+averPopulation.textContent = getPopulation(average);
