@@ -8,16 +8,17 @@ const values = Array.from(populations).map((el) => el.textContent);
 let sum = 0;
 
 for (const value of values) {
-  sum += +value.split(',').join('');
+  const num = +value.split(',').join('');
+
+  if (!isNaN(+num)) {
+    sum += num;
+  }
 }
 
 const averageValue = Math.floor(sum / values.length);
 
 const totalPopulation = document.querySelector('.total-population');
 const averPopulation = document.querySelector('.average-population');
-
-// const totalResult = '';
-// const averResult = '';
 
 function getPopulation(val) {
   const value = val.toString();
@@ -34,13 +35,9 @@ function getPopulation(val) {
       pie = '';
     }
   }
-  // console.log(result);
 
   return result.join(',').split('').reverse().join('');
 }
-
-// console.log(sum);
-// console.log(averageValue);
 
 totalPopulation.textContent = getPopulation(sum);
 averPopulation.textContent = getPopulation(averageValue);
