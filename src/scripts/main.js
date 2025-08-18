@@ -1,31 +1,26 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Отримуємо всі span з класом withpopulation
-  const populationSpans = document.querySelectorAll('.withpopulation');
+  const populationSpans = document.querySelectorAll('span.population');
 
-  // 2. Перетворюємо текст у числа
   const populations = Array.from(populationSpans)
     .map((span) => span.textContent.replace(/,/g, ''))
-    .map((num) => Number(num))
+    .map((str) => Number(str))
     .filter((num) => !isNaN(num));
 
-  // 3. Обчислюємо total та average
-  const total = populations.reduce((sum, val) => sum + val, 0);
-  const average = populations.length > 0 ? total / populations.length : 0;
+  const total = populations.reduce((sum, num) => sum + num, 0);
+  const average = total / populations.length;
 
-  // 4. Форматуємо з роздільником тисяч
-  const formatter = new Intl.NumberFormat('en-US');
+  const formatNumber = (num) => num.toLocaleString();
 
-  // 5. Замінюємо текст у відповідних span
-  const totalSpan = document.querySelector('.total-population');
-  const averageSpan = document.querySelector('.average-population');
-
-  if (totalSpan) {
-    totalSpan.textContent = formatter.format(total);
-  }
+  const averageSpan = document.querySelector('span.average-population');
+  const totalSpan = document.querySelector('span.total-population');
 
   if (averageSpan) {
-    averageSpan.textContent = formatter.format(Math.round(average));
+    averageSpan.textContent = formatNumber(Math.round(average));
+  }
+
+  if (totalSpan) {
+    totalSpan.textContent = formatNumber(total);
   }
 });
