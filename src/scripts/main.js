@@ -1,11 +1,15 @@
 'use strict';
 
 const populationSpans = document.querySelectorAll('span.population');
-const populationData = [...populationSpans].map((el) => {
-  const text = el.textContent;
+const populationData = [...populationSpans]
+  .map((el) => {
+    const text = el.textContent;
 
-  return Number(text.split(',').join(''));
-});
+    return Number(text.split(',').join(''));
+  })
+  .filter((num) => !isNaN(num));
+
+console.log(populationData);
 
 const totalPopulation = populationData.reduce(
   (sum, current) => sum + current,
