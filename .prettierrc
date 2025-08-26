@@ -5,13 +5,14 @@
   "singleQuote": true,
   "trailingComma": "all",
   "printWidth": 80,
+  "endOfLine": "lf",
   "overrides": [
     {
       "files": "*.html",
       "options": {
         "parser": "html",
         "insertPragma": false,
-        "endOfLine": "auto",
+        "endOfLine": "lf",
         "singleAttributePerLine": true,
         "htmlWhitespaceSensitivity": "ignore"
       }
