@@ -1,11 +1,11 @@
 'use strict';
 
-const populations = [...document.querySelectorAll('.population')].map((el) =>
-  Number(el.textContent.split(',').join('')));
+const pop = [...document.querySelectorAll('.population')];
+const popvalues = pop.map((el) => Number(el.textContent.split(',').join('')));
 
-const totalPopulation = populations.reduce((pre, current) => pre + current, 0);
+const totalPopulation = popvalues.reduce((pre, current) => pre + current, 0);
 
-const avgPopulation = Math.round(totalPopulation / populations.length);
+const avgPopulation = Math.round(totalPopulation / popvalues.length);
 
 document.querySelector('.total-population').textContent =
   totalPopulation.toLocaleString();
