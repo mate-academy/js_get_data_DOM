@@ -1,11 +1,14 @@
 'use strict';
 
-const pop = [...document.querySelectorAll('.population')];
-const popvalues = pop.map((el) => Number(el.textContent.split(',').join('')));
+const populationsElements = [...document.querySelectorAll('.population')];
 
-const totalPopulation = popvalues.reduce((pre, current) => pre + current, 0);
+const populationsValues = populationsElements
+  .map((el) => Number(el.textContent.trim().replaceAll(',', '')))
+  .filter((el) => !Number.isNaN(el));
 
-const avgPopulation = Math.round(totalPopulation / popvalues.length);
+const totalPopulation = populationsValues.reduce((sum, n) => sum + n, 0);
+
+const avgPopulation = Math.round(totalPopulation / populationsValues.length);
 
 document.querySelector('.total-population').textContent =
   totalPopulation.toLocaleString();
