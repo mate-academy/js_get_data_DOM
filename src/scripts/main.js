@@ -11,6 +11,7 @@ const total = populations.reduce((sum, num) => sum + num, 0);
 const average = total / populations.length;
 
 total.toLocaleString();
+
 average.toLocaleString();
 
 const averageSpan = document.querySelector('.average-population');
