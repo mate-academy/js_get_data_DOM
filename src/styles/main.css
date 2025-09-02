@@ -1,0 +1,69 @@
+@font-face {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/Roboto-Regular-webfont.woff") format("woff");
+}
+
+body {
+  counter-reset: section;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+
+  font-family: Roboto, sans-serif;
+
+  background: #eee;
+}
+
+h1 {
+  width: 460px;
+}
+
+.list {
+  margin: 32px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list__item {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin: 8px;
+  padding: 4px 4px 4px 30px;
+  border-bottom: 1px solid darkgrey;
+}
+
+.list__item::before {
+  content: counter(section);
+  counter-increment: section;
+
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-60%);
+
+  color: #565754;
+}
+
+.list__item img {
+  margin-right: 8px;
+}
+
+.total,
+.average {
+  font-size: 20px;
+}
+
+.total-population,
+.average-population {
+  font-size: 24px;
+}

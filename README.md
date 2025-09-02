@@ -1,5 +1,5 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_get_data_DOM/)
+    - [DEMO LINK](https://cooper85.github.io/js_get_data_DOM/src/index.html)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - There are no tests for this task so use `npm run lint` command instead of `npm test`
 
@@ -17,3 +17,24 @@ Steps to do this challenge:
 6. Congrats, mate! You did it!
 
 ![Preview](./src/images/preview.png).
+
+# install mate-scripts
+npm install
+npm run build
+npm run deploy
+
+# parcel daemon
+npm i -D parcel
+
+# parcel watch
+File | Settings -> Tools | File Watchers -> ...
+npx parcel src/index.html
+
+# parcel vs npm run buid
+Для разработки и быстрой проверки изменений всегда используй npx parcel src/index.html.
+Для финальной сборки — npm run build.
+Почему, как думаешь, hot reload удобнее для верстки?
+
+# stylelint
+IDE settings: run stylelint --fix on save (save up 15% of dev time)
+npx stylelint ./src/styles/style.css --fix (save for issue of empty lines before media, etc as well)
