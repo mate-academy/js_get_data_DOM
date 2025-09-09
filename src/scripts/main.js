@@ -1,10 +1,10 @@
 'use strict';
 
-const allPopulation = [...document.querySelectorAll('.population')];
-const totalPopulation = document.querySelector('.total-population');
-const averagePopulation = document.querySelector('.average-population');
+const allPopulation = [...document.querySelectorAll('span.population')];
+const totalPopulation = document.querySelector('span.total-population');
+const averagePopulation = document.querySelector('span.average-population');
 const numberOfPeople = allPopulation.map((elem) => {
-  return Number(elem.textContent.replaceAll(',', ''));
+  return parseInt(elem.textContent.replaceAll(/,/g, ''));
 });
 
 const totalValue = numberOfPeople.reduce((previousvalue, num) => {
@@ -14,4 +14,4 @@ const totalValue = numberOfPeople.reduce((previousvalue, num) => {
 const average = totalValue / numberOfPeople.length;
 
 totalPopulation.textContent = totalValue.toLocaleString('en-US');
-averagePopulation.textContent = average.toLocaleString('en-US');
+averagePopulation.textContent = Math.round(average).toLocaleString('en-US');
