@@ -11,7 +11,7 @@ const totalValue = numberOfPeople.reduce((previousvalue, num) => {
   return previousvalue + num;
 }, 0);
 
-const average = Number((totalValue / numberOfPeople.length).toFixed(1));
+const average = totalValue / numberOfPeople.length;
 
-totalPopulation.textContent = totalValue;
-averagePopulation.textContent = average;
+totalPopulation.textContent = totalValue.toLocaleString('en-US');
+averagePopulation.textContent = average.toLocaleString('en-US');
