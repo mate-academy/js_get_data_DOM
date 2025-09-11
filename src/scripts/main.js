@@ -10,42 +10,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const totalEl = document.querySelector('span.total-population');
+  const averageEl = document.querySelector('span.average-population');
+
+  if (!texts.length) {
+    if (totalEl) {
+      totalEl.textContent = '0';
+    }
+
+    if (averageEl) {
+      averageEl.textContent = '0';
+    }
+
+    return;
+  }
+
+  const sample = texts[0].trim();
+
+  let decimalSep = null;
+  const m = sample.match(/\d([,.])\d+$/);
+
+  if (m) {
+    decimalSep = m[1];
+  }
+
   let thousandSep = null;
+  let head = sample;
 
-  if (texts.length > 0) {
-    const sample = texts[0].trim();
+  if (decimalSep) {
+    const idx = sample.lastIndexOf(decimalSep);
 
-    for (let i = sample.length - 1; i >= 0; i--) {
-      const ch = sample[i];
-
-      if (ch === ',' || ch === '.' || ch === ' ' || ch === '\u00A0') {
-        thousandSep = ch;
-        break;
-      }
+    if (idx !== -1) {
+      head = sample.slice(0, idx);
     }
   }
 
-  let decimalSep = null;
+  for (let i = head.length - 1; i >= 0; i--) {
+    const ch = head[i];
 
-  if (texts.length > 0) {
-    const sample = texts[0];
-
-    if (sample.includes(',') && thousandSep !== ',') {
-      decimalSep = ',';
-    } else if (sample.includes('.') && thousandSep !== '.') {
-      decimalSep = '.';
+    if (ch === ',' || ch === '.' || ch === ' ' || ch === '\u00A0') {
+      thousandSep = ch;
+      break;
     }
   }
 
   const numbers = [];
 
   for (const raw of texts) {
-    let s = raw;
+    let s = raw.trim();
 
     if (thousandSep) {
       s = s.split(thousandSep).join('');
     } else {
-      s = s.replaceAll(' ', '').replaceAll('\u00A0', '');
+      s = s.replace(/[\u00A0 ]/g, '');
     }
 
     if (decimalSep === ',') {
@@ -59,10 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const totalEl = document.querySelector('span.total-population');
-  const averageEl = document.querySelector('span.average-population');
-
-  if (numbers.length === 0) {
+  if (!numbers.length) {
     if (totalEl) {
       totalEl.textContent = '0';
     }
@@ -94,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       counter++;
 
       if (counter === 3 && i !== 0) {
-        out = sep + out;
+        out = separator + out;
         counter = 0;
       }
     }
@@ -103,22 +117,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function formatLikeInput(num) {
-    const isInt = Number.isInteger(num);
+    const neg = num < 0;
     const abs = Math.abs(num);
+    let str = (Math.round(abs * 100) / 100).toFixed(2);
 
-    const parts = abs.toString().split('.');
-    let intPart = parts[0];
-    const fracPart = parts[1] || '';
+    str = str.replace(/\.00$/, '').replace(/(\.\d)0$/, '$1');
 
-    intPart = addThousandSep(intPart, sep);
+    const dotIdx = str.indexOf('.');
+    const intPartRaw = dotIdx === -1 ? str : str.slice(0, dotIdx);
+    const fracPart = dotIdx === -1 ? '' : str.slice(dotIdx + 1);
+    const intPart = addThousandSep(intPartRaw, sep);
 
-    const sign = num < 0 ? '-' : '';
-
-    if (!isInt && fracPart) {
-      return sign + intPart + dec + fracPart;
-    }
-
-    return sign + intPart;
+    return (neg ? '-' : '') + (fracPart ? intPart + dec + fracPart : intPart);
   }
 
   if (totalEl) {
