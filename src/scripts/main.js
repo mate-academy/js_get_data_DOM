@@ -1,7 +1,7 @@
 'use strict';
 
 const population = [...document.querySelectorAll('.population')].map((el) => {
-  Number(el.textContent.replace(/,/g, ''));
+  return Number(el.textContent.replace(/,/g, ''));
 });
 
 let total = 0;
