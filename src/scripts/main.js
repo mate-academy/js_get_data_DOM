@@ -13,4 +13,4 @@ document.querySelector('.total-population').textContent =
   total.toLocaleString('en-US');
 
 document.querySelector('.average-population').textContent =
-  average.toLocaleString('en-US');
+  Math.round(average).toLocaleString('en-US');
