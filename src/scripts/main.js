@@ -12,20 +12,23 @@ function chunkString(str) {
 
 const populationArr = [...document.querySelectorAll('.population')].reduce(
   (acc, i) => {
-    acc.push(+i.textContent.split(',').join(''));
+    const num = Number(i.textContent.split(',').join(''));
+
+    if (Number.isFinite(num)) {
+      acc.push(num);
+    }
 
     return acc;
   },
   [],
 );
 
-document.querySelector('.total-population').textContent = chunkString(
-  '' + populationArr.reduce((acc, i) => acc + i),
-);
+const count = populationArr.length;
+const sum = populationArr.reduce((a, b) => a + b, 0);
+const avg = count ? Math.round(sum / count) : 0;
+
+document.querySelector('.total-population').textContent = chunkString('' + sum);
 
 document.querySelector('.average-population').textContent = chunkString(
-  '' +
-    Math.round(
-      populationArr.reduce((acc, i) => acc + i, 0) / populationArr.length,
-    ),
+  '' + avg,
 );
