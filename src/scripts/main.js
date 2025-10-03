@@ -2,16 +2,17 @@
 
 const span = [...document.querySelectorAll('.population')];
 
-const sum = span
+const parsedNumbers = span
   .map((el) => Number(el.innerText.trim().replace(/,/g, '')))
-  .filter((num) => !isNaN(num))
-  .reduce((acc, num) => acc + num, 0);
+  .filter((num) => !isNaN(num));
+
+const sum = parsedNumbers.reduce((acc, num) => acc + num, 0);
 
 const totalPopulation = document.querySelector('.total-population');
 
 totalPopulation.innerHTML = sum.toLocaleString('en-US');
 
-const average = Math.round(sum / span.length);
+const average = Math.round(sum / (parsedNumbers.length || 1));
 
 const averagePopulation = document.querySelector('.average-population');
 
