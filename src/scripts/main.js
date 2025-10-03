@@ -1,19 +1,20 @@
-'use strict';
+document.addEventListener('DOMContentLoaded', () => {
+  const span = [...document.querySelectorAll('.population')];
 
-const span = [...document.querySelectorAll('.population')];
+  const parsedNumbers = span
+    .map((el) => Number(el.textContent.replace(/,/g, '').trim()))
+    .filter((num) => !isNaN(num));
 
-const parsedNumbers = span
-  .map((el) => Number(el.innerText.trim().replace(/,/g, '')))
-  .filter((num) => !isNaN(num));
+  const sum = parsedNumbers.reduce((acc, num) => acc + num, 0);
 
-const sum = parsedNumbers.reduce((acc, num) => acc + num, 0);
+  const totalPopulation = document.querySelector('.total-population');
 
-const totalPopulation = document.querySelector('.total-population');
+  totalPopulation.textContent = sum.toLocaleString('en-US');
 
-totalPopulation.innerHTML = sum.toLocaleString('en-US');
+  const average =
+    parsedNumbers.length === 0 ? 0 : Math.round(sum / parsedNumbers.length);
 
-const average = Math.round(sum / (parsedNumbers.length || 1));
+  const averagePopulation = document.querySelector('.average-population');
 
-const averagePopulation = document.querySelector('.average-population');
-
-averagePopulation.innerHTML = average.toLocaleString('en-US');
+  averagePopulation.textContent = average.toLocaleString('en-US');
+});
