@@ -1,5 +1,5 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_get_data_DOM/)
+    - [DEMO LINK](https://ElinaMrachkovska.github.io/js_get_data_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - There are no tests for this task so use `npm run lint` command instead of `npm test`
 
@@ -16,4 +16,15 @@ Steps to do this challenge:
 5. Calculated `average` and `total` numbers must be separated by a thousands separator (same numeric style as populations presented).
 6. Congrats, mate! You did it!
 
+
+Привіт! У цьому завданні вам потрібно проаналізувати дані зі списку та на їх основі отримати середнє та загальне значення.
+Вам не потрібно змінювати стилі чи макет HTML у цьому завданні. Змініть лише файл `main.js`.
+
+Кроки для виконання цього завдання:
+1. Отримати всі текстові дані з `span` з класом `population`
+2. Переконатися, що заданий рядок можна перетворити на число, і перетворити його на число.
+3. Обчислити середнє та загальне значення на основі проаналізованих чисел.
+4. Замінити `Calculate it!` на обчислені середні числа в `span` з класами `average-population` та `total-population`.
+5. Обчислені числа `average` та `total` повинні бути розділені роздільником тисяч (той самий числовий стиль, що й для популяцій).
+6. Вітаю, друже! Ти впорався!
 ![Preview](./src/images/preview.png).
