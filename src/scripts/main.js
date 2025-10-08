@@ -1,46 +1,67 @@
 'use strict';
 
 // write your code here
-const spans = document.querySelectorAll('span.population');
+document.addEventListener('DOMContentLoaded', () => {
+  const spans = document.querySelectorAll('span.population');
 
-let firstText = '';
+  let sep = '';
 
-if (spans.length > 0) {
-  firstText = spans[0].textContent || '';
-}
+  for (const s of spans) {
+    const txt = (s.textContent || '').trim();
+    const m = txt.match(/(\d)([^\d])\d{3}(?:\D|$)/);
 
-const m = firstText.match(/(\d)([^\d])\d{3}(?:\D|$)/);
-const sep = m ? m[2] : ',';
+    if (m) {
+      sep = m[2];
+      break;
+    }
+  }
 
-const populations = Array.from(spans)
-  .map((s) => (s.textContent || '').replace(/\D+/g, ''))
-  .map((t) => (t === '' ? NaN : Number(t)))
-  .filter(Number.isFinite);
+  const escapeRegExp = (ch) => ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const sepRe = sep ? new RegExp(escapeRegExp(sep), 'g') : null;
 
-let total = 0;
-let average = 0;
+  const populations = Array.from(spans)
+    .map((s) => s.textContent || '')
+    .map((t) => {
+      let cleaned = t.replace(/\u00A0/g, ' ').trim();
 
-if (populations.length > 0) {
-  total = populations.reduce((a, b) => a + b, 0);
-  average = Math.round(total / populations.length);
-}
+      if (sepRe) {
+        cleaned = cleaned.replace(sepRe, '');
+      }
+      cleaned = cleaned.replace(/ /g, '');
 
-const format = (num, s) => {
-  const sign = num < 0 ? '-' : '';
-  const str = Math.abs(num).toString();
-  const out = str.replace(/\B(?=(\d{3})+(?!\d))/g, s);
+      return cleaned === '' ? NaN : Number(cleaned);
+    })
+    .filter(Number.isFinite);
 
-  return sign + out;
-};
+  let total = 0;
+  let average = 0;
 
-const totalEl = document.querySelector('.total-population');
+  if (populations.length) {
+    total = populations.reduce((a, b) => a + b, 0);
+    average = Math.round(total / populations.length);
+  }
 
-if (totalEl) {
-  totalEl.textContent = format(total, sep);
-}
+  const format = (num, s) => {
+    if (!s) {
+      return String(Math.trunc(num));
+    }
 
-const avgEl = document.querySelector('.average-population');
+    const useSep = s === ' ' ? '\u00A0' : s;
+    const sign = num < 0 ? '-' : '';
+    const str = Math.abs(Math.trunc(num)).toString();
 
-if (avgEl) {
-  avgEl.textContent = format(average, sep);
-}
+    return sign + str.replace(/\B(?=(\d{3})+(?!\d))/g, useSep);
+  };
+
+  const totalEl = document.querySelector('.total-population');
+
+  if (totalEl) {
+    totalEl.textContent = format(total, sep);
+  }
+
+  const avgEl = document.querySelector('.average-population');
+
+  if (avgEl) {
+    avgEl.textContent = format(average, sep);
+  }
+});
