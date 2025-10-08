@@ -1,33 +1,44 @@
 'use strict';
 
-// write your code here
-const populationes = [...document.querySelectorAll('.population')];
+// Отримуємо всі елементи з чисельністю населення
+const populations = [...document.querySelectorAll('.population')];
 
 let total = 0;
+let validCount = 0;
 
-for (const population of populationes) {
-  const num = population.innerText.split('');
-  let n = [];
+for (const population of populations) {
+  // Беремо текст і видаляємо всі символи, крім цифр, крапки та мінуса
+  const raw = population.innerText;
+  const clean = raw.replace(/[^\d.-]/g, ''); // універсальне очищення
 
-  for (let i = 0; i < num.length; i++) {
-    if (num[i] === ',') {
-      continue;
-    }
+  const n = Number(clean);
 
-    n.push(num[i]);
+  // Перевіряємо, що це дійсне число
+  if (Number.isFinite(n)) {
+    total += n;
+    validCount++;
   }
-  n = n.join('');
-
-  total += Number(n);
 }
 
-const average = Math.round(total / populationes.length);
+// Обчислюємо середнє, враховуючи лише валідні числа
+const average = validCount > 0 ? Math.round(total / validCount) : 0;
 
+// Форматуємо з комами (англійський формат чисел)
 const formattedTotal = total.toLocaleString('en-US');
 const formattedAverage = average.toLocaleString('en-US');
 
+// Отримуємо елементи для відображення результатів
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
 
-totalPopulation.innerText = formattedTotal;
-averagePopulation.innerText = formattedAverage;
+// Захист від null і виведення результатів
+if (totalPopulation) {
+  totalPopulation.innerText = formattedTotal;
+}
+if (averagePopulation) {
+  averagePopulation.innerText = formattedAverage;
+}
+
+// (опціонально) лог для перевірки
+console.log('Total:', formattedTotal);
+console.log('Average:', formattedAverage);
