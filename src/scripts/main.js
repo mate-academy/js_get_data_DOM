@@ -1,19 +1,46 @@
 'use strict';
 
 // write your code here
-const populationElements = document.querySelectorAll('.population');
+const spans = document.querySelectorAll('span.population');
 
-const populations = Array.from(populationElements).map((element) => {
-  const text = element.textContent.replaceAll(',', '');
+let firstText = '';
 
-  return Number(text);
-});
+if (spans.length > 0) {
+  firstText = spans[0].textContent || '';
+}
 
-const totalPopulation = populations.reduce((sum, num) => sum + num, 0);
-const averagePopulation = totalPopulation / populations.length;
+const m = firstText.match(/(\d)([^\d])\d{3}(?:\D|$)/);
+const sep = m ? m[2] : ',';
 
-const totalFormatted = totalPopulation.toLocaleString();
-const averageFormatted = Math.round(averagePopulation).toLocaleString();
+const populations = Array.from(spans)
+  .map((s) => (s.textContent || '').replace(/\D+/g, ''))
+  .map((t) => (t === '' ? NaN : Number(t)))
+  .filter(Number.isFinite);
 
-document.querySelector('.total-population').textContent = totalFormatted;
-document.querySelector('.average-population').textContent = averageFormatted;
+let total = 0;
+let average = 0;
+
+if (populations.length > 0) {
+  total = populations.reduce((a, b) => a + b, 0);
+  average = Math.round(total / populations.length);
+}
+
+const format = (num, s) => {
+  const sign = num < 0 ? '-' : '';
+  const str = Math.abs(num).toString();
+  const out = str.replace(/\B(?=(\d{3})+(?!\d))/g, s);
+
+  return sign + out;
+};
+
+const totalEl = document.querySelector('.total-population');
+
+if (totalEl) {
+  totalEl.textContent = format(total, sep);
+}
+
+const avgEl = document.querySelector('.average-population');
+
+if (avgEl) {
+  avgEl.textContent = format(average, sep);
+}
