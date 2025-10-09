@@ -6,11 +6,18 @@ const average = document.querySelector('.average-population');
 const totalPopulation = document.querySelector('.total-population');
 
 const raw = ArrayPopulation.map((el) => el.textContent.trim());
-const cleaned = raw.map((v) => +v.replace(/,/g, ''));
-const total = cleaned.reduce((prev, item) => prev + item, 0);
-const averageValue = total / cleaned.length;
-const newFormat = averageValue.toLocaleString('uk-UA');
-const newTotal = total.toLocaleString('uk-UA');
+const cleaned = raw.map((v) => v.replace(/,/g, ''));
+const valid = cleaned.map((v) => +v).filter(Number.isFinite);
+const total = valid.reduce((prev, item) => prev + item, 0);
+const averageValue = total / valid.length;
 
-average.textContent = newFormat;
-totalPopulation.textContent = newTotal;
+if (valid.length === 0) {
+  average.textContent = '';
+  totalPopulation.textContent = '';
+} else {
+  const newFormat = averageValue.toLocaleString('en-US');
+  const newTotal = total.toLocaleString('en-US');
+
+  average.textContent = newFormat;
+  totalPopulation.textContent = newTotal;
+}
