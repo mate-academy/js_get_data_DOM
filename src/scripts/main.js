@@ -14,6 +14,8 @@ for (const i of allText) {
 
 const average = total / allText.length;
 
-document.querySelector('span.total-population').textContent = total;
+document.querySelector('span.total-population').textContent =
+  total.toLocaleString();
 
-document.querySelector('span.average-population').textContent = average;
+document.querySelector('span.average-population').textContent =
+  average.toLocaleString();
