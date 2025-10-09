@@ -8,7 +8,7 @@ let total = 0;
 let validCount = 0;
 
 for (const i of allText) {
-  const num = Number(i.replace(/,/g, '').trim());
+  const num = Number(i.replace(/,/g, ''));
 
   if (!Number.isFinite(num)) {
     continue;
@@ -27,7 +27,8 @@ if (validCount === 0) {
 }
 
 document.querySelector('span.total-population').textContent =
-  total.toLocaleString();
+  Intl.NumberFormat('en-US').format(total);
 
 document.querySelector('span.average-population').textContent =
-  average.toLocaleString();
+  Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(
+    Math.round(average));
