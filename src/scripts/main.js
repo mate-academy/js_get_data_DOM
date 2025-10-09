@@ -9,15 +9,15 @@ const raw = ArrayPopulation.map((el) => el.textContent.trim());
 const cleaned = raw.map((v) => v.replace(/,/g, ''));
 const valid = cleaned.map((v) => +v).filter(Number.isFinite);
 const total = valid.reduce((prev, item) => prev + item, 0);
-const averageValue = total / valid.length;
+const averageValue = valid.length ? total / valid.length : 0;
 
-if (valid.length === 0) {
-  average.textContent = '';
-  totalPopulation.textContent = '';
-} else {
-  const newFormat = averageValue.toLocaleString('en-US');
-  const newTotal = total.toLocaleString('en-US');
+const newFormat = averageValue.toLocaleString('en-US');
+const newTotal = total.toLocaleString('en-US');
 
+if (average) {
   average.textContent = newFormat;
+}
+
+if (totalPopulation) {
   totalPopulation.textContent = newTotal;
 }
