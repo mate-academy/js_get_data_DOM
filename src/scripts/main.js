@@ -3,7 +3,7 @@
 const populationSpans = document.querySelectorAll('span.population');
 
 const populations = Array.from(populationSpans)
-  .map((span) => span.textContent.replace(/[^0-9.-]/g, '').trim())
+  .map((span) => span.textContent.replace(/\D/g, '').trim())
   .filter((str) => str !== '')
   .map(Number)
   .filter(Number.isFinite);
@@ -12,18 +12,22 @@ const total = populations.reduce((sum, num) => sum + num, 0);
 const average = populations.length ? total / populations.length : 0;
 
 function formatNumber(num) {
-  const sample = document.querySelector('span.population');
+  const sample = Array.from(document.querySelectorAll('span.population'))
+    .map((span) => span.textContent)
+    .find((text) => /\d/.test(text));
 
   if (sample) {
-    const sampleText = sample.textContent;
+    const match = sample.match(/[^0-9]/);
+    const separator = match ? match[0] : ',';
 
-    if (sampleText.includes(',')) {
-      return num.toLocaleString('en-US');
+    const parts = num.toString().split('').reverse();
+    const groups = [];
+
+    for (let i = 0; i < parts.length; i += 3) {
+      groups.push(parts.slice(i, i + 3).join(''));
     }
 
-    if (sampleText.includes(' ')) {
-      return num.toLocaleString('uk-UA');
-    }
+    return groups.join(separator).split('').reverse().join('');
   }
 
   return num.toLocaleString();
@@ -37,5 +41,5 @@ if (totalSpan && totalSpan.textContent.trim() === 'Calculate it!') {
 }
 
 if (averageSpan && averageSpan.textContent.trim() === 'Calculate it!') {
-  averageSpan.textContent = formatNumber(Math.round(average));
+  averageSpan.textContent = formatNumber(average);
 }
