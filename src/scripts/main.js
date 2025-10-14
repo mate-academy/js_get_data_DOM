@@ -1,22 +1,29 @@
 'use strict';
 
-const data = document.querySelectorAll('.population');
+const populations = document.querySelectorAll('.population');
 
-const total = Array.from(data).reduce((acc, el) => {
-  const cleanNumber = el.textContent.replace(/,/g, '').trim();
+let total = 0;
+let validCount = 0;
 
-  return acc + Number(cleanNumber);
-}, 0);
+for (const el of populations) {
+  const clean = el.textContent.replace(/,/g, '').trim();
+  const num = Number(clean);
 
-const countOfCountries = document.querySelectorAll('.list__item').length;
+  if (Number.isFinite(num)) {
+    total += num;
+    validCount++;
+  }
+}
 
-const average = total / countOfCountries;
+const average = validCount > 0 ? total / validCount : 0;
 
 const tagTotal = document.querySelector('.total-population');
 const tagAverage = document.querySelector('.average-population');
 
-tagTotal.textContent = total.toLocaleString();
+if (Number.isFinite(total)) {
+  tagTotal.textContent = total.toLocaleString();
+}
 
-tagAverage.textContent = average.toLocaleString(undefined, {
-  maximumFractionDigits: 0,
-});
+if (Number.isFinite(average)) {
+  tagAverage.textContent = Math.round(average).toLocaleString();
+}
