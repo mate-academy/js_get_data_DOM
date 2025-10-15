@@ -10,9 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
   let totalAmount = 0;
   let validCount = 0;
 
-  populationArray.forEach((number) => {
-    const clean = number.textContent.replace(/[^0-9.-]/g, '');
+  // --- Detect grouping character from any entry ---
+  const groupingCandidates = [',', '.', ' ', '\u00A0', '\u202F'];
+  let detectedGroupChar = null;
 
+  for (const el of populationArray) {
+    const text = el.textContent;
+    const found = groupingCandidates.find((char) => text.includes(char));
+
+    if (found) {
+      detectedGroupChar = found;
+      break;
+    }
+  }
+
+  // --- Parse numbers robustly ---
+  populationArray.forEach((node) => {
+    const raw = node.textContent;
+    const clean = raw.replace(/[^0-9.-]/g, '');
     const value = Number(clean);
 
     if (Number.isFinite(value)) {
@@ -23,19 +38,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const averageAmount = validCount > 0 ? totalAmount / validCount : 0;
 
-  const sampleText = populationArray[0]?.textContent || '';
-  const usesComma = sampleText.includes(',');
-  const usesSpace = sampleText.includes(' ');
-  let locale = 'en-US';
+  const formatNumber = (num) => {
+    if (!detectedGroupChar) {
+      return num.toLocaleString('en-US', { useGrouping: false });
+    }
 
-  if (usesSpace) {
-    locale = 'fr-FR';
-  } else if (usesComma) {
-    locale = 'en-US';
-  }
+    const formatted = num.toLocaleString('en-US');
+    let grouped = formatted.replace(/,/g, detectedGroupChar);
 
-  const formattedTotal = totalAmount.toLocaleString(locale);
-  const formattedAverage = averageAmount.toLocaleString(locale);
+    if (detectedGroupChar === '\u00A0') {
+      grouped = grouped.replace(/,/g, '\u00A0');
+    } else if (detectedGroupChar === '\u202F') {
+      grouped = grouped.replace(/,/g, '\u202F');
+    }
+
+    return grouped;
+  };
+
+  const formattedTotal = formatNumber(totalAmount);
+  const formattedAverage = formatNumber(averageAmount);
 
   const totalEl = document.querySelector('.total-population');
   const avgEl = document.querySelector('.average-population');
