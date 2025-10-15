@@ -1,23 +1,50 @@
 'use strict';
 
-const populationArray = document.querySelectorAll('.population');
+document.addEventListener('DOMContentLoaded', () => {
+  const populationArray = document.querySelectorAll('.population');
 
-let totalAmount = 0;
+  if (!populationArray.length) {
+    return;
+  }
 
-populationArray.forEach((number) => {
-  let amount = number.textContent.split(',').join('');
+  let totalAmount = 0;
+  let validCount = 0;
 
-  amount = parseInt(amount);
+  populationArray.forEach((number) => {
+    const clean = number.textContent.replace(/[^0-9.-]/g, '');
 
-  if (Number.isFinite(amount)) {
-    totalAmount += amount;
+    const value = Number(clean);
+
+    if (Number.isFinite(value)) {
+      totalAmount += value;
+      validCount++;
+    }
+  });
+
+  const averageAmount = validCount > 0 ? totalAmount / validCount : 0;
+
+  const sampleText = populationArray[0]?.textContent || '';
+  const usesComma = sampleText.includes(',');
+  const usesSpace = sampleText.includes(' ');
+  let locale = 'en-US';
+
+  if (usesSpace) {
+    locale = 'fr-FR';
+  } else if (usesComma) {
+    locale = 'en-US';
+  }
+
+  const formattedTotal = totalAmount.toLocaleString(locale);
+  const formattedAverage = averageAmount.toLocaleString(locale);
+
+  const totalEl = document.querySelector('.total-population');
+  const avgEl = document.querySelector('.average-population');
+
+  if (totalEl) {
+    totalEl.textContent = formattedTotal;
+  }
+
+  if (avgEl) {
+    avgEl.textContent = formattedAverage;
   }
 });
-
-const averageAmount = totalAmount / populationArray.length;
-
-const formattedTotal = totalAmount.toLocaleString('en-US');
-const formattedAverage = averageAmount.toLocaleString('en-US');
-
-document.querySelector('.total-population').textContent = formattedTotal;
-document.querySelector('.average-population').textContent = formattedAverage;
