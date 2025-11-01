@@ -4,8 +4,8 @@ const elements = [...document.querySelectorAll('.population')];
 
 const text = elements.map((el) => el.textContent);
 const numbers = text
-  .filter((el) => typeof el === 'number')
-  .map((t) => Number(t.replaceAll(',', '')));
+  .map((t) => Number(t.replaceAll(',', '')))
+  .filter((num) => !isNaN(num));
 
 const sum = numbers.reduce((acc, num) => acc + num);
 const average = (sum / numbers.length).toLocaleString('en-US');
