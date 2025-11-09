@@ -16,6 +16,8 @@ total.textContent = sum.toLocaleString('en-US');
 
 const countCountries = spansList.length;
 
-const ever = document.querySelector('span.average-population');
+const averageSpan = document.querySelector('span.average-population');
 
-ever.textContent = (sum / countCountries).toLocaleString('en-US');
+averageSpan.textContent = Math.round(sum / countCountries).toLocaleString(
+  'en-US',
+);
