@@ -1,15 +1,19 @@
 @import 'fonts';
 
 body {
-  background: #eee;
   display: flex;
-  margin: 0;
+
   width: 100vw;
-  height: 100vh;
-  justify-content: center;
+  margin: 0;
+
   align-items: center;
-  font-family: Roboto, sans-serif;
+
+  background: #eee;
+  justify-content: center;
+
   counter-reset: section;
+  height: 100vh;
+  font-family: Roboto, sans-serif;
 }
 
 h1 {
@@ -18,26 +22,34 @@ h1 {
 
 .list {
   margin: 32px 0;
-  list-style: none;
   padding: 0;
+  list-style: none;
   &__item {
-    margin: 8px;
-    border-bottom: 1px solid darkgrey;
     display: flex;
-    justify-content: space-between;
-    padding: 4px 4px 4px 30px;
+
+    margin: 8px;
+
     position: relative;
+    justify-content: space-between;
+
+    border-bottom: 1px solid darkgrey;
+
+    padding: 4px 4px 4px 30px;
 
     img {
       margin-right: 8px;
     }
 
     &::before {
-      color: #565754;
-      counter-increment: section;
       content: counter(section);
+      counter-increment: section;
+
       position: absolute;
+
+      color: #565754;
+
       top: 50%;
+
       left: 5px;
       transform: translateY(-60%);
     }
