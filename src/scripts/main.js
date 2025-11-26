@@ -4,11 +4,13 @@ const spans = document.querySelectorAll('span.population');
 const numbers = [];
 
 for (const span of spans) {
-  const text = span.textContent.trim();
-  const cleanText = text.replace(/[^0-9]/g, '');
-  const number = Number(cleanText);
+  const digitsOnly = span.textContent.replace(/[^0-9]/g, '');
 
-  numbers.push(number);
+  if (digitsOnly !== '') {
+    const number = Number(digitsOnly);
+
+    numbers.push(number);
+  }
 }
 
 const total = numbers.reduce((sum, num) => sum + num, 0);
