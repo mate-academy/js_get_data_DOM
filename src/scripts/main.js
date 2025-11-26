@@ -2,14 +2,23 @@
 
 // write your code here
 const population = document.querySelectorAll('.population');
-const avaragePopulation = document.querySelector('.average-population');
+const averagePopulation = document.querySelector('.average-population');
 const totalPopulation = document.querySelector('.total-population');
 
 const arr = [...population];
-const result = arr.map((item) => parseInt(item.textContent.replace(/,/g, '')));
+const result = arr
+  .map((item) => {
+    const text = item.textContent.replace(/,/g, '').trim();
 
+    if (!/^\d+(\.\d+)?$/.test(text)) {
+      return NaN;
+    }
+
+    return parseFloat(text);
+  })
+  .filter((num) => !isNaN(num));
 const total = result.reduce((acc, rec) => acc + rec, 0);
-const avarage = total / result.length;
+const average = total / result.length;
 
 totalPopulation.textContent = total.toLocaleString('en-US');
-avaragePopulation.textContent = avarage.toLocaleString('en-US');
+averagePopulation.textContent = average.toLocaleString('en-US');
