@@ -14,7 +14,14 @@ for (const span of spans) {
 }
 
 const total = numbers.reduce((sum, num) => sum + num, 0);
-const average = Math.round(total / numbers.length);
+
+let average;
+
+if (numbers.length > 0) {
+  average = Math.round(total / numbers.length);
+} else {
+  average = 0;
+}
 
 function format(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
