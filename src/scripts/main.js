@@ -8,6 +8,10 @@ const numbers = [];
 for (let i = 0; i < elements.length; i++) {
   const num = Number(elements[i].textContent.replace(/,/g, ''));
 
+  if (isNaN(num)) {
+    continue;
+  }
+
   numbers.push(num);
 }
 
