@@ -2,12 +2,15 @@
 
 body {
   background: #eee;
+
   display: flex;
   margin: 0;
+
   width: 100vw;
   height: 100vh;
   justify-content: center;
   align-items: center;
+
   font-family: Roboto, sans-serif;
   counter-reset: section;
 }
@@ -23,6 +26,7 @@ h1 {
   &__item {
     margin: 8px;
     border-bottom: 1px solid darkgrey;
+
     display: flex;
     justify-content: space-between;
     padding: 4px 4px 4px 30px;
@@ -36,6 +40,7 @@ h1 {
       color: #565754;
       counter-increment: section;
       content: counter(section);
+
       position: absolute;
       top: 50%;
       left: 5px;
