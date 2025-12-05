@@ -1,8 +1,6 @@
 @import 'fonts';
 
 body {
-  counter-reset: section;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +11,7 @@ body {
 
   font-family: Roboto, sans-serif;
 
-  background: #eee;
+  counter-reset: section;
 }
 
 h1 {
