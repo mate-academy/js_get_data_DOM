@@ -3,16 +3,8 @@
 const avarageButton = document.querySelector('.average-population');
 const totalPopulation = document.querySelector('.total-population');
 const numbers = [...document.querySelectorAll('.population')].map((el) =>
-  Number(el.textContent.replaceAll(',', ''))
-);
-
-totalPopulation.addEventListener('click', () => {
-  calculateTotal();
-});
-
-avarageButton.addEventListener('click', () => {
-  calculateAvarage();
-});
+  // eslint-disable-next-line prettier/prettier
+  Number(el.textContent.replaceAll(',', '')));
 
 function calculateTotal() {
   const counter = numbers.reduce((sum, n) => sum + n, 0);
@@ -26,5 +18,8 @@ function calculateAvarage() {
   const avarageNumber = counter / numbers.length;
   const formattedCounter = avarageNumber.toLocaleString('en-US');
 
-  totalPopulation.textContent = formattedCounter;
+  avarageButton.textContent = formattedCounter;
 }
+
+calculateTotal();
+calculateAvarage();
