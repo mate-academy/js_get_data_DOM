@@ -12,12 +12,12 @@ allPopulation.forEach((element) => {
 });
 
 const total = document.querySelector('.total-population');
-const avarage = document.querySelector('.average-population');
+const average = document.querySelector('.average-population');
 
-const avaragePopulation = (totalPopulation / allPopulation.length).toFixed(0);
+const averagePopulation = Math.round(totalPopulation / allPopulation.length);
 
 total.textContent = formatNumber(totalPopulation);
-avarage.textContent = formatNumber(avaragePopulation);
+average.textContent = formatNumber(averagePopulation);
 
 function formatNumber(number) {
   let str = '';
