@@ -11,7 +11,7 @@ for (const element of elements) {
   sum += number;
 }
 
-const average = sum / elements.length;
+const average = Math.round(sum / elements.length);
 
 document.querySelector('.total-population').textContent = sum.toLocaleString(
   'en-US',
