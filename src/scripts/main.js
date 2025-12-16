@@ -12,7 +12,7 @@ const total = popArr.reduce((acc, item) => {
 
   return acc + num;
 }, 0);
-const average = Math.round(total / 9);
+const average = Math.round(total / popArr.length);
 
 const resultTotal = document.querySelector('.total-population');
 
