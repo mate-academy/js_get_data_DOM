@@ -16,4 +16,4 @@ document.getElementsByClassName('total-population')[0].textContent =
   total.toLocaleString('en-US');
 
 document.getElementsByClassName('average-population')[0].textContent =
-  Math.round(average.toLocaleString('en-US'));
+  Math.round(average).toLocaleString('en-US');
