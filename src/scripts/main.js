@@ -24,7 +24,11 @@ function countTotal(arr) {
   let total = 0;
 
   for (let i = 0; i < arr.length; i++) {
-    total += Number.parseInt(arr[i].textContent.split(',').join(''));
+    const temp = Number.parseInt(arr[i].textContent.split(',').join(''));
+
+    if (Number.isFinite(temp)) {
+      total += temp;
+    }
   }
 
   return total;
