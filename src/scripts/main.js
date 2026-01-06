@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = el.textContent;
     const number = Number(text.replace(/,/g, ''));
 
-    totalPopulation += number;
+    if (!isNaN(number)) {
+      totalPopulation += number;
+    }
   }
 
   const averagePopulation = totalPopulation / populations.length;
