@@ -1,8 +1,14 @@
 'use strict';
 
-const populationElements = document.querySelectorAll('[data-target="population"]');
-const totalPopulationElement = document.querySelector('[data-target="total-population"]');
-const averagePopulationElement = document.querySelector('[data-target="average-population"]');
+const populationElements = document.querySelectorAll(
+  '[data-target="population"]',
+);
+const totalPopulationElement = document.querySelector(
+  '[data-target="total-population"]',
+);
+const averagePopulationElement = document.querySelector(
+  '[data-target="average-population"]',
+);
 
 const populations = Array.from(populationElements).map((el) => {
   // Видаляємо коми з тексту, щоб отримати чисте число
