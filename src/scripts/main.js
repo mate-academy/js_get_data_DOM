@@ -1,21 +1,20 @@
 'use strict';
 
-const populations = document.querySelectorAll('.population');
-const totalPopulation = document.querySelector('.total-population');
-const averagePopulation = document.querySelector('.average-population');
+const populationElements = document.querySelectorAll('[data-target="population"]');
+const totalPopulationElement = document.querySelector('[data-target="total-population"]');
+const averagePopulationElement = document.querySelector('[data-target="average-population"]');
 
-let total = 0;
+const populations = Array.from(populationElements).map((el) => {
+  // Видаляємо коми з тексту, щоб отримати чисте число
+  return parseInt(el.textContent.replace(/,/g, ''), 10);
+});
 
-for (const item of populations) {
-  const cleanedText = item.textContent.replaceAll(',', '');
-  const num = Number(cleanedText);
+// Обчислюємо загальну суму
+const total = populations.reduce((sum, num) => sum + num, 0);
 
-  if (!isNaN(num)) {
-    total += num;
-  }
-}
-
+// Обчислюємо середнє та округлюємо до цілого числа
 const average = Math.round(total / populations.length);
 
-totalPopulation.textContent = total.toLocaleString('en-US');
-averagePopulation.textContent = average.toLocaleString('en-US');
+// Виводимо результати з форматуванням (додаємо коми назад для відображення)
+totalPopulationElement.textContent = total.toLocaleString();
+averagePopulationElement.textContent = average.toLocaleString();
