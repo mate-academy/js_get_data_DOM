@@ -6,8 +6,8 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   font-family: Roboto, sans-serif;
   counter-reset: section;
 }
@@ -20,6 +20,7 @@ h1 {
   margin: 32px 0;
   list-style: none;
   padding: 0;
+
   &__item {
     margin: 8px;
     border-bottom: 1px solid darkgrey;
