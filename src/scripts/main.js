@@ -8,7 +8,9 @@ populationSpans.forEach((span) => {
   const text = span.textContent;
   const number = Number(text.replace(/,/g, ''));
 
-  populations.push(number);
+  if (!isNaN(number)) {
+    populations.push(number);
+  }
 });
 
 let total = 0;
