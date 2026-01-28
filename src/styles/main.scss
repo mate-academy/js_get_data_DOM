@@ -5,8 +5,6 @@ body {
   align-items: center;
   justify-content: center;
 
-  counter-reset: section;
-
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -36,13 +34,12 @@ h1 {
     border-bottom: 1px solid darkgrey;
 
     &::before {
-      position: absolute;
-
       content: counter(section);
       counter-increment: section;
+
+      position: absolute;
       top: 50%;
       left: 5px;
-
       transform: translateY(-60%);
 
       color: #565754;
