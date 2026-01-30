@@ -19,7 +19,7 @@ const average = total / populations.length;
 
 const formattedTotal = total.toLocaleString();
 
-const formattedAverage = Math.round(average.toLocaleString());
+const formattedAverage = Math.round(average).toLocaleString();
 
 const totalSpan = document.querySelector('.total-population');
 
