@@ -1,26 +1,27 @@
 'use strict';
 
-// write your code here
-// 1. Get all population spans
+/// 1. Get all population elements
 const populationElements = document.querySelectorAll('.population');
 
-// 2. Convert text to numbers
-const populations = [...populationElements].map((el) => {
-  const text = el.textContent.trim();
+// 2. Parse and validate numbers
+const populations = [...populationElements]
+  .map((el) => {
+    const text = el.textContent.trim().replace(/,/g, '');
 
-  return Number(text.replace(/,/g, ''));
-});
+    return Number(text);
+  })
+  .filter((value) => Number.isFinite(value));
 
 // 3. Calculate total
 const total = populations.reduce((sum, value) => sum + value, 0);
 
 // 4. Calculate average
-const average = Math.round(total / populations.length);
+const average = populations.length ? Math.round(total / populations.length) : 0;
 
-// 5. Format numbers with thousands separator
+// 5. Format numbers
 const formattedTotal = total.toLocaleString('en-US');
 const formattedAverage = average.toLocaleString('en-US');
 
-// 6. Insert results into DOM
+// 6. Update DOM
 document.querySelector('.total-population').textContent = formattedTotal;
 document.querySelector('.average-population').textContent = formattedAverage;
