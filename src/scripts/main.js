@@ -5,7 +5,7 @@ const population = document.querySelectorAll('.population');
 let total = 0;
 
 for (const item of population) {
-  const number = Number(item.textContent);
+  const number = Number(item.textContent.replace(/,/g, ''));
 
   total = total + number;
 }
