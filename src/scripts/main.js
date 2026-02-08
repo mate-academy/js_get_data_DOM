@@ -5,7 +5,8 @@ let totalPopulationCount = 0;
 let isNumberCount = 0;
 
 for (const item of population) {
-  const value = Number(item.textContent.replace(/,/g, ''));
+  const valueNormalization = item.textContent.replace(/[\u00A0,\s]/g, '');
+  const value = Number(valueNormalization);
 
   if (Number.isFinite(value)) {
     totalPopulationCount += value;
@@ -13,9 +14,8 @@ for (const item of population) {
   }
 }
 
-const averagePopulationResult = Math.round(
-  totalPopulationCount / isNumberCount,
-);
+const averagePopulationResult =
+  isNumberCount > 0 ? Math.round(totalPopulationCount / isNumberCount) : 0;
 
 const totalPopulation = document.querySelector('.total-population');
 const averagePopulation = document.querySelector('.average-population');
