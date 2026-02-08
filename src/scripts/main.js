@@ -2,15 +2,21 @@
 
 const populations = document.querySelectorAll('.population');
 
-const total = [...populations]
+const totalPopulations = [...populations]
   .map((population) => population.textContent.replace(/\D/g, ''))
-  .map((population) => Number.parseInt(population))
-  .reduce((prev, next) => prev + next, 0);
+  .map((population) => Number.parseInt(population, 10))
+  .filter((population) => !Number.isNaN(population));
 
-const average = total / 9;
+const total = totalPopulations.reduce((prev, next) => prev + next, 0);
+
+let average = 0;
+
+if (totalPopulations.length !== 0) {
+  average = total / totalPopulations.length;
+}
 
 document.querySelector('.total-population').textContent =
-  total.toLocaleString('en-US');
+  total.toLocaleString();
 
 document.querySelector('.average-population').textContent =
-  average.toLocaleString('en-US');
+  average.toLocaleString();
