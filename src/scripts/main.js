@@ -17,7 +17,7 @@ const total = numbers.reduce((sum, el) => sum + el, 0);
 let average = 0;
 
 if (numbers.length > 0) {
-  average = total / numbers.length;
+  average = Math.round(total / numbers.length);
 }
 
 const totalFormat = total.toLocaleString('en-US');
