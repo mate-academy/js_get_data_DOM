@@ -27,5 +27,5 @@ while (newAveragePopulationResul.length) {
   resultAverage.unshift(newAveragePopulationResul.splice(-3).join(''));
 }
 
-totalPopulation.replaceWith(resultTotal.join(','));
-averagePopulation.replaceWith(resultAverage.join(','));
+totalPopulation.innerText = resultTotal.join(',');
+averagePopulation.innerText = resultAverage.join(',');
