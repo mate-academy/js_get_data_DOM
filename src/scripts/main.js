@@ -25,5 +25,5 @@ function convertNumbers(number) {
   return resultNumber.join(',');
 }
 
-averagePopulation.outerHTML = convertNumbers(average);
-totalPopulation.outerHTML = convertNumbers(total);
+averagePopulation.textContent = convertNumbers(average);
+totalPopulation.textContent = convertNumbers(total);
