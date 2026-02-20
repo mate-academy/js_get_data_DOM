@@ -4,7 +4,7 @@ const spanPopulation = [...document.querySelectorAll('.population')];
 const averagePopulation = document.querySelector('.average-population');
 const totalPopulation = document.querySelector('.total-population');
 const total = spanPopulation.reduce(
-  (sum, n) => sum + Number(n.innerHTML.split(',').join('')),
+  (sum, n) => sum + Number(n.textContent.trim().split(',').join('')),
   0,
 );
 const average = Math.round(total / spanPopulation.length);
@@ -25,5 +25,10 @@ function convertNumbers(number) {
   return resultNumber.join(',');
 }
 
-averagePopulation.textContent = convertNumbers(average);
-totalPopulation.textContent = convertNumbers(total);
+if (averagePopulation) {
+  averagePopulation.textContent = convertNumbers(average);
+}
+
+if (totalPopulation) {
+  totalPopulation.textContent = convertNumbers(total);
+}
