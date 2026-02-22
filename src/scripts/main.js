@@ -4,23 +4,31 @@ const list = [...document.querySelectorAll('span.population')];
 
 const listNum = list.map((el) => {
   const text = el.textContent.trim();
-  const clean = text.replace(/,/g, '');
-  const number = Number(clean);
+  const clean = text.replace(/,|\s/g, '');
 
-  return !isNaN(number) ? number : null;
+  const isNumeric = clean.length > 0 && /^-?\d*\.?\d+$/.test(clean);
+
+  if (isNumeric) {
+    return Number(clean);
+  }
+
+  return null;
 });
 
 const nums = listNum.filter((val) => val !== null);
 
-const total = nums.reduce((sum, num) => sum + num, 0);
+let total;
+let avarage;
 
-const avarage = total / nums.length;
+if (nums.length > 0) {
+  total = nums.reduce((sum, num) => sum + num, 0);
+
+  avarage = Math.round(total / nums.length);
+}
 
 const formattedTotal = total.toLocaleString('en-US');
 
-const formattedAverage = avarage.toLocaleString('en-US', {
-  maximumFractionDigits: 0,
-});
+const formattedAverage = avarage.toLocaleString('en-US');
 
 document.querySelector('.total-population').textContent = formattedTotal;
 
