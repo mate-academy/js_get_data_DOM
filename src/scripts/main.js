@@ -17,19 +17,34 @@ const listNum = list.map((el) => {
 
 const nums = listNum.filter((val) => val !== null);
 
-let total;
-let avarage;
-
 if (nums.length > 0) {
-  total = nums.reduce((sum, num) => sum + num, 0);
+  const total = nums.reduce((sum, num) => sum + num, 0);
 
-  avarage = Math.round(total / nums.length);
+  const avarage = Math.round(total / nums.length);
+
+  const formattedTotal = total.toLocaleString('en-US');
+
+  const formattedAverage = avarage.toLocaleString('en-US');
+
+  const totalEl = document.querySelector('.total-population');
+  const avgEl = document.querySelector('.average-population');
+
+  if (totalEl) {
+    totalEl.textContent = formattedTotal;
+  }
+
+  if (avgEl) {
+    avgEl.textContent = formattedAverage;
+  }
+} else {
+  const totalEl = document.querySelector('.total-population');
+  const avgEl = document.querySelector('.average-population');
+
+  if (totalEl) {
+    totalEl.textContent = '0';
+  }
+
+  if (avgEl) {
+    avgEl.textContent = '0';
+  }
 }
-
-const formattedTotal = total.toLocaleString('en-US');
-
-const formattedAverage = avarage.toLocaleString('en-US');
-
-document.querySelector('.total-population').textContent = formattedTotal;
-
-document.querySelector('.average-population').textContent = formattedAverage;
