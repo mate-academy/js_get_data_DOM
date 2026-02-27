@@ -7,7 +7,9 @@ let totalPopulation = 0;
 const population = document.getElementsByClassName('population');
 
 for (let i = 0; i < population.length; i++) {
-  const populationValue = parseInt(population[i].textContent.split(',').join(''));
+  const populationValue = parseInt(
+    population[i].textContent.split(',').join(''),
+  );
 
   totalPopulation += populationValue;
 }
@@ -15,6 +17,5 @@ for (let i = 0; i < population.length; i++) {
 document.getElementsByClassName('total-population')[0].textContent =
   totalPopulation.toLocaleString();
 
-document.getElementsByClassName('average-population')[0].textContent = (
-  totalPopulation / population.length
-).toLocaleString();
+document.getElementsByClassName('average-population')[0].textContent =
+  Math.round(totalPopulation / population.length).toLocaleString();
