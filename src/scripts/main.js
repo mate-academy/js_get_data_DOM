@@ -7,18 +7,9 @@ const getTotalSum = (expectedResult) => {
   let result = '';
 
   population.forEach((populationContent) => {
-    let num = '';
+    const numberString = populationContent.textContent.replace(/,/g, '');
 
-    for (let i = 0; populationContent.textContent.length > i; i++) {
-      if (
-        Number(populationContent.textContent[i]) ||
-        Number(populationContent.textContent[i]) === 0
-      ) {
-        num += populationContent.textContent[i];
-      }
-    }
-
-    total += Number(num);
+    total += Number(numberString);
   });
 
   result = total.toLocaleString();
@@ -27,12 +18,15 @@ const getTotalSum = (expectedResult) => {
     return result;
   }
 
-  result = Math.round(Number(total) / population.length);
+  result = Math.round(total / population.length);
 
   result = result.toLocaleString();
 
   return result;
 };
 
-document.querySelector('.total-population').textContent = getTotalSum('total');
-document.querySelector('.average-population').textContent = getTotalSum('');
+const totalResult = getTotalSum('total');
+const avarage = getTotalSum('');
+
+document.querySelector('.total-population').textContent = totalResult;
+document.querySelector('.average-population').textContent = avarage;
