@@ -16,27 +16,11 @@ const sumPopNum = populationArray.reduce((sum, population) => {
   return sum + Number(population);
 }, 0);
 
-const averagePopNum = (sumPopNum / populationArray.length).toFixed(2);
+const averagePopNum = sumPopNum / populationArray.length;
 
-function strFormatNum(number) {
-  const numberItems = [];
+totalPopulation.textContent = sumPopNum.toLocaleString('en-US');
 
-  let currentNumber = number;
-
-
-  while (currentNumber / 1000 > 0) {
-    if (currentNumber !== parseInt(currentNumber)) {
-      numberItems.unshift((currentNumber % 1000).toFixed(2));
-    } else {
-      numberItems.unshift(currentNumber % 1000);
-    }
-
-    currentNumber = parseInt(currentNumber / 1000);
-  }
-
-  return numberItems.join(',');
-}
-
-totalPopulation.textContent = strFormatNum(sumPopNum);
-
-averagePopulation.textContent = strFormatNum(averagePopNum);
+averagePopulation.textContent = averagePopNum.toLocaleString('en-US', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
