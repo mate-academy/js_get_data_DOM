@@ -1,6 +1,6 @@
 'use strict';
 
-const populations = document.querySelector('.population');
+const populations = document.querySelectorAll('.population');
 
 const numbers = [];
 
