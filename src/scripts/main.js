@@ -7,6 +7,7 @@ const averagePopulation = document.querySelector('.average-population');
 function CalculateTotalPopulation() {
   // eslint-disable-next-line no-shadow
   let total = 0;
+  let sourceCount = 0;
 
   for (const population of values) {
     const textValue = population.textContent.replaceAll(',', '');
@@ -14,21 +15,20 @@ function CalculateTotalPopulation() {
 
     if (!isNaN(value)) {
       total += value;
+      sourceCount += 1;
     }
   }
 
-  return total;
+  return { total, sourceCount };
 }
 
-function calculateAveragePopulation(totalValue, populations) {
-  const sourceCount = populations.length;
-
-  return totalValue / sourceCount;
+function calculateAveragePopulation(totalValue, sourceCount) {
+  return Math.round(totalValue / sourceCount);
 }
 
 const total = CalculateTotalPopulation();
-const average = calculateAveragePopulation(total, values);
+const average = calculateAveragePopulation(total.total, total.sourceCount);
 
-totalPopulation.textContent = total.toLocaleString('en-US');
+totalPopulation.textContent = total.total.toLocaleString('en-US');
 
 averagePopulation.textContent = average.toLocaleString('en-US');
