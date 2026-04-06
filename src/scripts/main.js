@@ -12,7 +12,9 @@ function CalculateTotalPopulation() {
     const textValue = population.textContent.replaceAll(',', '');
     const value = Number(textValue);
 
-    total += value;
+    if (!isNaN(value)) {
+      total += value;
+    }
   }
 
   return total;
