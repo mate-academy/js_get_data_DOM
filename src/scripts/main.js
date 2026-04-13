@@ -4,21 +4,24 @@ const populationElements = [...document.querySelectorAll('.population')];
 const totalPopulationElement = document.querySelector('.total-population');
 const averagePopulationElement = document.querySelector('.average-population');
 
-const total = populationElements.reduce((acc, current) => {
-  const cleaned = current.textContent.trim().replace(/,/g, '');
-  const value = Number(cleaned);
+const { sum, count } = populationElements.reduce(
+  (acc, current) => {
+    const cleaned = current.textContent.trim().replace(/,/g, '');
+    const value = Number(cleaned);
 
-  if (Number.isNaN(value)) {
-    return acc; // пропускаем плохие данные
-  }
+    if (Number.isNaN(value)) {
+      return acc; // пропускаем невалидные
+    }
 
-  return acc + value;
-}, 0);
+    acc.sum += value;
+    acc.count += 1;
 
-const average =
-  populationElements.length > 0
-    ? Math.round(total / populationElements.length)
-    : 0;
+    return acc;
+  },
+  { sum: 0, count: 0 },
+);
 
-totalPopulationElement.textContent = total.toLocaleString('en-US');
+const average = count > 0 ? Math.round(sum / count) : 0;
+
+totalPopulationElement.textContent = sum.toLocaleString('en-US');
 averagePopulationElement.textContent = average.toLocaleString('en-US');
