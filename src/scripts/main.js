@@ -10,8 +10,8 @@ populations.forEach((span) => {
 
 const average = total / populations.length;
 
-const totalElement = document.querySelector('.total-population');
-const averageElement = document.querySelector('.average-population');
+document.querySelector('.total-population').textContent =
+  total.toLocaleString();
 
-totalElement.textContent = total;
-averageElement.textContent = average;
+document.querySelector('.average-population').textContent =
+  Math.round(average).toLocaleString();
