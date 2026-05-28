@@ -7,8 +7,10 @@ let count = 0;
 for (const element of elements) {
   const num = Number(element.textContent.replaceAll(',', ''));
 
-  total += num;
-  count += 1;
+  if (Number.isFinite(num)) {
+    total += num;
+    count += 1;
+  }
 }
 
 const average = Math.floor(total / count).toLocaleString('en-US');
