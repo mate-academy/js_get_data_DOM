@@ -1,8 +1,9 @@
 'use strict';
 
-const allFromSpanPopulation = [
-  ...document.querySelectorAll('span.population'),
-].map((span) => Number(span.textContent.replace(/,/g, '')));
+const allFromSpanPopulation = [...document.querySelectorAll('span.population')]
+  .map(span => span.textContent.replace(/,/g, ''))
+  .filter(text => !isNaN(text) && text !== '')
+  .map(Number);
 
 const total = allFromSpanPopulation.reduce((acc, num) => acc + num, 0);
 const average = Math.round(total / allFromSpanPopulation.length);
