@@ -4,9 +4,13 @@ const allPopulationSpans = document.querySelectorAll('.population');
 let totalPopulation = 0;
 
 for (const spanEl of allPopulationSpans) {
-  const currentNumber = Number(spanEl.textContent.split(',').join(''));
+  const parsedValue = spanEl.textContent;
 
-  totalPopulation += currentNumber;
+  if (Number.isNaN(parsedValue)) {
+    const currentNumber = Number(parsedValue.split(',').join(''));
+
+    totalPopulation += currentNumber;
+  }
 }
 
 const average =
