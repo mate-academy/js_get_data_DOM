@@ -6,11 +6,14 @@ const average = document.querySelector('.average-population');
 let sum = 0;
 
 for (let i = 0; i < populate.length; i++) {
-  populate[i].textContent = populate[i].textContent.split(',').join('');
-  sum += parseInt(populate[i].textContent);
+  const population = Number(populate[i].textContent.split(',').join(''));
+
+  if (!Number.isNaN(population)) {
+    sum += population;
+  }
 }
 
 const avg = sum / populate.length;
 
-total.textContent = sum;
-average.textContent = avg;
+total.textContent = sum.toLocaleString();
+average.textContent = Math.round(avg).toLocaleString();
