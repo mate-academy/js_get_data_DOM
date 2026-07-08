@@ -9,5 +9,5 @@ const average = total / populations.length;
 const averageSpan = document.querySelector('.average-population');
 const totalSpan = document.querySelector('.total-population');
 
-averageSpan.textContent = Math.round(average.toLocaleString());
+averageSpan.textContent = Math.round(average).toLocaleString();
 totalSpan.textContent = total.toLocaleString();
