@@ -6,13 +6,15 @@ const numbers = [];
 populations.forEach((el) => {
   const text = el.textContent;
   const cleaned = text.replace(/,/g, '');
-  const number = Number(cleaned);
+  const value = Number(cleaned);
 
-  numbers.push(number);
+  if (!Number.isNaN(value)) {
+    numbers.push(value);
+  }
 });
 
 const total = numbers.reduce((sum, n) => sum + n, 0);
-const average = total / numbers.length;
+const average = Math.round(total / numbers.length);
 
 document.querySelector('.total-population').textContent =
   total.toLocaleString();
