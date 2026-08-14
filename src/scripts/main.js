@@ -1,11 +1,11 @@
 'use strict';
 
-const textData = [...document.querySelectorAll('span')];
-
-textData.length = textData.length - 2;
+const textData = [...document.querySelectorAll('span.population')];
 
 const numbers = textData.map((num) => {
-  return +num.innerText.replaceAll(',', '');
+  if (typeof +num.innerText === 'number') {
+    return +num.innerText.replaceAll(',', '');
+  }
 });
 
 const total = numbers.reduce((prev, num) => prev + num, 0);
