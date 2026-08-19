@@ -23,7 +23,7 @@ document.querySelector('.total-population').innerText = totalStyled;
 document.querySelector('.average-population').innerText = averageStyled;
 
 function getNumberStyled(number) {
-  if (!number) {
+  if (number === undefined) {
     return;
   }
 
