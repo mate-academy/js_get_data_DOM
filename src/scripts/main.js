@@ -5,7 +5,11 @@ const listCountrys = document.querySelectorAll('.population');
 let count = 0;
 
 for (const country of listCountrys) {
-  count += Number(country.textContent.replaceAll(',', ''));
+  const string = country.textContent.replaceAll(',', '');
+
+  if (!isNaN(string)) {
+    count += Number(string);
+  }
 }
 
 const midle = count / listCountrys.length;
