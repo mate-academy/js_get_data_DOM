@@ -14,8 +14,9 @@ let avaragePopulation = 0;
 
 for (let i = 0; i < arrayOfElements.length; i++) {
   totalPopulation += arrayOfElements[i];
-  avaragePopulation = Math.floor(totalPopulation / arrayOfElements.length);
 }
+
+avaragePopulation = Math.floor(totalPopulation / arrayOfElements.length);
 
 const totalPopulationString = backToStringFormat(totalPopulation);
 const avaragePopulationString = backToStringFormat(avaragePopulation);
@@ -29,16 +30,5 @@ const avaragePopulationValue = document.querySelector('.average-population');
 avaragePopulationValue.innerText = avaragePopulationString;
 
 function backToStringFormat(from) {
-  const str = from.toString();
-  let result = '';
-
-  for (let i = str.length; i >= 0; i = i - 3) {
-    result = str.substring(i - 3, i) + result;
-
-    if (i > 3) {
-      result = ',' + result;
-    }
-  }
-
-  return result;
+  return from.toLocaleString('en-US');
 }
