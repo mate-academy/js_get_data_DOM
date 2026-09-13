@@ -1,7 +1,7 @@
 'use strict';
 
-const elemants = document.querySelectorAll('span.population');
-const numbers = Array.from(elemants).map((str) => {
+const elements = document.querySelectorAll('span.population');
+const numbers = Array.from(elements).map((str) => {
   const text = str.textContent.trim();
 
   return Number(text.replaceAll(',', ''));
