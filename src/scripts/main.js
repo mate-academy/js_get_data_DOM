@@ -15,5 +15,6 @@ const formattedTotalSum = formatter.format(totalSum);
 const formattedAverage = formatter.format(average);
 
 document.querySelector('span.total-population').textContent = formattedTotalSum;
-document.querySelector('span.average-population').textContent = formattedAverage;
 
+document.querySelector('span.average-population').textContent =
+  formattedAverage;
