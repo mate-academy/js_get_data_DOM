@@ -9,7 +9,9 @@ let totalPopulation = 0;
 allPopulationElements.forEach((population) => {
   const populationNumber = parseInt(population.textContent.replaceAll(',', ''));
 
-  totalPopulation += populationNumber;
+  if (!Number.isNaN(populationNumber)) {
+    totalPopulation += populationNumber;
+  }
 });
 
 totalPopulationElement.textContent = totalPopulation.toLocaleString('en-IN');
