@@ -12,20 +12,8 @@ allPopulationElements.forEach((population) => {
   totalPopulation += populationNumber;
 });
 
-totalPopulationElement.textContent = formateNumber(totalPopulation);
+totalPopulationElement.textContent = totalPopulation.toLocaleString('en-IN');
 
-averagePopulationElement.textContent = formateNumber(
-  Math.round(totalPopulation / allPopulationElements.length),
-);
-
-function formateNumber(num) {
-  let number = num;
-  const numberParts = [];
-
-  for (let i = Math.ceil(String(num).length / 3) - 1; i >= 0; i--) {
-    numberParts[i] = number % 1000;
-    number = Math.trunc(number / 1000);
-  }
-
-  return numberParts.join(',');
-}
+averagePopulationElement.textContent = Math.round(
+  totalPopulation / allPopulationElements.length,
+).toLocaleString('en-IN');
