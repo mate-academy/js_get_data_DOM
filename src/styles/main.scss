@@ -1,19 +1,15 @@
 @import 'fonts';
 
 body {
-  counter-reset: section;
-
+  background: #eee;
   display: flex;
-  align-items: center;
-  justify-content: center;
-
+  margin: 0;
   width: 100vw;
   height: 100vh;
-  margin: 0;
-
+  justify-content: center;
+  align-items: center;
   font-family: Roboto, sans-serif;
-
-  background: #eee;
+  counter-reset: section;
 }
 
 h1 {
@@ -22,32 +18,28 @@ h1 {
 
 .list {
   margin: 32px 0;
-  padding: 0;
   list-style: none;
+  padding: 0;
   &__item {
-    position: relative;
-
+    margin: 8px;
+    border-bottom: 1px solid darkgrey;
     display: flex;
     justify-content: space-between;
-
-    margin: 8px;
     padding: 4px 4px 4px 30px;
-    border-bottom: 1px solid darkgrey;
+    position: relative;
+
+    img {
+      margin-right: 8px;
+    }
 
     &::before {
-      content: counter(section);
+      color: #565754;
       counter-increment: section;
-
+      content: counter(section);
       position: absolute;
       top: 50%;
       left: 5px;
       transform: translateY(-60%);
-
-      color: #565754;
-    }
-
-    img {
-      margin-right: 8px;
     }
   }
 }
