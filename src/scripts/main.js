@@ -2,7 +2,7 @@
 
 const populations = [...document.querySelectorAll('.population')]
   .map(populationSpan => +populationSpan.innerText?.replaceAll(',', '') || 0)
-  .filter(population => Number.isFinite(population) && population.length);
+  .filter(Number.isFinite);
 const totalPopulationElement = document.querySelector('.total-population');
 const avgPopulationElement = document.querySelector('.average-population');
 
