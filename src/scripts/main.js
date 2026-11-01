@@ -1,8 +1,8 @@
 'use strict';
 
 const populations = [...document.querySelectorAll('.population')]
-  .map((populationSpan) => +populationSpan.innerText?.replaceAll(',', '') || 0)
-  .filter((population) => Number.isFinite(population) && population.length);
+  .map(populationSpan => +populationSpan.innerText?.replaceAll(',', '') || 0)
+  .filter(population => Number.isFinite(population) && population.length);
 const totalPopulationElement = document.querySelector('.total-population');
 const avgPopulationElement = document.querySelector('.average-population');
 
@@ -15,7 +15,7 @@ const avgPopulation = populations.length
   ? Math.round(totalPopulation / populations.length)
   : 0;
 
-const addThousandSeparator = (number) => {
+const addThousandSeparator = number => {
   const strNumber = number.toString();
 
   if (strNumber.length < 4) {
