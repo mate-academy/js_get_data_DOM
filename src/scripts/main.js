@@ -12,5 +12,5 @@ pop.forEach((x) => {
   totalResult += num;
 });
 
-avarage.textContent = Math.floor(totalResult / 9);
-total.textContent = totalResult;
+avarage.textContent = Math.floor(totalResult / 9).toLocaleString('en-US');
+total.textContent = totalResult.toLocaleString('en-US');
