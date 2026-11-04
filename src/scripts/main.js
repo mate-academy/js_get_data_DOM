@@ -5,6 +5,7 @@ const allPops = document.querySelectorAll('.population');
 
 const allPopsN = Array.from(allPops).map((p) => {
   const allPopsText = p.textContent.replaceAll(',', '');
+
   return Number(allPopsText);
 });
 
