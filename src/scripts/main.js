@@ -1,3 +1,16 @@
 'use strict';
 
-// write your code here
+const pop = document.querySelectorAll('.population');
+const avarage = document.querySelector('.average-population');
+const total = document.querySelector('.total-population');
+
+let totalResult = 0;
+
+pop.forEach((x) => {
+  const num = Number(x.textContent.split(',').join(''));
+
+  totalResult += num;
+});
+
+avarage.textContent = Math.floor(totalResult / 9);
+total.textContent = totalResult;
