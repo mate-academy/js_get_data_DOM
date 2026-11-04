@@ -1,7 +1,7 @@
 'use strict';
 
 const pop = document.querySelectorAll('.population');
-const avarage = document.querySelector('.average-population');
+const average = document.querySelector('.average-population');
 const total = document.querySelector('.total-population');
 
 let totalResult = 0;
@@ -12,5 +12,8 @@ pop.forEach((x) => {
   totalResult += num;
 });
 
-avarage.textContent = Math.floor(totalResult / 9).toLocaleString('en-US');
+average.textContent = Math.floor(totalResult / pop.length).toLocaleString(
+  'en-US',
+);
+
 total.textContent = totalResult.toLocaleString('en-US');
