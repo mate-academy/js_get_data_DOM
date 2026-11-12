@@ -7,7 +7,11 @@ const average = document.querySelector('.average-population');
 let sum = 0;
 
 for (const element of populations) {
-  sum += +element.textContent.replaceAll(',', '');
+  const convertToNumber = +element.textContent.replaceAll(',', '');
+
+  if (!Number.isNaN(convertToNumber)) {
+    sum += convertToNumber;
+  }
 }
 
 total.textContent = sum.toLocaleString('en-US');
