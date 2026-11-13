@@ -2,16 +2,18 @@
 
 const population = document.body.getElementsByClassName('population');
 let allCount = 0;
+let iterator = 0;
 
 for (const country of population) {
   const number = Number(String(country.textContent).split(',').join(''));
 
   if (Number.isFinite(number)) {
     allCount += number;
+    iterator++;
   }
 }
 
-const averageCount = Math.round(allCount / population.length);
+const averageCount = Math.round(allCount / iterator);
 
 const totalPopulationElement = document.body.querySelector('.total-population');
 
