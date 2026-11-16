@@ -11,16 +11,15 @@ const numbers = Array.from(populations)
 
     return Number(cleaned);
   })
-  
+
   .filter((number) => Number.isFinite(number));
 
 const total = numbers.reduce((sum, number) => {
   return sum + number;
-
 }, 0);
 
 const average = numbers.length > 0 ? total / numbers.length : 0;
 
 totalElement.textContent = total.toLocaleString('en-US');
 
-averageElement.textContent = Math.round(average).toLocaleString('en-US');
+averageElement.textContent = average.toLocaleString('en-US');
