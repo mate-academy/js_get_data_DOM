@@ -8,12 +8,6 @@ const arrPopulationSpans = arrSpans.map((span) => {
   if (span && isFinite(number)) {
     return number;
   }
-
-  return span;
-});
-
-const sumPopulation = arrPopulationSpans.reduce((sum, num) => {
-  return sum + num;
 });
 
 function commaSeparation(num) {
@@ -26,16 +20,22 @@ function commaSeparation(num) {
   return arrNum.join('').toString();
 }
 
-const totalPopulation = commaSeparation(sumPopulation);
+if (arrPopulationSpans.length > 0) {
+  const sumPopulation = arrPopulationSpans.reduce((sum, num) => {
+    return sum + num;
+  });
 
-const calcAveragePopulation = Math.round(
-  sumPopulation / arrPopulationSpans.length,
-);
+  const totalPopulation = commaSeparation(sumPopulation);
 
-const averagePopulation = commaSeparation(calcAveragePopulation);
+  const calcAveragePopulation = Math.round(
+    sumPopulation / arrPopulationSpans.length,
+  );
 
-const totalPopulationSpan = document.querySelector('.total-population');
-const averagelPopulationSpan = document.querySelector('.average-population');
+  const averagePopulation = commaSeparation(calcAveragePopulation);
 
-totalPopulationSpan.textContent = totalPopulation;
-averagelPopulationSpan.textContent = averagePopulation;
+  const totalPopulationSpan = document.querySelector('.total-population');
+  const averagelPopulationSpan = document.querySelector('.average-population');
+
+  totalPopulationSpan.textContent = totalPopulation;
+  averagelPopulationSpan.textContent = averagePopulation;
+}
