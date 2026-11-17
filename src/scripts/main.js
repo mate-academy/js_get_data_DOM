@@ -3,7 +3,13 @@
 const arrSpans = [...document.querySelectorAll('span.population')];
 
 const arrPopulationSpans = arrSpans.map((span) => {
-  return Number(span.textContent.replaceAll(',', ''));
+  const number = Number(span.textContent.replaceAll(',', ''));
+
+  if (span && isFinite(number)) {
+    return number;
+  }
+
+  return span;
 });
 
 const sumPopulation = arrPopulationSpans.reduce((sum, num) => {
