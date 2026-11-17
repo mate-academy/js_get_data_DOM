@@ -1,6 +1,8 @@
 'use strict';
 
 const arrSpans = [...document.querySelectorAll('span.population')];
+const totalPopulationSpan = document.querySelector('.total-population');
+const averagelPopulationSpan = document.querySelector('.average-population');
 
 const arrPopulationSpans = arrSpans.map((span) => {
   const number = Number(span.textContent.replaceAll(',', ''));
@@ -32,9 +34,6 @@ if (arrPopulationSpans.length > 0) {
   );
 
   const averagePopulation = commaSeparation(calcAveragePopulation);
-
-  const totalPopulationSpan = document.querySelector('.total-population');
-  const averagelPopulationSpan = document.querySelector('.average-population');
 
   totalPopulationSpan.textContent = totalPopulation;
   averagelPopulationSpan.textContent = averagePopulation;
